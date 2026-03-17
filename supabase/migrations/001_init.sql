@@ -1,0 +1,20 @@
+create table orders (
+  id uuid primary key default gen_random_uuid(),
+  created_at timestamptz default now(),
+  customer_first_name text not null,
+  customer_last_name text not null,
+  customer_email text not null,
+  customer_phone text not null,
+  company_name text not null,
+  address text not null,
+  city text not null,
+  floor_room text,
+  notes text,
+  items jsonb not null,
+  total_amount numeric(10,2) not null,
+  payment_method text not null check (payment_method in ('stripe', 'cash')),
+  payment_status text not null default 'pending' check (payment_status in ('pending', 'paid', 'failed')),
+  stripe_session_id text,
+  status text not null default 'new' check (status in ('new', 'confirmed', 'delivered', 'cancelled')),
+  delivery_dates jsonb not null
+);

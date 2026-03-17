@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "title": "Hungry Bear",
+    "subtitle": "EST. 2018 CATERING",
+    "menu": "Menu",
+    "cart": "Cart"
+  },
+  "menu": {
+    "weeklyMenu": "Weekly Menu",
+    "orderDeadline": "Orders must be placed at least 1 day in advance",
+    "deliveryWindow": "Delivery window: 12:00–14:00",
+    "noAvailableDays": "No available days to order",
+    "addToCart": "Add",
+    "added": "Added",
+    "inCart": "In cart"
+  },
+  "categories": {
+    "Kanapki i wrapy": "Sandwiches & Wraps",
+    "Śniadania i owsianki": "Breakfasts & Oatmeals",
+    "Zupy": "Soups",
+    "Obiady": "Main Dishes",
+    "Sałatki": "Salads",
+    "Sushi i poke": "Sushi & Poke",
+    "Desery i napoje": "Desserts & Drinks"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "emptyDesc": "Add something delicious from the menu!",
+    "total": "Total",
+    "orderButton": "Order",
+    "upsellTitle": "Complete your order",
+    "upsellText": "Add a drink to your order?",
+    "upsellButton": "Add a drink",
+    "discountLabel": "Online order discount (-5%)",
+    "remove": "Remove",
+    "items": "items",
+    "forDate": "for",
+    "deliveryInfo": "Delivery 12:00–14:00"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "deliveryDetails": "Delivery Details",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone",
+    "companyName": "Company Name",
+    "street": "Street & Number",
+    "city": "City",
+    "floorRoom": "Floor / Room (optional)",
+    "notes": "Order notes (optional)",
+    "deliveryDates": "Delivery Dates",
+    "paymentMethod": "Payment Method",
+    "payStripe": "Credit Card (Stripe)",
+    "payCash": "Cash on Delivery",
+    "orderSummary": "Summary",
+    "placeOrder": "Place Order",
+    "processing": "Processing...",
+    "total": "Total",
+    "deliveryWindow": "Delivery 12:00–14:00",
+    "requiredField": "This field is required",
+    "invalidEmail": "Please enter a valid email",
+    "invalidPhone": "Please enter a valid phone number"
+  },
+  "success": {
+    "title": "Order Placed!",
+    "subtitle": "Thank you for your order",
+    "message": "We sent a confirmation to your email. We will prepare your food with love!",
+    "orderNumber": "Order Number",
+    "backToMenu": "Back to Menu",
+    "deliveryInfo": "Delivery window: 12:00–14:00",
+    "cashInfo": "Pay cash on delivery"
+  },
+  "days": {
+    "Mon": "Mon",
+    "Tue": "Tue",
+    "Wed": "Wed",
+    "Thu": "Thu",
+    "Fri": "Fri",
+    "Monday": "Monday",
+    "Tuesday": "Tuesday",
+    "Wednesday": "Wednesday",
+    "Thursday": "Thursday",
+    "Friday": "Friday"
+  },
+  "cities": {
+    "label": "Select city",
+    "warsaw": "Warsaw",
+    "krakow": "Kraków",
+    "wroclaw": "Wrocław",
+    "poznan": "Poznań",
+    "gdansk": "Gdańsk",
+    "lodz": "Łódź",
+    "katowice": "Katowice"
+  }
+}

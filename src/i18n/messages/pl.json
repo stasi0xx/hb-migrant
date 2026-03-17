@@ -1,0 +1,97 @@
+{
+  "nav": {
+    "title": "Głodny Niedźwiedź",
+    "subtitle": "EST. 2018 CATERING",
+    "menu": "Menu",
+    "cart": "Koszyk"
+  },
+  "menu": {
+    "weeklyMenu": "Tygodniowe menu",
+    "orderDeadline": "Zamówienia przyjmujemy min. 1 dzień wcześniej",
+    "deliveryWindow": "Dostawa w godz. 12:00–14:00",
+    "noAvailableDays": "Brak dostępnych dni do zamówienia",
+    "addToCart": "Dodaj",
+    "added": "Dodano",
+    "inCart": "W koszyku"
+  },
+  "categories": {
+    "Kanapki i wrapy": "Kanapki i wrapy",
+    "Śniadania i owsianki": "Śniadania i owsianki",
+    "Zupy": "Zupy",
+    "Obiady": "Obiady",
+    "Sałatki": "Sałatki",
+    "Sushi i poke": "Sushi i poke",
+    "Desery i napoje": "Desery i napoje"
+  },
+  "cart": {
+    "title": "Twój koszyk",
+    "empty": "Koszyk jest pusty",
+    "emptyDesc": "Dodaj coś pysznego z menu!",
+    "total": "Razem",
+    "orderButton": "Zamów",
+    "upsellTitle": "Uzupełnij zamówienie",
+    "upsellText": "Dodaj napój do zamówienia?",
+    "upsellButton": "Dodaj napój",
+    "discountLabel": "Rabat za zamówienie online (-5%)",
+    "remove": "Usuń",
+    "items": "pozycji",
+    "forDate": "na",
+    "deliveryInfo": "Dostawa 12:00–14:00"
+  },
+  "checkout": {
+    "title": "Zamówienie",
+    "deliveryDetails": "Dane dostawy",
+    "firstName": "Imię",
+    "lastName": "Nazwisko",
+    "email": "Email",
+    "phone": "Telefon",
+    "companyName": "Nazwa firmy",
+    "street": "Ulica i numer",
+    "city": "Miasto",
+    "floorRoom": "Piętro / pokój (opcjonalnie)",
+    "notes": "Uwagi do zamówienia (opcjonalnie)",
+    "deliveryDates": "Daty dostawy",
+    "paymentMethod": "Metoda płatności",
+    "payStripe": "Karta płatnicza (Stripe)",
+    "payCash": "Gotówka przy dostawie",
+    "orderSummary": "Podsumowanie",
+    "placeOrder": "Złóż zamówienie",
+    "processing": "Przetwarzanie...",
+    "total": "Razem",
+    "deliveryWindow": "Dostawa 12:00–14:00",
+    "requiredField": "To pole jest wymagane",
+    "invalidEmail": "Podaj prawidłowy adres email",
+    "invalidPhone": "Podaj prawidłowy numer telefonu"
+  },
+  "success": {
+    "title": "Zamówienie złożone!",
+    "subtitle": "Dziękujemy za zamówienie",
+    "message": "Potwierdzenie wysłaliśmy na Twój email. Przygotujemy Twoje jedzenie z miłością!",
+    "orderNumber": "Numer zamówienia",
+    "backToMenu": "Wróć do menu",
+    "deliveryInfo": "Dostawa w godz. 12:00–14:00",
+    "cashInfo": "Płatność gotówką przy dostawie"
+  },
+  "days": {
+    "Mon": "Pon",
+    "Tue": "Wt",
+    "Wed": "Śr",
+    "Thu": "Czw",
+    "Fri": "Pt",
+    "Monday": "Poniedziałek",
+    "Tuesday": "Wtorek",
+    "Wednesday": "Środa",
+    "Thursday": "Czwartek",
+    "Friday": "Piątek"
+  },
+  "cities": {
+    "label": "Wybierz miasto",
+    "warsaw": "Warszawa",
+    "krakow": "Kraków",
+    "wroclaw": "Wrocław",
+    "poznan": "Poznań",
+    "gdansk": "Gdańsk",
+    "lodz": "Łódź",
+    "katowice": "Katowice"
+  }
+}

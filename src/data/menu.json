@@ -1,0 +1,304 @@
+{
+  "16.03.2026": {
+    "Kanapki i wrapy": [
+      { "nazwa": "Focaccia toskańska z camembert, chutney cebulowym, miksem sałat, serkiem śmietankowym z orzechami, papryką konserwową", "cena": "14 zł" },
+      { "nazwa": "Bagietka korzenna z jajkiem, szpinakiem, ogórkiem konserwowym, konfiturą z pomidorów i papryki, majonezem", "cena": "12 zł" },
+      { "nazwa": "Puccia pita z burgerem z soczewicy z warzywami, pomidorem, sałatą lodową, ogórkiem piklowanym, sosem curry", "cena": "12 zł" },
+      { "nazwa": "Mini ciabatta z serem mozzarella, pieczoną papryką, jajkiem sadzonym, serkiem bazyliowym, miksem sałat", "cena": "8,50 zł" },
+      { "nazwa": "Bułka ciemna z ziarnami, twarożkiem z ziołami i rzodkiewką, miksem sałat, majonezem", "cena": "9,90 zł" },
+      { "nazwa": "Chleb żytni z pastą grzybową, piklowaną czerwoną papryką i szpinakiem", "cena": "8,50 zł" },
+      { "nazwa": "Focaccia toskańska z boczkiem, jajkiem, miksem sałat, ogórkiem kiszonym", "cena": "14 zł" },
+      { "nazwa": "Ciabatta z szarpaną szynką, ogórkiem konserwowym, sosem majonezowym z pieczonym czosnkiem", "cena": "12 zł" },
+      { "nazwa": "Bagietka z kotletem schabowym, ogórkiem kiszonym, pomidorem, piklowaną czerwoną cebulą, sałatą lodową, sosem aioli", "cena": "12 zł" },
+      { "nazwa": "Mini ciabatta z kurczakiem, dynią, brzoskwinią, sałatą rzymską, sosem jalapeno", "cena": "8,50 zł" },
+      { "nazwa": "Puccia pita z szynką drobiową, ogórkiem, miksem sałat, papryką, majonezem", "cena": "12 zł" },
+      { "nazwa": "Chleb żytni z kurczakiem po meksykańsku, miksem sałat, piklowaną cebulą", "cena": "8,50 zł" },
+      { "nazwa": "Kanapka trójkąt z pastą z kurczaka gyros, ogórkiem konserwowym, czerwoną cebulą, sałatą, tureckim sosem mayo", "cena": "12 zł" },
+      { "nazwa": "Wrap z szarpaną wieprzowiną, piklowaną cebulką, pomidorem, ogórkiem, sosem BBQ", "cena": "16 zł" },
+      { "nazwa": "Wrap Pad kra pao z warzywami, jajkiem, tajskim aioli", "cena": "16 zł" }
+    ],
+    "Śniadania i owsianki": [
+      { "nazwa": "Szakszuka z chorizo, mini pita", "cena": "17,90 zł" },
+      { "nazwa": "Jogurt naturalny z nasionami chia, konfiturą malinową, granolą z miodem", "cena": "10,90 zł" },
+      { "nazwa": "Jogurtowa owsianka z miodem, pieczoną śliwką, czekoladą i migdałami", "cena": "10,90 zł" }
+    ],
+    "Zupy": [
+      { "nazwa": "Krem pomidorowy z pesto bazyliowym", "cena": "12 zł" },
+      { "nazwa": "Zupa kalafiorowa z koperkiem", "cena": "12 zł" }
+    ],
+    "Obiady": [
+      { "nazwa": "FIT - Polędwiczka wieprzowa z sosem chimichurri, ryżem, warzywami", "cena": "22 zł" },
+      { "nazwa": "Pierogi z wiśniami, sosem waniliowym, czekoladą z nerkowcami i nagietkiem", "cena": "22,90 zł" },
+      { "nazwa": "Kotlet jajeczny z pieczonymi ziemniakami, sosem grzybowym, zasmażaną marchewką", "cena": "21 zł" },
+      { "nazwa": "Gulasz z ciecierzycy i pieczonych warzyw z kaszą bulgur, kwaśną śmietaną", "cena": "21 zł" },
+      { "nazwa": "Sznycel z puree ziemniaczanym, buraczkami zasmażanymi", "cena": "22 zł" },
+      { "nazwa": "Naleśniki bolognese z serem, prażoną cebulą, bazylią", "cena": "22 zł" },
+      { "nazwa": "Spaghetti w sosie z trzech serów z orzechami włoskimi", "cena": "19 zł" },
+      { "nazwa": "Spaghetti z szarpaną szynką marynowaną w Taco, serem cheddar, kolendrą", "cena": "20 zł" },
+      { "nazwa": "XXL Kurczak w panierce kukurydzianej z puree ziemniaczanym, fasolką szparagową, pieczoną papryką, szalotką i czosnkiem", "cena": "24 zł" }
+    ],
+    "Sałatki": [
+      { "nazwa": "Sałatka z kurczakiem, miksem sałat, papryką czerwoną, pomidorem koktajlowym, ogórkiem konserwowym, szczypiorkiem, kukurydzą, sosem ziołowym", "cena": "21 zł" },
+      { "nazwa": "Sałatka z mozzarellą, makaronem, pomidorkami koktajlowymi, ogórkiem, słonecznikiem, papryką, winegret koperkowym", "cena": "21 zł" },
+      { "nazwa": "Mała sałatka z kurczakiem, ryżem, ananasem, kukurydzą, papryką, selerem marynowanym, majonezem", "cena": "12,90 zł" },
+      { "nazwa": "Mała sałatka z makaronem soba, tofu, warzywami, endamame, dressingiem sojowym", "cena": "12,90 zł" },
+      { "nazwa": "Tortellini z grzybami w sosie grzybowym z kaszą jaglaną, kuskusem perłowym", "cena": "12,90 zł" }
+    ],
+    "Sushi i poke": [
+      { "nazwa": "Poke bowl z kurczakiem, sosem teriyaki", "cena": "29 zł" },
+      { "nazwa": "Sushi FRESH (14 sztuk)", "cena": "34 zł" },
+      { "nazwa": "Sushi GRILL (12 sztuk)", "cena": "34 zł" },
+      { "nazwa": "Sushi MIX (13 sztuk)", "cena": "34 zł" },
+      { "nazwa": "Sushi VEGE (12 sztuk)", "cena": "34 zł" }
+    ],
+    "Desery i napoje": [
+      { "nazwa": "Mus z mleczną czekoladą, konfiturą wiśniową, kruszonką, palonym masłem", "cena": "11,90 zł" },
+      { "nazwa": "Karpatka na kruchym cieście z sosem toffi", "cena": "11,90 zł" },
+      { "nazwa": "Smoothie borówka - acai - banan - cynamon - miód", "cena": "9,90 zł" },
+      { "nazwa": "Sok wyciskany 100% cold pressed grejpfrut – jabłko - pomarańcz", "cena": "10,90 zł" },
+      { "nazwa": "Sok wyciskany 100% cold pressed pomarańcza", "cena": "12,90 zł" }
+    ]
+  },
+  "17.03.2026": {
+    "Kanapki i wrapy": [
+      { "nazwa": "Focaccia toskańska z wędzoną goudą, ketchupem, pieczarkami, czerwoną cebulą, rukolą, sosem mayo-truflowym", "cena": "14 zł" },
+      { "nazwa": "Bagietka korzenna z pastą serowo-warzywną, pomidorem, ogórkiem, miksem sałat, majonezem", "cena": "12 zł" },
+      { "nazwa": "Puccia pita z pastą jajeczną, sałatą, rzodkiewką, sosem tatarskim", "cena": "12 zł" },
+      { "nazwa": "Mini ciabatta z piklowanymi burakami, serem solankowym, papryką, szpinakiem, orzechami włoskimi", "cena": "8,50 zł" },
+      { "nazwa": "Bułka ciemna z ziarnami z burgerem sojowym, ogórkiem konserwowym, papryką, miksem sałat, sosem curry", "cena": "9,90 zł" },
+      { "nazwa": "Chleb żytni z mozzarellą, cukinią, pesto z pestek dyni, rukolą", "cena": "8,50 zł" },
+      { "nazwa": "Focaccia toskańska z szarpaną wieprzowiną, sosem BBQ, majonezem czosnkowym, miksem sałat, papryką piklowaną", "cena": "14 zł" },
+      { "nazwa": "Ciabatta z szynką wędzoną, ogórkiem, piklowaną cebulą, sałatą, sosem mayo-chrzanowym", "cena": "12 zł" },
+      { "nazwa": "Bagietka z panierowanym kurczakiem, pomidorem, ogórkiem, rukolą, sosem mayo-sweet chili z sezamem", "cena": "12 zł" },
+      { "nazwa": "Mini ciabatta z polędwicą drobiową, ogórkiem konserwowym, miksem sałat, pomidorem, sosem aioli", "cena": "8,50 zł" },
+      { "nazwa": "Puccia pita z kurczakiem w płatkach kukurydzianych, ogórkiem piklowanym, czerwoną cebulą, miksem sałat, prażoną cebulką, sosem koktajlowym", "cena": "12 zł" },
+      { "nazwa": "Chleb żytni z pastą z szynki, serem cheddar, pieczoną papryką, rukolą", "cena": "8,50 zł" },
+      { "nazwa": "Kanapka trójkąt z pastą jajeczną, łososiem, szpinakiem", "cena": "12 zł" },
+      { "nazwa": "Wrap z wieprzowiną w stylu Tex-Mex, czerwoną fasolą, cebulą, sosem aioli z awokado, cheedarem, ryżem, jalapeno, kolendrą", "cena": "16 zł" },
+      { "nazwa": "Wrap z panierowanym tofu w sosie sweet chili z dipem edamame, kukurydzą, papryką, sałatą", "cena": "16 zł" }
+    ],
+    "Śniadania i owsianki": [
+      { "nazwa": "Śniadanie angielskie, mini pita", "cena": "17,90 zł" },
+      { "nazwa": "Jogurt naturalny z nasionami chia, konfiturą mango-marakuja, granolą z miodem", "cena": "10,90 zł" },
+      { "nazwa": "Owsianka pumpkin spice latte", "cena": "10,90 zł" }
+    ],
+    "Zupy": [
+      { "nazwa": "Krem z soczewicy z posypką sezamową i kuminem", "cena": "12 zł" },
+      { "nazwa": "Zupa toskańska z kurczakiem, pomidorami, szpinakiem, fasolką", "cena": "12 zł" },
+      { "nazwa": "Spicy Miso Ramen z kurczakiem", "cena": "29 zł" }
+    ],
+    "Obiady": [
+      { "nazwa": "FIT - Kurczak po toskańsku z kaszą bulgur z suszonymi pomidorami, natką pietruszki, surówką z młodej kapusty", "cena": "22 zł" },
+      { "nazwa": "Pierogi gyoza z warzywami, sosem curry, surówką z czerwonej kapusty z orzechami, sezamem, szczypiorkiem", "cena": "22,90 zł" },
+      { "nazwa": "Boczniaki w panko w orientalnym sosie z makaronem udon", "cena": "22 zł" },
+      { "nazwa": "Meksykańskie burgery z kaszy jaglanej i czerwonej fasoli z pieczonymi ziemniakami, surówką z kapusty, sosem pomidorowo-paprykowym", "cena": "21 zł" },
+      { "nazwa": "Gulasz wołowy z puree ziemniaczanym, buraczkami balsamicznymi", "cena": "22,90 zł" },
+      { "nazwa": "Rumsztyk z gratinem ziemniaczanym, pieczoną dynią, serem corregio, sosem cebulowym", "cena": "22 zł" },
+      { "nazwa": "Penne z pesto buraczanym, kozim serem, orzechami włoskimi", "cena": "19 zł" },
+      { "nazwa": "Penne z kurczakiem, sosem z bazylii i czosnku niedźwiedziego, pieczoną czerwoną cebulą", "cena": "20 zł" },
+      { "nazwa": "XXL Gołąbki z mięsem mielonym i ryżem w sosie pomidorowym, puree ziemniaczanym", "cena": "24 zł" }
+    ],
+    "Sałatki": [
+      { "nazwa": "Sałatka z kurczakiem, jajkiem, pomidorkami koktajlowymi, czerwoną cebulą, papryką, prażonymi pestkami słonecznika i dyni, miksem sałat, sosem majonezowo-truflowym", "cena": "21 zł" },
+      { "nazwa": "Sałatka z pieczoną cieciorką, kuskusem perłowym, piklowaną marchwią, winogronami, fasolką szparagową, miksem ziół, sosem jogurtowym", "cena": "21 zł" },
+      { "nazwa": "Mała sałatka z kurczakiem, makaronem noodle, pieczonymi warzywami, sosem curry", "cena": "12,90 zł" },
+      { "nazwa": "Mała sałatka z quinoa, kalafiorem, jabłkiem, dressingiem balsamicznym, orzechami ziemnymi, migdałami", "cena": "12,90 zł" },
+      { "nazwa": "Pieczona śliwka z kaszą jaglaną, kuskusem perłowym, pomarańczą, miodem, jogurtem", "cena": "12,90 zł" }
+    ],
+    "Sushi i poke": [
+      { "nazwa": "Poke bowl z serem grillowym, komosą ryżową, batatami, granatem, sosem mayo-sriracha", "cena": "29 zł" },
+      { "nazwa": "Sushi FRESH (14 sztuk)", "cena": "34 zł" },
+      { "nazwa": "Sushi GRILL (12 sztuk)", "cena": "34 zł" },
+      { "nazwa": "Sushi MIX (13 sztuk)", "cena": "34 zł" },
+      { "nazwa": "Sushi VEGE (12 sztuk)", "cena": "34 zł" }
+    ],
+    "Desery i napoje": [
+      { "nazwa": "Brownie czekoladowe z kremem śmietankowym i bananami w słonym karmelu", "cena": "11,90 zł" },
+      { "nazwa": "Mus z białą czekoladą, marakują, kruszonką", "cena": "11,90 zł" },
+      { "nazwa": "Smoothie z matchą - jabłko - banan - kiwi", "cena": "9,90 zł" },
+      { "nazwa": "Sok wyciskany 100% cold pressed marchewka – pomarańcza", "cena": "10,90 zł" },
+      { "nazwa": "Sok wyciskany 100% cold pressed pomarańcza", "cena": "12,90 zł" }
+    ]
+  },
+  "18.03.2026": {
+    "Kanapki i wrapy": [
+      { "nazwa": "Focaccia toskańska z mozzarellą, pomidorem, pesto z bazylii i suszonych pomidorów, rukolą", "cena": "14 zł" },
+      { "nazwa": "Bagietka korzenna z pastą jajeczną, pieczarkami, rzodkiewką, szpinakiem, majonezem szczypiorkowym", "cena": "12 zł" },
+      { "nazwa": "Puccia pita z twarożkiem z rzodkiewką i szczypiorkiem, szpinakiem, sałatą", "cena": "12 zł" },
+      { "nazwa": "Mini ciabatta z burgerem z zielonych warzyw, papryką, ogórkiem piklowanym, sosem chilli jogurtowym", "cena": "8,50 zł" },
+      { "nazwa": "Bułka ciemna z ziarnami z serem cheddar, jajkiem, ogórkiem, miksem sałat, masłem", "cena": "9,90 zł" },
+      { "nazwa": "Chleb żytni z dyniowym pasztetem, piklowaną cukinią, masłem, sałatą", "cena": "8,50 zł" },
+      { "nazwa": "Focaccia toskańska z kurczakiem w stylu bliskowschodnim, tzatziki, orientalną czerwoną kapustą, sosem mayo-sriracha", "cena": "14 zł" },
+      { "nazwa": "Ciabatta z kurczakiem, miksem sałat, sosem aioli z jalapeno", "cena": "12 zł" },
+      { "nazwa": "Bagietka z szynką, ogórkiem, jajkiem sadzonym, miksem sałat, sosem czosnkowym", "cena": "12 zł" },
+      { "nazwa": "Mini ciabatta z szarpaną szynką, humusem paprykowym, szczypiorkiem, sałatą", "cena": "8,50 zł" },
+      { "nazwa": "Puccia pita z kurczakiem, warzywami, sałatą, sosem jogurtowym", "cena": "12 zł" },
+      { "nazwa": "Chleb żytni z szarpaną wieprzowiną w sosie BBQ, ogórkiem konserwowym, sałatą", "cena": "8,50 zł" },
+      { "nazwa": "Kanapka trójkąt z wieprzowiną po tajsku, pieczonymi warzywami, rukolą, sosem mayo-tajskim", "cena": "12 zł" },
+      { "nazwa": "Wrap z kurczakiem, świeżymi warzywami, sałatą rzymską, sosem cezar", "cena": "16 zł" },
+      { "nazwa": "Wrap z portobello, tymiankiem, miksem sałat, czerwoną karmelizowaną cebulą, papryką konserwową, serem lazur, sosem bazyliowym", "cena": "16 zł" }
+    ],
+    "Śniadania i owsianki": [
+      { "nazwa": "Jajko sadzone na kremowym sosie grzybowym ze szpinakiem, serem dojrzewającym, mini pita", "cena": "17,90 zł" },
+      { "nazwa": "Jogurt naturalny z nasionami chia, konfiturą z czarnej porzeczki, granolą z miodem", "cena": "10,90 zł" },
+      { "nazwa": "Jogurtowa owsianka pistacjowa", "cena": "11,50 zł" }
+    ],
+    "Zupy": [
+      { "nazwa": "Krem z topinamburu i pieczonych białych warzyw", "cena": "12 zł" },
+      { "nazwa": "Zupa strogonow", "cena": "12 zł" }
+    ],
+    "Obiady": [
+      { "nazwa": "FIT - Filet z indyka z ziołami, pieczonymi patatkami, surówką z kapusty włoskiej i marchewki, sosem pieczeniowym", "cena": "22 zł" },
+      { "nazwa": "Pierogi z wieprzowiną i warzywami, sosem aioli, ziołową posypką", "cena": "22,90 zł" },
+      { "nazwa": "Nasi goreng z warzywami, jajkiem, panierowanym tofu", "cena": "21 zł" },
+      { "nazwa": "Naleśniki kokosowe z sosem malinowym", "cena": "21 zł" },
+      { "nazwa": "Kurczak panierowany z puree ziemniaczanym, zasmażaną kapustą", "cena": "22 zł" },
+      { "nazwa": "Rolada drobiowa z warzywami i szpinakiem, puree ziemniaczanym, sosem serowym, surówką colesław z czerwonej i białej kapusty z koperkiem", "cena": "22 zł" },
+      { "nazwa": "Tagliatelle z sosem śmietanowo-grzybowym, natką pietruszki", "cena": "19 zł" },
+      { "nazwa": "Tagliatelle z sosem pomidorowym z chorizo, serem, szpinakiem", "cena": "20 zł" },
+      { "nazwa": "XXL Mielone kotlety w sosie kurkowym z pieczonymi ziemniakami z tymiankiem, duszoną czerwoną kapustą", "cena": "24 zł" }
+    ],
+    "Sałatki": [
+      { "nazwa": "Sałatka Cezar z kurczakiem, sałatą rzymską, pomidorkami cherry, grzankami, grana padano, sosem cezar", "cena": "21 zł" },
+      { "nazwa": "Sałatka z serem solankowym, brokułem, jajkiem, pomidorem koktajlowym, czerwoną papryką, prażonymi pestkami, rukolą, sałatą lodową, sosem truflowym", "cena": "21 zł" },
+      { "nazwa": "Mała sałatka z makaronem ryżowym, kurczakiem, warzywami, kolendrą, orzechami, sosem indyjskim", "cena": "12,90 zł" },
+      { "nazwa": "Mała sałatka makaronowa z serem dor blue, ogórkiem, pomidorkami cherry, czerwoną cebulą, pestkami dyni, pesto z rukoli", "cena": "12,90 zł" },
+      { "nazwa": "Mała sałatka z kaszą jaglaną i kuskusem perłowym, kalafiorem, pieczoną marchwią, granatem, dressingiem imbirowo-daktylowym", "cena": "12,90 zł" }
+    ],
+    "Sushi i poke": [
+      { "nazwa": "Poke bowl z krewetkami, ryżem, tykwą, pomidorem, ogórkiem, sezamem i sosem sweet-chili", "cena": "29 zł" },
+      { "nazwa": "Sushi FRESH (14 sztuk)", "cena": "34 zł" },
+      { "nazwa": "Sushi GRILL (12 sztuk)", "cena": "34 zł" },
+      { "nazwa": "Sushi MIX (13 sztuk)", "cena": "34 zł" },
+      { "nazwa": "Sushi VEGE (12 sztuk)", "cena": "34 zł" }
+    ],
+    "Desery i napoje": [
+      { "nazwa": "Panna Cotta orzechowa z daktylami i pomarańczą", "cena": "11,90 zł" },
+      { "nazwa": "Deser kokosowy z sosem mango-marakuja", "cena": "11,90 zł" },
+      { "nazwa": "Smoothie burak - malina - mięta - miód - kardamon", "cena": "9,90 zł" },
+      { "nazwa": "Sok wyciskany 100% cold pressed ananas - gruszka – jabłko", "cena": "10,90 zł" },
+      { "nazwa": "Sok wyciskany 100% cold pressed pomarańcza", "cena": "12,90 zł" }
+    ]
+  },
+  "19.03.2026": {
+    "Kanapki i wrapy": [
+      { "nazwa": "Focaccia toskańska z twarożkiem bazyliowym, pieczonymi warzywami, miksem sałat", "cena": "14 zł" },
+      { "nazwa": "Bagietka korzenna z mozzarellą, cukinią, rukolą, pesto bazyliowym", "cena": "12 zł" },
+      { "nazwa": "Puccia pita z pieczarkami, ogórkiem piklowanym, serem cheddar, sosem chipottle", "cena": "12 zł" },
+      { "nazwa": "Mini ciabatta z pieczenią z topinamburu, papryką, sosem mayo-srirracha", "cena": "8,50 zł" },
+      { "nazwa": "Bułka ciemna z ziarnami z pastą jajeczną, rukolą, masłem", "cena": "9,90 zł" },
+      { "nazwa": "Chleb żytni z pastą z tofu, sałatką szwedzką", "cena": "8,50 zł" },
+      { "nazwa": "Focaccia toskańska z pastą z wędzonego kurczaka i jajka, miksem sałat, papryką", "cena": "14 zł" },
+      { "nazwa": "Ciabatta z polędwicą sopocką, miksem sałat, ogórkiem, majonezem szczypiorkowym", "cena": "12 zł" },
+      { "nazwa": "Bagietka z szarpaną wieprzowiną, papryką, ogórkiem kiszonym, sałatą, aioli", "cena": "12 zł" },
+      { "nazwa": "Mini ciabatta z szynką nie ze wsi, karmelizowanymi pieczarkami, miksem sałat, sosem BBQ", "cena": "8,50 zł" },
+      { "nazwa": "Puccia pita z kurczakiem, miksem sałat, ogórkiem piklowanym, papryką, majonezem szczypiorkowym", "cena": "12 zł" },
+      { "nazwa": "Chleb żytni z kurczakiem, guacamole, ogórkiem, sałatą", "cena": "8,50 zł" },
+      { "nazwa": "Kanapka trójkąt z serem dor blue, piklowanym ogórkiem, pomidorem, sałatą, sosem majonezowym", "cena": "12 zł" },
+      { "nazwa": "Wrap polski ze sznyclem, kiszoną kapustą z jabłkiem, ogórkiem piklowanym, sałatą, sosem musztardowym", "cena": "16 zł" },
+      { "nazwa": "Wrap z warzywami po indyjsku i sosem curry", "cena": "16 zł" }
+    ],
+    "Śniadania i owsianki": [
+      { "nazwa": "Szakszuka, mini pita", "cena": "17,90 zł" },
+      { "nazwa": "Jogurt naturalny z nasionami chia, konfiturą z kiwi, granolą z miodem", "cena": "10,90 zł" },
+      { "nazwa": "Jogurtowa owsianka z miodem, jabłkiem, granolą cynamonową", "cena": "10,90 zł" }
+    ],
+    "Zupy": [
+      { "nazwa": "Krem turecki z czerwonej soczewicy", "cena": "12 zł" },
+      { "nazwa": "Krupnik z kiełbasą", "cena": "12 zł" },
+      { "nazwa": "Shrimp Ramen", "cena": "29 zł" }
+    ],
+    "Obiady": [
+      { "nazwa": "FIT - Schab wolno pieczony z tymiankiem, pieczonymi ziemniakami, warzywami w sosie pomidorowo-daktylowym", "cena": "22 zł" },
+      { "nazwa": "Dyniowe kluski śląskie z serem corregio, pieczoną dynią, sosem śmietanowym z boczkiem", "cena": "22,90 zł" },
+      { "nazwa": "Ryż po Syczuańsku z warzywami, tofu i jajkiem", "cena": "21 zł" },
+      { "nazwa": "Bataty faszerowane suszonymi pomidorami ze szpinakiem, serem solankowym", "cena": "21 zł" },
+      { "nazwa": "Kurczak zapiekany z wędzonym serem, zasmażaną czerwoną kapustą, puree dyniowo-ziemniaczanym", "cena": "22 zł" },
+      { "nazwa": "De volaille z ziołowym masłem, puree ziemniaczanym, fasolką szparagową, boczkiem, migdałami", "cena": "22 zł" },
+      { "nazwa": "Rigatoni z sosem z pieczonej papryki, miso, bakłażanem, kruszonymi pistacjami", "cena": "19 zł" },
+      { "nazwa": "Rigatoni z sosem Romesco, chorizo, mozzarellą, migdałami, szczypiorkiem", "cena": "20 zł" },
+      { "nazwa": "XXL Karkówka wolno pieczona z gratinem ziemniaczanym, cebulą karmelizowaną, buraczkami, sosem pieczeniowym", "cena": "24 zł" }
+    ],
+    "Sałatki": [
+      { "nazwa": "Sałatka z krewetkami, pieczonymi batatami, dymką, warzywami, kolendrą, dressingiem tahini", "cena": "21 zł" },
+      { "nazwa": "Sałatka z pieczonym burakiem, serem dor-blue, pieczoną dynią, żurawiną, pomidorkami koktajlowymi, miksem sałat, dressingiem orzechowym", "cena": "21 zł" },
+      { "nazwa": "Mała sałatka z kurczakiem, makaronem ryżowym, batatem pieczonym, pomidorkami cherry, groszkiem cukrowym, orzechami arachidowymi, rzepą, sosem teriyaki", "cena": "12,90 zł" },
+      { "nazwa": "Mała sałatka z kaszą kuskus, suszonymi pomidorami, papryką, ogórkiem, koperkiem, serem solankowym", "cena": "12,90 zł" },
+      { "nazwa": "Winna gruszka z migdałem, kaszą jaglaną, migdałowym jogurtem", "cena": "12,90 zł" }
+    ],
+    "Sushi i poke": [
+      { "nazwa": "Poke bowl z pierożkami gyoza, tykwą, makaronem soba, edamamme, sezamem, sosem sojowo-imbirowym", "cena": "29 zł" },
+      { "nazwa": "Sushi FRESH (14 sztuk)", "cena": "34 zł" },
+      { "nazwa": "Sushi GRILL (12 sztuk)", "cena": "34 zł" },
+      { "nazwa": "Sushi MIX (13 sztuk)", "cena": "34 zł" },
+      { "nazwa": "Sushi VEGE (12 sztuk)", "cena": "34 zł" }
+    ],
+    "Desery i napoje": [
+      { "nazwa": "Ciasto daktylowe z kremem daquas, konfiturą z czarnej porzeczki, kakao", "cena": "11,90 zł" },
+      { "nazwa": "Krem czekoladowy z wiśniami, kruszonką czekoladową", "cena": "11,90 zł" },
+      { "nazwa": "Smoothie marakuja - wanilia", "cena": "9,90 zł" },
+      { "nazwa": "Sok wyciskany 100% cold pressed jabłko - arbuz - pomarańcza", "cena": "10,90 zł" },
+      { "nazwa": "Sok wyciskany 100% cold pressed pomarańcza", "cena": "12,90 zł" }
+    ]
+  },
+  "20.03.2026": {
+    "Kanapki i wrapy": [
+      { "nazwa": "Focaccia toskańska z jajkiem, pomidorem, rzodkiewką, szczypiorkiem, majonezem ziołowym", "cena": "14 zł" },
+      { "nazwa": "Bagietka korzenna z hummusem, warzywami, prażonymi pestkami, sałatą", "cena": "12 zł" },
+      { "nazwa": "Puccia pita z chili sin carne, jalapeno, serem żółtym, szczypiorkiem, sałatą", "cena": "12 zł" },
+      { "nazwa": "Mini ciabatta z ratatouille, pastą z sera solankowego, pesto bazyliowym, ziołowym serkiem, rukolą", "cena": "8,50 zł" },
+      { "nazwa": "Bułka ciemna z ziarnami, pulpecikami warzywnymi z serem, sałatą, kiszonym ogórkiem, sosem tatarskim", "cena": "9,90 zł" },
+      { "nazwa": "Chleb żytni z serkiem koperkowym, szpinakowym omletem, ogórkiem kiszonym, sałatą", "cena": "8,50 zł" },
+      { "nazwa": "Focaccia toskańska azjatycka z indykiem, srirrachą sezamową, chutney z chili, ogórkiem konserwowym, rzodkiewką", "cena": "14 zł" },
+      { "nazwa": "Ciabatta z szarpanym kurczakiem curry, sałatką z kapusty, serkiem czosnkowym, pomidorem", "cena": "12 zł" },
+      { "nazwa": "Bagietka z pieczonym schabem, ogórkiem konserwowym, miksem sałat, marynowaną papryką, piklowaną czerwoną cebulą, sosem majonezowo-chrzanowym", "cena": "12 zł" },
+      { "nazwa": "Mini ciabatta z wędzonym kurczakiem, majonezem ziołowym, ogórkiem, sałatą", "cena": "8,50 zł" },
+      { "nazwa": "Puccia pita z burgerem wieprzowym, ogórkiem konserwowym, cebulą, sałatą, sosem BBQ", "cena": "12 zł" },
+      { "nazwa": "Chleb żytni z salami, rukolą, chutney z czerwonej cebuli, sosem chrzanowym", "cena": "8,50 zł" },
+      { "nazwa": "Kanapka Cezar z kurczakiem, sałatą rzymską, pomidorem, serem dojrzewającym, sosem cezar", "cena": "12 zł" },
+      { "nazwa": "Wrap z kurczakiem, ogórkiem, pomidorem, miksem sałat, sosem aioli", "cena": "16 zł" },
+      { "nazwa": "Wrap z jajkiem, pieczarkami, cebulą, szpinakiem, serem corregio, sosem mayo truflowym", "cena": "16 zł" }
+    ],
+    "Śniadania i owsianki": [
+      { "nazwa": "Jajka sadzone w sosie indyjskim z serem paneer, mini pita", "cena": "17,90 zł" },
+      { "nazwa": "Jogurt naturalny z nasionami chia, konfiturą z owoców leśnych, granolą z miodem", "cena": "10,90 zł" },
+      { "nazwa": "Jogurtowa owsianka z miodem, brzoskwinią, migdałami, czekoladą, wiórkami kokosowymi", "cena": "10,90 zł" }
+    ],
+    "Zupy": [
+      { "nazwa": "Krem tajski", "cena": "12 zł" },
+      { "nazwa": "Zupa pieczarkowa z makaronem", "cena": "12 zł" }
+    ],
+    "Obiady": [
+      { "nazwa": "FIT - Kofty drobiowe z kaszą kuskus z warzywami, sosem tzatziki", "cena": "22 zł" },
+      { "nazwa": "Leniwe z sosem karmelowo-cynamonowym, kwaśną śmietaną", "cena": "22,90 zł" },
+      { "nazwa": "Babka ziemniaczana z jajkiem sadzonym, surówką z ogórków kiszonych, sosem grzybowym", "cena": "21 zł" },
+      { "nazwa": "Dhal z czerwonej soczewicy z ryżem biryani, serem paneer, pita", "cena": "21 zł" },
+      { "nazwa": "Siekane kotleciki z kurczakiem i warzywami, pieczonymi ziemniakami, surówką z kapusty i papryki, dipem koktajlowym", "cena": "22 zł" },
+      { "nazwa": "Dorsz panierowany z puree ziemniaczanym, zielonym groszkiem, surówką z kapusty", "cena": "26 zł" },
+      { "nazwa": "Makaron spaghetti z sosem pomidorowym, serem corregio", "cena": "19 zł" },
+      { "nazwa": "Makaron spaghetti z krewetkami w sosie śmietanowym z koprem i chilli, pieprzem cytrynowym", "cena": "20 zł" },
+      { "nazwa": "XXL Kurczak tom yum z sosem limonkowym na mleku kokosowym, makaronem ryżowym, kolendrą, szczypiorkiem, surówką z kapusty i papryki", "cena": "24 zł" }
+    ],
+    "Sałatki": [
+      { "nazwa": "Sałatka z tuńczykiem, kaszą bulgur, ajvarem, granatem, pomidorkami cherry, piklowaną papryką, pestkami dyni, dressingiem daktylowym", "cena": "21 zł" },
+      { "nazwa": "Sałatka z wędzonym serem, marynowaną kapustą, mandarynką, pieczonym brokułem, chutney cebulowym, mayo-BBQ", "cena": "21 zł" },
+      { "nazwa": "Sałatka kebab z kurczakiem", "cena": "12,90 zł" },
+      { "nazwa": "Mała sałatka makaronowa z pieczarkami, jajkiem, ogórkiem kiszonym, cebulą, majonezem", "cena": "12,90 zł" },
+      { "nazwa": "Kasza jaglana z kuskusem, kurczakiem cytrynowym, porem, szpinakiem w sosie śmietanowym", "cena": "12,90 zł" }
+    ],
+    "Sushi i poke": [
+      { "nazwa": "Poke bowl z łososiem, marynowaną rzodkiewką, glonami wakame, ryżem, edamame, sezamem, szczypiorkiem, dressingiem z marakują", "cena": "29 zł" },
+      { "nazwa": "Sushi FRESH (14 sztuk)", "cena": "34 zł" },
+      { "nazwa": "Sushi GRILL (12 sztuk)", "cena": "34 zł" },
+      { "nazwa": "Sushi MIX (13 sztuk)", "cena": "34 zł" },
+      { "nazwa": "Sushi VEGE (12 sztuk)", "cena": "34 zł" }
+    ],
+    "Desery i napoje": [
+      { "nazwa": "Deser karmelowo-orzechowy z czekoladowym ganache", "cena": "11,90 zł" },
+      { "nazwa": "Deser mascarpone z kremem pistacjowym", "cena": "11,90 zł" },
+      { "nazwa": "Smoothie malina - liczi", "cena": "9,90 zł" },
+      { "nazwa": "Sok wyciskany 100% cold pressed gruszka – grejpfrut - jabłko", "cena": "10,90 zł" },
+      { "nazwa": "Sok wyciskany 100% cold pressed pomarańcza", "cena": "12,90 zł" }
+    ]
+  }
+}
