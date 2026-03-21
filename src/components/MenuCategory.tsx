@@ -38,10 +38,10 @@ export default function MenuCategory({ category, dishes, date, isOpen: isOpenPro
           <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#1C3D1C] text-[#E8967A]">
             <CategoryIcon category={category} className="h-4 w-4" />
           </span>
-          <span className="font-heading text-lg text-[#1C3D1C]">{localizedCategory}</span>
+          <span className="font-heading font-bold text-lg text-[#1C3D1C]">{localizedCategory}</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-xs font-600 text-[#1C3D1C]/50">{dishes.length}</span>
+          <span className="text-xs font-semibold text-[#1C3D1C]/50">{dishes.length}</span>
           <svg
             className={`h-5 w-5 text-[#1C3D1C]/60 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
             fill="none"

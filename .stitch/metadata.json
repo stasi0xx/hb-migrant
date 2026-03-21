@@ -1,0 +1,26 @@
+{
+  "name": "projects/14027419550543627687",
+  "projectId": "14027419550543627687",
+  "title": "Głodny Niedźwiedź — Office Catering",
+  "visibility": "PRIVATE",
+  "createTime": "2026-03-20T18:45:27.445714Z",
+  "updateTime": "2026-03-20T18:47:30.412074Z",
+  "projectType": "PROJECT_DESIGN",
+  "origin": "STITCH",
+  "deviceType": "MOBILE",
+  "designTheme": {},
+  "screens": {
+    "index": {
+      "id": "48cf284cb47746f09d876032cc11e41d",
+      "sourceScreen": "projects/14027419550543627687/screens/48cf284cb47746f09d876032cc11e41d",
+      "x": 0,
+      "y": 0,
+      "width": 780,
+      "height": 11894,
+      "title": "Głodny Niedźwiedź Landing Page"
+    }
+  },
+  "metadata": {
+    "userRole": "OWNER"
+  }
+}

@@ -3,20 +3,25 @@
 import { useCartStore } from '@/store/cart';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { parseMenuDate } from '@/lib/utils';
-import { ShoppingBag, GlassWater, Tag, X, Trash2, ChevronDown, Minus, Plus } from 'lucide-react';
+import { ShoppingBag, Tag, X, Trash2, Minus, Plus } from 'lucide-react';
 
 export default function CartDrawer() {
   const t = useTranslations('cart');
   const locale = useLocale();
-  const { items, isOpen, closeCart, total, originalTotal, savings, itemCount, hasDrink, removeItem, updateQuantity } =
+  const { items, isOpen, closeCart, total, originalTotal, savings, itemCount, removeItem, updateQuantity } =
     useCartStore();
 
-  const count = itemCount();
-  const totalAmount = total();
-  const savingsAmount = savings();
-  const showUpsell = count > 0 && !hasDrink();
+  const [mounted, setMounted] = useState(false);
+
+  const count = mounted ? itemCount() : 0;
+  const totalAmount = mounted ? total() : 0;
+  const savingsAmount = mounted ? savings() : 0;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -97,24 +102,6 @@ export default function CartDrawer() {
             </div>
           ) : (
             <div className="flex flex-col gap-4 pb-4">
-              {/* Upsell */}
-              {showUpsell && (
-                <div className="flex items-center gap-3 rounded-2xl bg-[#D4A843]/15 p-3.5 border border-[#D4A843]/30">
-                  <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-[#D4A843]/30">
-                    <GlassWater className="h-5 w-5 text-[#D4A843]" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm font-700 text-[#1C3D1C]">{t('upsellTitle')}</p>
-                    <p className="text-xs text-[#1C3D1C]/70">{t('upsellText')}</p>
-                  </div>
-                  <button
-                    onClick={closeCart}
-                    className="flex-shrink-0 rounded-full bg-[#D4A843] px-3 py-1.5 text-xs font-700 text-white transition-colors hover:bg-[#c49833]"
-                  >
-                    {t('upsellButton')}
-                  </button>
-                </div>
-              )}
 
               {/* Items grouped by date */}
               {Object.entries(groupedItems).map(([date, dateItems]) => (

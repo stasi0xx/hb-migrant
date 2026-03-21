@@ -35,12 +35,12 @@ export default function MenuDayTabs({ dates, selectedDate, onSelectDate }: MenuD
                 : 'bg-white/50 text-[#1C3D1C]/30 border-2 border-[#1C3D1C]/10 cursor-not-allowed'
             }`}
           >
-            <span className={`text-xs font-700 uppercase tracking-wide ${isSelected ? 'text-[#E8967A]' : ''}`}>
+            <span className={`text-xs font-bold uppercase tracking-wide ${isSelected ? 'text-[#E8967A]' : ''}`}>
               {shortDay}
             </span>
-            <span className="text-[11px] font-600 opacity-70 mt-0.5">{dayMonth}</span>
+            <span className="text-[11px] font-semibold opacity-70 mt-0.5">{dayMonth}</span>
             {!available && (
-              <span className="mt-0.5 text-[8px] font-700 uppercase tracking-wide opacity-50">
+              <span className="mt-0.5 text-[8px] font-bold uppercase tracking-wide opacity-50">
                 {locale === 'pl' ? 'Zamk.' : 'Closed'}
               </span>
             )}

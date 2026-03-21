@@ -8,7 +8,7 @@
   "menu": {
     "weeklyMenu": "Tygodniowe menu",
     "orderDeadline": "Zamówienia przyjmujemy min. 1 dzień wcześniej",
-    "deliveryWindow": "Dostawa w godz. 12:00–14:00",
+    "deliveryWindow": "Dostawa 08:00–10:00",
     "noAvailableDays": "Brak dostępnych dni do zamówienia",
     "addToCart": "Dodaj",
     "added": "Dodano",
@@ -36,7 +36,7 @@
     "remove": "Usuń",
     "items": "pozycji",
     "forDate": "na",
-    "deliveryInfo": "Dostawa 12:00–14:00"
+    "deliveryInfo": "Dostawa 08:00–10:00"
   },
   "checkout": {
     "title": "Zamówienie",
@@ -51,14 +51,11 @@
     "floorRoom": "Piętro / pokój (opcjonalnie)",
     "notes": "Uwagi do zamówienia (opcjonalnie)",
     "deliveryDates": "Daty dostawy",
-    "paymentMethod": "Metoda płatności",
-    "payStripe": "Karta płatnicza (Stripe)",
-    "payCash": "Gotówka przy dostawie",
     "orderSummary": "Podsumowanie",
     "placeOrder": "Złóż zamówienie",
     "processing": "Przetwarzanie...",
     "total": "Razem",
-    "deliveryWindow": "Dostawa 12:00–14:00",
+    "deliveryWindow": "Dostawa w godz. 08:00–10:00",
     "requiredField": "To pole jest wymagane",
     "invalidEmail": "Podaj prawidłowy adres email",
     "invalidPhone": "Podaj prawidłowy numer telefonu"
@@ -69,7 +66,7 @@
     "message": "Potwierdzenie wysłaliśmy na Twój email. Przygotujemy Twoje jedzenie z miłością!",
     "orderNumber": "Numer zamówienia",
     "backToMenu": "Wróć do menu",
-    "deliveryInfo": "Dostawa w godz. 12:00–14:00",
+    "deliveryInfo": "Dostawa w godz. 08:00–10:00",
     "cashInfo": "Płatność gotówką przy dostawie"
   },
   "days": {
@@ -93,5 +90,84 @@
     "gdansk": "Gdańsk",
     "lodz": "Łódź",
     "katowice": "Katowice"
+  },
+  "hero": {
+    "headline1": "Głodny?",
+    "headline2": "Niedźwiedź rozumie.",
+    "subheadline": "Świeże dania z certyfikowanych składników INAO — prosto do Twojego biura.",
+    "cta": "Zamów teraz",
+    "ctaSecondary": "Zobacz menu tygodnia",
+    "tag1": "Składniki INAO",
+    "tag2": "Świeże 24h",
+    "tag3": "Dostawa do biura"
+  },
+  "trust": {
+    "inao": "Certyfikat INAO",
+    "inaoSub": "Certyfikat jakości",
+    "since": "Est. 2018",
+    "sinceSub": "Na rynku",
+    "fresh": "Świeże 24h",
+    "freshSub": "Zero konserwantów",
+    "delivery": "200+ biur",
+    "deliverySub": "W Warszawie",
+    "rating": "4.9 / 5",
+    "ratingSub": "Ocena klientów"
+  },
+  "howItWorks": {
+    "title": "Jak to działa?",
+    "step1Title": "Wybierz dania",
+    "step1Desc": "Przeglądaj tygodniowe menu i dodaj do koszyka to, na co masz dziś ochotę.",
+    "step2Title": "My gotujemy",
+    "step2Desc": "Przygotowujemy Twoje dania ze świeżych składników z certyfikatem INAO.",
+    "step3Title": "Dostawa do biura",
+    "step3Desc": "Dostarczamy między 8:00 a 10:00 — prosto na Twoje biurko."
+  },
+  "differentiators": {
+    "eyebrow": "Co nas wyróżnia",
+    "titleStart": "Niedźwiedź nie je",
+    "titleHighlight": "byle czego.",
+    "subtitle": "I ty też nie musisz.",
+    "freshStat": "24H",
+    "freshStatLabel": "od produkcji do biurka",
+    "inaoStat": "100%",
+    "inaoStatLabel": "certyfikowane składniki",
+    "noFakeStat": "3",
+    "noFakeStatLabel": "rodzaje smaków",
+    "inaoTitle": "Składniki z certyfikatem INAO",
+    "inaoDesc": "Korzystamy wyłącznie ze składników certyfikowanych przez Francuski Narodowy Instytut Pochodzenia i Jakości. Bo dobre jedzenie zaczyna się od dobrych produktów.",
+    "freshTitle": "Świeże przez 24h",
+    "freshDesc": "Twoje danie trafia do Ciebie w ciągu 24 godzin od wyprodukowania. Zero sztucznych konserwantów. Zero mrożonek.",
+    "noFakeTitle": "Jedzenie, nie dieta",
+    "noFakeDesc": "Nie liczymy kalorii za Ciebie. Robimy po prostu dobre jedzenie — dla mięsożerców, wegetarian i miłośników ostrych smaków."
+  },
+  "faq": {
+    "title": "Często zadawane pytania",
+    "q1": "Jak wcześnie trzeba zamówić?",
+    "a1": "Zamówienia przyjmujemy minimum 1 dzień wcześniej. Zamawiasz dziś — dostajesz jutro rano między 8:00 a 10:00.",
+    "q2": "W jakich godzinach jest dostawa?",
+    "a2": "Dostarczamy między 8:00 a 10:00, tak żebyś miał jedzenie zanim zacznie się prawdziwy dzień w pracy.",
+    "q3": "Co z alergenami?",
+    "a3": "Przy każdym daniu znajdziesz informację o głównych składnikach. W przypadku poważnych alergii skontaktuj się z nami — numer i email znajdziesz na dole strony.",
+    "q4": "Czy mogę zamówić dla całego biura?",
+    "a4": "Tak! Napisz lub zadzwoń do nas — chętnie omówimy zamówienia grupowe i specjalne warunki dla Twojego biura.",
+    "q5": "Jak często zmienia się menu?",
+    "a5": "Menu zmienia się co tydzień. Zawsze masz coś nowego do odkrycia — od tradycyjnych polskich dań po sushi i kuchnie świata."
+  },
+  "loyalty": {
+    "badge": "Wkrótce",
+    "title": "Program lojalnościowy",
+    "desc": "Zbieraj punkty za każde zamówienie i zapraszaj kolegów z biura. Pierwsi dowiedzą się nasi stali bywalcy.",
+    "placeholder": "Twój adres email",
+    "confirm": "Zapisuję się",
+    "thanks": "Zapisano! Damy Ci znać jako pierwszemu."
+  },
+  "footerCta": {
+    "headline": "Jutrzejszy lunch może być lepszy.",
+    "cta": "Zamów teraz"
+  },
+  "footer": {
+    "contact": "Kontakt",
+    "rights": "Wszelkie prawa zastrzeżone",
+    "tagline": "Prawdziwe jedzenie dla prawdziwych ludzi."
   }
 }

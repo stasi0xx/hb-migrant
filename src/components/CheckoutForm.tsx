@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useCartStore } from '@/store/cart';
-import { useRouter } from '@/i18n/navigation';
 import { parseMenuDate } from '@/lib/utils';
 
 const POLISH_CITIES = [
@@ -26,7 +25,6 @@ interface FormData {
   city: string;
   floorRoom: string;
   notes: string;
-  paymentMethod: 'stripe' | 'cash';
 }
 
 interface FormErrors {
@@ -36,7 +34,6 @@ interface FormErrors {
 export default function CheckoutForm() {
   const t = useTranslations('checkout');
   const locale = useLocale();
-  const router = useRouter();
   const { items, total, clearCart } = useCartStore();
 
   const [form, setForm] = useState<FormData>({
@@ -49,7 +46,6 @@ export default function CheckoutForm() {
     city: '',
     floorRoom: '',
     notes: '',
-    paymentMethod: 'stripe',
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -122,7 +118,7 @@ export default function CheckoutForm() {
             floorRoom: form.floorRoom,
             notes: form.notes,
           },
-          paymentMethod: form.paymentMethod,
+          paymentMethod: 'stripe',
           deliveryDates,
           locale,
         }),
@@ -134,11 +130,9 @@ export default function CheckoutForm() {
         throw new Error(data.error || 'Something went wrong');
       }
 
-      if (form.paymentMethod === 'stripe' && data.url) {
-        window.location.href = data.url;
-      } else if (form.paymentMethod === 'cash' && data.orderId) {
+      if (data.url) {
         clearCart();
-        router.push(`/success?orderId=${data.orderId}`);
+        window.location.href = data.url;
       }
     } catch (err) {
       console.error(err);
@@ -313,80 +307,6 @@ export default function CheckoutForm() {
           <span className="font-heading text-2xl text-[#1C3D1C]">
             {totalAmount.toFixed(2).replace('.', ',')} zł
           </span>
-        </div>
-      </div>
-
-      {/* Payment method */}
-      <div className="rounded-2xl bg-white p-5 shadow-sm">
-        <h2 className="font-heading text-xl text-[#1C3D1C] mb-3">{t('paymentMethod')}</h2>
-        <div className="flex flex-col gap-3">
-          <label
-            className={`flex cursor-pointer items-center gap-4 rounded-xl border-2 p-4 transition-all ${
-              form.paymentMethod === 'stripe'
-                ? 'border-[#1C3D1C] bg-[#1C3D1C]/5'
-                : 'border-[#1C3D1C]/20 hover:border-[#1C3D1C]/40'
-            }`}
-          >
-            <input
-              type="radio"
-              name="paymentMethod"
-              value="stripe"
-              checked={form.paymentMethod === 'stripe'}
-              onChange={() => setForm({ ...form, paymentMethod: 'stripe' })}
-              className="sr-only"
-            />
-            <div
-              className={`flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border-2 transition-all ${
-                form.paymentMethod === 'stripe' ? 'border-[#1C3D1C]' : 'border-gray-300'
-              }`}
-            >
-              {form.paymentMethod === 'stripe' && (
-                <div className="h-2.5 w-2.5 rounded-full bg-[#1C3D1C]" />
-              )}
-            </div>
-            <div className="flex-1">
-              <p className="font-700 text-[#1C3D1C]">{t('payStripe')}</p>
-              <p className="text-xs text-[#1C3D1C]/60">Visa, Mastercard, BLIK</p>
-            </div>
-            <svg className="h-6 w-6 flex-shrink-0 text-[#1C3D1C]/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
-            </svg>
-          </label>
-
-          <label
-            className={`flex cursor-pointer items-center gap-4 rounded-xl border-2 p-4 transition-all ${
-              form.paymentMethod === 'cash'
-                ? 'border-[#1C3D1C] bg-[#1C3D1C]/5'
-                : 'border-[#1C3D1C]/20 hover:border-[#1C3D1C]/40'
-            }`}
-          >
-            <input
-              type="radio"
-              name="paymentMethod"
-              value="cash"
-              checked={form.paymentMethod === 'cash'}
-              onChange={() => setForm({ ...form, paymentMethod: 'cash' })}
-              className="sr-only"
-            />
-            <div
-              className={`flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border-2 transition-all ${
-                form.paymentMethod === 'cash' ? 'border-[#1C3D1C]' : 'border-gray-300'
-              }`}
-            >
-              {form.paymentMethod === 'cash' && (
-                <div className="h-2.5 w-2.5 rounded-full bg-[#1C3D1C]" />
-              )}
-            </div>
-            <div className="flex-1">
-              <p className="font-700 text-[#1C3D1C]">{t('payCash')}</p>
-              <p className="text-xs text-[#1C3D1C]/60">
-                {locale === 'pl' ? 'Gotówka przy odbiorze' : 'Cash on delivery'}
-              </p>
-            </div>
-            <svg className="h-6 w-6 flex-shrink-0 text-[#1C3D1C]/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
-            </svg>
-          </label>
         </div>
       </div>
 

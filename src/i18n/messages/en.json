@@ -8,7 +8,7 @@
   "menu": {
     "weeklyMenu": "Weekly Menu",
     "orderDeadline": "Orders must be placed at least 1 day in advance",
-    "deliveryWindow": "Delivery window: 12:00–14:00",
+    "deliveryWindow": "Delivery window: 08:00–10:00",
     "noAvailableDays": "No available days to order",
     "addToCart": "Add",
     "added": "Added",
@@ -36,7 +36,7 @@
     "remove": "Remove",
     "items": "items",
     "forDate": "for",
-    "deliveryInfo": "Delivery 12:00–14:00"
+    "deliveryInfo": "Delivery 08:00–10:00"
   },
   "checkout": {
     "title": "Checkout",
@@ -51,14 +51,11 @@
     "floorRoom": "Floor / Room (optional)",
     "notes": "Order notes (optional)",
     "deliveryDates": "Delivery Dates",
-    "paymentMethod": "Payment Method",
-    "payStripe": "Credit Card (Stripe)",
-    "payCash": "Cash on Delivery",
     "orderSummary": "Summary",
     "placeOrder": "Place Order",
     "processing": "Processing...",
     "total": "Total",
-    "deliveryWindow": "Delivery 12:00–14:00",
+    "deliveryWindow": "Delivery 08:00–10:00",
     "requiredField": "This field is required",
     "invalidEmail": "Please enter a valid email",
     "invalidPhone": "Please enter a valid phone number"
@@ -69,7 +66,7 @@
     "message": "We sent a confirmation to your email. We will prepare your food with love!",
     "orderNumber": "Order Number",
     "backToMenu": "Back to Menu",
-    "deliveryInfo": "Delivery window: 12:00–14:00",
+    "deliveryInfo": "Delivery window: 08:00–10:00",
     "cashInfo": "Pay cash on delivery"
   },
   "days": {
@@ -93,5 +90,84 @@
     "gdansk": "Gdańsk",
     "lodz": "Łódź",
     "katowice": "Katowice"
+  },
+  "hero": {
+    "headline1": "Hungry?",
+    "headline2": "The Bear gets it.",
+    "subheadline": "Fresh meals from INAO-certified ingredients — delivered straight to your office.",
+    "cta": "Order now",
+    "ctaSecondary": "See this week's menu",
+    "tag1": "INAO Ingredients",
+    "tag2": "Fresh 24h",
+    "tag3": "Office Delivery"
+  },
+  "trust": {
+    "inao": "INAO Ingredients",
+    "inaoSub": "Quality certified",
+    "since": "Since 2018",
+    "sinceSub": "On the market",
+    "fresh": "Fresh 24h",
+    "freshSub": "Zero preservatives",
+    "delivery": "200+ offices",
+    "deliverySub": "In Warsaw",
+    "rating": "4.9 / 5",
+    "ratingSub": "Customer rating"
+  },
+  "howItWorks": {
+    "title": "How does it work?",
+    "step1Title": "Choose your meals",
+    "step1Desc": "Browse the weekly menu and add whatever you fancy today to your cart.",
+    "step2Title": "We cook",
+    "step2Desc": "We prepare your meals from fresh INAO-certified ingredients.",
+    "step3Title": "Office delivery",
+    "step3Desc": "We deliver between 8:00 and 10:00 — straight to your desk."
+  },
+  "differentiators": {
+    "eyebrow": "What sets us apart",
+    "titleStart": "A bear doesn't eat",
+    "titleHighlight": "just anything.",
+    "subtitle": "And neither should you.",
+    "freshStat": "24H",
+    "freshStatLabel": "from kitchen to desk",
+    "inaoStat": "100%",
+    "inaoStatLabel": "certified ingredients",
+    "noFakeStat": "3",
+    "noFakeStatLabel": "flavour profiles",
+    "inaoTitle": "INAO-certified ingredients",
+    "inaoDesc": "We use only ingredients certified by the French National Institute of Origin and Quality. Because good food starts with good produce.",
+    "freshTitle": "Fresh within 24h",
+    "freshDesc": "Your meal reaches you within 24 hours of being made. Zero artificial preservatives. Zero frozen food.",
+    "noFakeTitle": "Food, not a diet",
+    "noFakeDesc": "We don't count calories for you. We just make great food — for meat lovers, vegetarians, and spice enthusiasts."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "q1": "How far in advance do I need to order?",
+    "a1": "Orders must be placed at least 1 day in advance. Order today — get it tomorrow morning between 8:00 and 10:00.",
+    "q2": "What are the delivery hours?",
+    "a2": "We deliver between 8:00 and 10:00, so you have food before the real workday begins.",
+    "q3": "What about allergens?",
+    "a3": "Each dish includes information about its main ingredients. For serious allergies, please contact us — you'll find our number and email at the bottom of the page.",
+    "q4": "Can I order for the whole office?",
+    "a4": "Absolutely! Write or call us — we're happy to discuss group orders and special terms for your office.",
+    "q5": "How often does the menu change?",
+    "a5": "The menu changes every week. There's always something new to discover — from traditional Polish dishes to sushi and world cuisines."
+  },
+  "loyalty": {
+    "badge": "Coming soon",
+    "title": "Loyalty programme",
+    "desc": "Earn points for every order and invite your office colleagues. Our regulars will hear first.",
+    "placeholder": "Your email address",
+    "confirm": "Sign me up",
+    "thanks": "Done! We'll let you know first."
+  },
+  "footerCta": {
+    "headline": "Tomorrow's lunch could be better.",
+    "cta": "Order now"
+  },
+  "footer": {
+    "contact": "Contact",
+    "rights": "All rights reserved",
+    "tagline": "Real food for real people."
   }
 }

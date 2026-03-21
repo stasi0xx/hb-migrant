@@ -3,6 +3,7 @@
 import { useCartStore, parsePrice, ONLINE_DISCOUNT } from '@/store/cart';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
+import DishModal from './DishModal';
 
 interface DishCardProps {
   id: string;
@@ -16,6 +17,7 @@ export default function DishCard({ id, name, category, priceStr, date }: DishCar
   const t = useTranslations('menu');
   const { items, addItem, removeItem, updateQuantity } = useCartStore();
   const [justAdded, setJustAdded] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const originalPrice = parsePrice(priceStr);
   const discountedPrice = parseFloat((originalPrice * (1 - ONLINE_DISCOUNT)).toFixed(2));
@@ -37,27 +39,41 @@ export default function DishCard({ id, name, category, priceStr, date }: DishCar
   };
 
   return (
-    <div className="flex items-start gap-3 rounded-2xl bg-white p-3.5 shadow-sm transition-all hover:shadow-md">
+    <>
+    {modalOpen && (
+      <DishModal
+        id={id}
+        name={name}
+        category={category}
+        priceStr={priceStr}
+        date={date}
+        onClose={() => setModalOpen(false)}
+      />
+    )}
+    <div
+      className="flex items-start gap-3 rounded-2xl bg-white p-3.5 shadow-sm transition-all hover:shadow-md cursor-pointer"
+      onClick={() => setModalOpen(true)}
+    >
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-600 leading-snug text-[#1C3D1C]">{name}</p>
+        <p className="text-sm font-semibold leading-snug text-[#1C3D1C]">{name}</p>
         <div className="mt-1.5 flex items-center gap-2 flex-wrap">
-          <p className="text-base font-800 text-[#E8967A]">
+          <p className="text-base font-extrabold text-[#E8967A]">
             {discountedPrice.toFixed(2).replace('.', ',')} zł
           </p>
-          <p className="text-xs font-500 text-gray-400 line-through">
+          <p className="text-xs font-medium text-gray-400 line-through">
             {priceStr}
           </p>
-          <span className="rounded-full bg-[#D4A843] px-1.5 py-0.5 text-[10px] font-800 text-white leading-tight">
+          <span className="rounded-full bg-[#D4A843] px-1.5 py-0.5 text-[10px] font-extrabold text-white leading-tight">
             -5% online
           </span>
         </div>
       </div>
 
-      <div className="flex-shrink-0 flex items-center">
+      <div className="flex-shrink-0 flex items-center" onClick={(e) => e.stopPropagation()}>
         {quantity === 0 ? (
           <button
             onClick={handleAdd}
-            className={`flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-700 transition-all ${
+            className={`flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-bold transition-all ${
               justAdded
                 ? 'bg-[#1C3D1C] text-white scale-95'
                 : 'bg-[#1C3D1C] text-white hover:bg-[#2d5a2d] active:scale-95'
@@ -87,5 +103,6 @@ export default function DishCard({ id, name, category, priceStr, date }: DishCar
         )}
       </div>
     </div>
+    </>
   );
 }
