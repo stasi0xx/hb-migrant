@@ -73,37 +73,44 @@ export default function HowItWorks() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const section = sectionRef.current;
-    const cards = cardsRef.current.filter(Boolean) as HTMLDivElement[];
-    if (!section || !cards.length) return;
-
-    // Cards 1–4 start below the visible area — hidden by overflow:hidden on the container
-    gsap.set(cards.slice(1), { y: '100vh', force3D: true });
-
     const triggers: ScrollTrigger[] = [];
 
-    // Each card slides up and stays permanently — no unsticking
-    cards.slice(1).forEach((card, idx) => {
-      const tween = gsap.to(card, {
-        y: 0,
-        ease: 'none',
-        force3D: true,
-        scrollTrigger: {
-          trigger: section,
-          start: `top+=${idx * SCROLL_PER_CARD} top`,
-          end: `top+=${idx * SCROLL_PER_CARD + SLIDE_DURATION} top`,
-          scrub: true,
-          invalidateOnRefresh: true,
-        },
+    const init = () => {
+      const section = sectionRef.current;
+      const cards = cardsRef.current.filter(Boolean) as HTMLDivElement[];
+      if (!section || !cards.length) return;
+
+      // Use window.innerHeight instead of '100vh' — more reliable before layout settles
+      gsap.set(cards.slice(1), { y: window.innerHeight, force3D: true });
+
+      // Each card slides up and stays permanently — no unsticking
+      cards.slice(1).forEach((card, idx) => {
+        const tween = gsap.to(card, {
+          y: 0,
+          ease: 'none',
+          force3D: true,
+          scrollTrigger: {
+            trigger: section,
+            // Function-based values recalculate correctly on every refresh
+            start: () => `top+=${idx * SCROLL_PER_CARD} top`,
+            end: () => `top+=${idx * SCROLL_PER_CARD + SLIDE_DURATION} top`,
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
+        });
+
+        // Use the tween's own scrollTrigger reference — avoids race conditions
+        // with ScrollTrigger.getAll() which could return a trigger from another component
+        if (tween.scrollTrigger) triggers.push(tween.scrollTrigger);
       });
 
-      // Use the tween's own scrollTrigger reference — avoids race conditions
-      // with ScrollTrigger.getAll() which could return a trigger from another component
-      if (tween.scrollTrigger) triggers.push(tween.scrollTrigger);
-    });
+      ScrollTrigger.refresh();
+    };
 
-    // Refresh after init to handle browser scroll restoration
-    ScrollTrigger.refresh();
+    // Wait for fonts + full layout before measuring positions.
+    // On Vercel, fonts load from CDN after hydration — without this, GSAP
+    // measures positions before font-swap causes layout shifts, breaking triggers.
+    document.fonts.ready.then(init);
 
     return () => {
       triggers.forEach(st => st.kill());

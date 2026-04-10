@@ -16,7 +16,7 @@ const HB_CONTACT = {
   coc: 'CoC: 78333490',
   vat: 'VAT: NL861353730B01',
   logo: '/images/hb-logo.png',
-  copyright: 'Foodmarkt BV / Hongige Beer',
+  copyright: 'Foodmarkt BV / Hongerige Beer',
 };
 
 const GN_CONTACT = {
