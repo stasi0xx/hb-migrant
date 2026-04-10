@@ -37,8 +37,9 @@ const formatAmount = (amount: number) => {
 export default function CheckoutForm() {
   const t = useTranslations('checkout');
   const tCat = useTranslations('categories');
+  const tCart = useTranslations('cart');
   const locale = useLocale();
-  const { items, total, clearCart, packageMeta } = useCartStore();
+  const { items, total, clearCart, packageMeta, deliveryCost, grandTotal } = useCartStore();
 
   const [form, setForm] = useState<FormData>({
     firstName: '',
@@ -58,6 +59,7 @@ export default function CheckoutForm() {
   const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false);
 
   const totalAmount = total();
+  const deliveryCostAmount = deliveryCost();
 
   // Eating dates (DD.MM.YYYY) — used for non-migrant delivery display and item grouping
   const eatingDates = [...new Set(items.map((i) => i.date))].sort((a, b) => {
@@ -548,10 +550,18 @@ export default function CheckoutForm() {
                 </div>
               ))}
             </div>
+            {deliveryCostAmount > 0 && (
+              <div className="flex items-center justify-between text-sm mt-3 border-t border-[#1C3D1C]/10 pt-3">
+                <span className="text-[#1C3D1C]/70">{tCart('deliveryCost')}</span>
+                <span className="font-700 text-[#1C3D1C]">{formatAmount(deliveryCostAmount)}</span>
+              </div>
+            )}
             <div className="mt-3 flex items-center justify-between border-t border-[#1C3D1C]/10 pt-3">
-              <span className="font-700 text-[#1C3D1C]">{t('total')}</span>
+              <span className="font-700 text-[#1C3D1C]">
+                {deliveryCostAmount > 0 ? tCart('grandTotal') : t('total')}
+              </span>
               <span className="font-heading text-2xl text-[#1C3D1C]">
-                {formatAmount(totalAmount)}
+                {formatAmount(deliveryCostAmount > 0 ? grandTotal() : totalAmount)}
               </span>
             </div>
           </>

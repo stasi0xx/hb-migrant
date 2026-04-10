@@ -7,8 +7,9 @@ import { useState } from 'react';
 import Image from 'next/image';
 import DishModal from './DishModal';
 import CategoryIcon from './CategoryIcon';
+import { Leaf, Flame, Utensils } from 'lucide-react';
 
-const { currency } = getSiteConfig();
+const { currency, onlineDiscount } = getSiteConfig();
 const currencySymbol = currency === 'EUR' ? '€' : 'zł';
 
 function formatPrice(amount: number): string {
@@ -24,9 +25,11 @@ interface DishCardProps {
   category: string;
   priceStr: string;
   date: string;
+  isVege?: boolean;
+  isSpicy?: boolean;
 }
 
-export default function DishCard({ id, name, category, priceStr, date }: DishCardProps) {
+export default function DishCard({ id, name, category, priceStr, date, isVege, isSpicy }: DishCardProps) {
   const t = useTranslations('menu');
   const { items, addItem, removeItem, updateQuantity } = useCartStore();
   const [justAdded, setJustAdded] = useState(false);
@@ -108,28 +111,52 @@ export default function DishCard({ id, name, category, priceStr, date }: DishCar
           {/* Bottom row: Meta Pins + Add to Cart */}
           <div className="flex items-end justify-between mt-3.5 pl-0.5">
 
-            {/* Connecting Pins */}
-            <div className="flex flex-col gap-1.5 relative">
-              {/* Dotted line */}
-              <div className="absolute left-[6px] top-[14px] bottom-[14px] border-l-[1.5px] border-dotted border-gray-300"></div>
+            {onlineDiscount > 0 ? (
+              /* Connecting Pins — discount sites */
+              <div className="flex flex-col gap-1.5 relative">
+                {/* Dotted line */}
+                <div className="absolute left-[6px] top-[14px] bottom-[14px] border-l-[1.5px] border-dotted border-gray-300"></div>
 
-              {/* Pin 1: Online Discount */}
-              <div className="flex items-center gap-2.5 z-10">
-                <div className="w-[14px] h-[14px] shrink-0 rounded-full border-[1.5px] border-[#1C3D1C] bg-white flex items-center justify-center">
-                  <div className="w-[4px] h-[4px] rounded-full bg-[#1C3D1C]"></div>
+                {/* Pin 1: Online Discount */}
+                <div className="flex items-center gap-2.5 z-10">
+                  <div className="w-[14px] h-[14px] shrink-0 rounded-full border-[1.5px] border-[#1C3D1C] bg-white flex items-center justify-center">
+                    <div className="w-[4px] h-[4px] rounded-full bg-[#1C3D1C]"></div>
+                  </div>
+                  <span className="text-[11px] font-bold text-gray-800 leading-none">{t('discountBadge')}</span>
+                  <span className="text-[10px] font-bold text-[#E8967A] leading-none mt-0.5 ml-[-1px]">online</span>
                 </div>
-                <span className="text-[11px] font-bold text-gray-800 leading-none">Rabat -5%</span>
-                <span className="text-[10px] font-bold text-[#E8967A] leading-none mt-0.5 ml-[-1px]">online</span>
-              </div>
 
-              {/* Pin 2: Original Price */}
-              <div className="flex items-center gap-2.5 z-10">
-                <div className="w-[14px] h-[14px] shrink-0 rounded-full border-[1.5px] border-gray-300 bg-white flex items-center justify-center">
+                {/* Pin 2: Original Price */}
+                <div className="flex items-center gap-2.5 z-10">
+                  <div className="w-[14px] h-[14px] shrink-0 rounded-full border-[1.5px] border-gray-300 bg-white flex items-center justify-center">
+                  </div>
+                  <span className="text-[11px] font-medium text-gray-500 leading-none">{t('regularPrice')}</span>
+                  <span className="text-[10px] font-medium text-gray-400 line-through leading-none mt-0.5 ml-[-1px]">{formatPrice(originalPrice)}</span>
                 </div>
-                <span className="text-[11px] font-medium text-gray-500 leading-none">Zwykła cena</span>
-                <span className="text-[10px] font-medium text-gray-400 line-through leading-none mt-0.5 ml-[-1px]">{formatPrice(originalPrice)}</span>
               </div>
-            </div>
+            ) : (
+              /* Dietary badges — no-discount sites */
+              <div className="flex items-center gap-1.5 flex-wrap">
+                {isVege && (
+                  <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-[10px] font-bold leading-none">
+                    <Leaf className="h-2.5 w-2.5" />
+                    {t('vege')}
+                  </span>
+                )}
+                {isSpicy && (
+                  <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-600 text-[10px] font-bold leading-none">
+                    <Flame className="h-2.5 w-2.5" />
+                    {t('spicy')}
+                  </span>
+                )}
+                {!isVege && !isSpicy && (
+                  <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-gray-100 border border-gray-200 text-gray-500 text-[10px] font-medium leading-none">
+                    <Utensils className="h-2.5 w-2.5" />
+                    {t('normal')}
+                  </span>
+                )}
+              </div>
+            )}
 
             {/* Add Counter / Button */}
             <div className="shrink-0 pb-0.5" onClick={(e) => e.stopPropagation()}>

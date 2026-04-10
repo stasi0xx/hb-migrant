@@ -1,9 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 
 export default function CookieConsent() {
+  const t = useTranslations('cookieConsent');
   const [show, setShow] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -35,7 +37,7 @@ export default function CookieConsent() {
 
   return (
     <div className={`fixed bottom-0 left-0 right-0 z-[100] px-4 pb-4 md:px-6 md:pb-6 pointer-events-none flex justify-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${show ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0'}`}>
-      <div 
+      <div
         className="bg-[#FDF6EC] border border-[#1B4332]/5 shadow-[0_20px_60px_-15px_rgba(27,67,50,0.5)] rounded-3xl p-6 md:p-8 w-full max-w-5xl pointer-events-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 overflow-hidden relative"
       >
         {/* Subtle background decoration */}
@@ -49,29 +51,29 @@ export default function CookieConsent() {
           <div className="flex items-center gap-3">
             <span className="text-2xl drop-shadow-sm">🍪</span>
             <h3 className="font-heading font-black text-[#1B4332] text-xl">
-              Dbamy o Twoją prywatność
+              {t('title')}
             </h3>
           </div>
           <p className="text-sm text-[#1B4332]/70 leading-relaxed max-w-3xl">
-            Używamy plików cookies i nowoczesnych technologii (w tym rozwiązań analitycznych PostHog, GA4), aby zapewnić niezawodne działanie platformy i ulepszać nasze usługi za Twoją zgodą. Klikając opcję „Zaakceptuj wszystkie”, zgadzasz się na zapisywanie tych danych w Twoim urządzeniu. Szczegółowe zasady opisaliśmy w{' '}
-            <Link href="/polityka-prywatnosci" className="text-[#ed8788] hover:text-[#d4806b] font-bold transition-colors">
-              Polityce Prywatności
+            {t('description')}{' '}
+            <Link href="/privacy-policy" className="text-[#ed8788] hover:text-[#d4806b] font-bold transition-colors">
+              {t('privacyPolicy')}
             </Link>.
           </p>
         </div>
-        
+
         <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto shrink-0 relative z-10">
           <button
             onClick={handleReject}
             className="rounded-full px-6 py-3.5 text-xs font-extrabold text-[#1B4332] bg-white hover:bg-[#1B4332]/5 border border-[#1B4332]/10 transition-colors uppercase tracking-widest w-full sm:w-auto text-center"
           >
-            Tylko niezbędne
+            {t('essentialOnly')}
           </button>
           <button
             onClick={handleAccept}
             className="rounded-full px-8 py-3.5 text-xs font-black text-white bg-[#ed8788] hover:bg-[#d4806b] shadow-xl shadow-[#ed8788]/20 transition-all active:scale-95 uppercase tracking-widest w-full sm:w-auto text-center"
           >
-            Zaakceptuj wszystkie
+            {t('acceptAll')}
           </button>
         </div>
       </div>

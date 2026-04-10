@@ -18,16 +18,16 @@
     "heroTagline": "- a real benefit for your employees.",
     "step1Title": "Get in touch",
     "step1Desc": "If you're an employer looking for a great benefit for your team — call us or fill in the form. We'll call back within 24h.",
-    "step2Title": "Sign the agreement",
-    "step2Desc": "Set a monthly meal subsidy limit per employee. Up to 450 PLN per person is exempt from social contributions.",
-    "step3Title": "We activate your account",
-    "step3Desc": "Your employees get access to the GN Lunch app and order meals as part of their employee benefit.",
-    "step4Title": "Employees order themselves",
-    "step4Desc": "Each employee independently selects their favourite meals 3 days before delivery, with full visibility over their limit.",
-    "step5Title": "Fresh meals at the office",
-    "step5Desc": "We deliver daily to your designated office spot. When the budget runs out, employees top up themselves — by card, BLIK, or transfer.",
-    "trust1": "Up to 450 PLN/person",
-    "trust1Sub": "tax-exempt",
+    "step2Title": "Activate your account",
+    "step2Desc": "You get access to the ordering platform and can immediately start placing orders.",
+    "step3Title": "Choose your meals",
+    "step3Desc": "Browse the weekly menu and pick your favourites — your order arrives at the office 3 days later.",
+    "step4Title": "Pay your way",
+    "step4Desc": "Pay easily by iDeal, Apple Pay, Google Pay or card. Quick, secure, no fuss.",
+    "step5Title": "Fresh meals at your office",
+    "step5Desc": "We deliver daily to your designated spot via Trunkrs between 08:00–10:00.",
+    "trust1": "Less stress at work",
+    "trust1Sub": "lunch sorted, minds free",
     "trust2": "Zero admin",
     "trust2Sub": "on the employer's side",
     "trust3": "Full reports",
@@ -49,7 +49,12 @@
     "submitting": "Sending...",
     "successTitle": "Done!",
     "successDesc": "We'll call you back within 24 business hours. Talk soon!",
-    "errorMsg": "Something went wrong. Call us: +48 732 999 072"
+    "errorMsg": "Something went wrong. Call us: +48 732 999 072",
+    "backLink": "Home Page",
+    "howItWorksEyebrow": "How it works",
+    "howItWorksHeading": "5 steps to better lunches at the office.",
+    "callDirectly": "Or call us directly:",
+    "directPhone": "+31 682 595 605"
   },
   "menu": {
     "weeklyMenu": "Weekly Menu",
@@ -69,7 +74,12 @@
     "added": "Added",
     "inCart": "In cart",
     "nextDeliveryMenu": "Next delivery: {date}",
-    "freeDelivery": "Free delivery"
+    "freeDelivery": "Free delivery",
+    "discountBadge": "Discount -5%",
+    "regularPrice": "Regular price",
+    "vege": "Vegetarian",
+    "spicy": "Spicy",
+    "normal": "Regular"
   },
   "categories": {
     "Kanapki i wrapy": "Sandwiches & Wraps",
@@ -203,9 +213,9 @@
     "tag3": "Office Delivery"
   },
   "trust": {
-    "inao": "INAO Ingredients",
+    "inao": "Local Ingredients",
     "inaoSub": "Quality certified",
-    "since": "Since 2018",
+    "since": "Since 1928",
     "sinceSub": "On the market",
     "fresh": "Fresh 24h",
     "freshSub": "Zero preservatives",
@@ -238,14 +248,14 @@
     "freshStatLabel": "from kitchen to desk",
     "inaoStat": "100%",
     "inaoStatLabel": "certified ingredients",
-    "noFakeStat": "3",
-    "noFakeStatLabel": "flavour profiles",
+    "noFakeStat": "4.6★",
+    "noFakeStatLabel": "Google rating",
     "inaoTitle": "Local quality suppliers",
-    "inaoDesc": "We use only ingredients certified by the French National Institute of Origin and Quality. Because good food starts with good produce.",
+    "inaoDesc": "Every ingredient has a story. We work with local suppliers who believe, just like us, that great food starts with great produce.",
     "freshTitle": "Fresh within 24h",
     "freshDesc": "Your meal reaches you within 24 hours of being made. Zero artificial preservatives. Zero frozen food.",
-    "noFakeTitle": "Food, not a diet",
-    "noFakeDesc": "We don't count calories for you. We just make great food — for meat lovers, vegetarians, and spice enthusiasts.",
+    "noFakeTitle": "Restaurant quality, office convenience",
+    "noFakeDesc": "We don't do catering. We make real food — the kind you'd order at a great restaurant, delivered straight to your desk.",
     "cta": "Order now"
   },
   "faq": {
@@ -255,11 +265,11 @@
     "q2": "What are the delivery hours?",
     "a2": "We deliver between 8:00 and 10:00, so you have food before the real workday begins.",
     "q3": "What about allergens?",
-    "a3": "Each dish includes information about its main ingredients. For serious allergies, please contact us — you'll find our number and email at the bottom of the page.",
+    "a3": "Please note that our production facility handles the following allergens: celery, cereals containing gluten, crustaceans, eggs, fish, lupin, milk, molluscs, mustard, tree nuts, peanuts, sesame seeds, and soybeans. Because all of these are used in our shared production facility, there is a chance that any of our products may contain traces of these allergens. While each dish includes information about its main ingredients, we cannot guarantee a 100% allergen-free environment. For serious allergies, please contact us before ordering — you’ll find our number and email at the bottom of the page.",
     "q4": "Can I order for the whole office?",
     "a4": "Absolutely! Write or call us — we're happy to discuss group orders and special terms for your office.",
     "q5": "How often does the menu change?",
-    "a5": "The menu changes every week. There's always something new to discover — from traditional Polish dishes to sushi and world cuisines."
+    "a5": "The menu changes every week. There's always something new to discover — from international dishes to sushi and world cuisines."
   },
   "loyalty": {
     "badge": "Coming soon",
@@ -520,5 +530,12 @@
     "price6days": "€69.84",
     "cancel": "Cancel",
     "confirmPackage": "Confirm"
+  },
+  "cookieConsent": {
+    "title": "We protect your privacy",
+    "description": "We use cookies and modern technologies (including PostHog and GA4) to ensure reliable platform performance and improve our services with your consent. By clicking 'Accept all', you agree to the storage of this data on your device. See our",
+    "privacyPolicy": "Privacy Policy",
+    "essentialOnly": "Essential only",
+    "acceptAll": "Accept all"
   }
 }

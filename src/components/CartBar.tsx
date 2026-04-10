@@ -9,14 +9,14 @@ import { ShoppingBag } from 'lucide-react';
 
 export default function CartBar() {
   const t = useTranslations('cart');
-  const { items, grandTotal, itemCount, openCart } = useCartStore();
+  const { items, total: getTotal, itemCount, openCart } = useCartStore();
   const [hasMounted, setHasMounted] = useState(false);
   const { currency } = getSiteConfig();
 
   useEffect(() => { setHasMounted(true); }, []);
 
   const count = hasMounted ? itemCount() : 0;
-  const total = hasMounted ? grandTotal() : 0;
+  const total = hasMounted ? getTotal() : 0;
 
   if (count === 0) return null;
 

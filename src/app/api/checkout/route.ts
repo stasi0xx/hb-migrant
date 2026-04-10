@@ -48,15 +48,25 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'No items in cart' }, { status: 400 });
     }
 
-    const totalAmount = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const itemsTotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const supabase = createServerSupabaseClient();
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 
     const site = getSiteConfig();
 
+    // Calculate delivery cost server-side
+    let deliveryCost = 0;
+    if (site.delivery.type === 'per-order') {
+      deliveryCost = site.delivery.costPerOrder ?? 0;
+    } else if (site.delivery.type === 'per-day') {
+      const uniqueDates = new Set(items.map((i) => i.date)).size;
+      deliveryCost = uniqueDates * (site.delivery.costPerDay ?? 0);
+    }
+    const totalAmount = parseFloat((itemsTotal + deliveryCost).toFixed(2));
+
     if (paymentMethod === 'stripe') {
       // Create Stripe checkout session
-      const lineItems = items.map((item) => ({
+      const lineItems: import('stripe').Stripe.Checkout.SessionCreateParams.LineItem[] = items.map((item) => ({
         price_data: {
           currency: site.currency.toLowerCase(),
           product_data: {
@@ -67,6 +77,17 @@ export async function POST(req: NextRequest) {
         },
         quantity: item.quantity,
       }));
+
+      if (deliveryCost > 0) {
+        lineItems.push({
+          price_data: {
+            currency: site.currency.toLowerCase(),
+            product_data: { name: 'Delivery' },
+            unit_amount: Math.round(deliveryCost * 100),
+          },
+          quantity: 1,
+        });
+      }
 
       // Save order to Supabase first to get ID
       const { data: order, error } = await supabase

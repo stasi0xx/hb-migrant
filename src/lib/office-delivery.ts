@@ -77,6 +77,19 @@ export function getOfficeDeliveryDates(
   return available;
 }
 
+/**
+ * Returns all Mon–Fri menu dates regardless of deadline.
+ * Used to show all tabs (available + disabled) in the UI.
+ */
+export function getAllOfficeMenuDates(menuDates: string[]): string[] {
+  return menuDates.filter((dateStr) => {
+    const [dd, mm, yyyy] = dateStr.split('.').map(Number);
+    const date = new Date(yyyy, mm - 1, dd);
+    const dow = date.getDay();
+    return dow >= 1 && dow <= 5;
+  });
+}
+
 /** Order deadline: D-4 days at 10:00 AM. */
 export function getOrderDeadline(menuDateStr: string): Date {
   const [dd, mm, yyyy] = menuDateStr.split('.').map(Number);

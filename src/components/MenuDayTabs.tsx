@@ -7,16 +7,17 @@ interface MenuDayTabsProps {
   dates: string[];
   selectedDate: string;
   onSelectDate: (date: string) => void;
+  availableDates?: string[];
 }
 
-export default function MenuDayTabs({ dates, selectedDate, onSelectDate }: MenuDayTabsProps) {
+export default function MenuDayTabs({ dates, selectedDate, onSelectDate, availableDates }: MenuDayTabsProps) {
   const locale = useLocale();
 
   return (
     <div className="flex justify-start sm:justify-center gap-2 sm:gap-3 lg:gap-5 overflow-x-auto pb-4 pt-1 px-1 scrollbar-hide">
       {dates.map((date) => {
         const d = parseMenuDate(date);
-        const available = isDateAvailable(date);
+        const available = availableDates ? availableDates.includes(date) : isDateAvailable(date);
         const isSelected = date === selectedDate;
 
         const shortDay = d.toLocaleDateString(locale === 'pl' ? 'pl-PL' : 'en-GB', { weekday: 'short' });

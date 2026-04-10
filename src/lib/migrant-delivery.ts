@@ -1,19 +1,22 @@
 /**
  * Delivery window logic for Hongige Beer — Migrant Workers site.
  *
- * Two fixed delivery events per week:
+ * Two fixed delivery events per week (production-based logic):
  *
  *   WINDOW A — eating Mon / Tue / Wed:
  *     Physical delivery: Sunday 18:00–21:00 (the evening before Monday)
  *     Order deadline:    Wednesday 10:00 (4 days before that Sunday)
+ *     Menu:              produced the PREVIOUS week
  *
  *   WINDOW B — eating Thu / Fri / Sat:
  *     Physical delivery: Wednesday 18:00–21:00 (the evening before Thursday)
  *     Order deadline:    Sunday 10:00 (3 days before that Wednesday)
- *                        — same Sunday that Window A food is delivered
+ *     Menu:              produced the SAME week as delivery
  *
- * For a 6-day package (Mon–Sat):
- *   The binding deadline is Window A's Wednesday deadline (the earlier one).
+ * For a 6-day package (Thu–Sat + following Mon–Wed):
+ *   One production batch covers Window B (Thu–Sat) AND the following Window A (Mon–Wed).
+ *   Both windows share the same menu upload ("next week's production").
+ *   The binding deadline is Window B's Sunday deadline (the earlier of the two).
  */
 
 export type WindowType = 'A' | 'B';
@@ -33,11 +36,13 @@ export interface MigrantWindow {
 
 export interface MigrantWeekSlot {
   id: string;
-  /** e.g. "13–18 Apr" */
+  /** e.g. "16–22 Apr" (first eating day of windowA through last eating day of windowB) */
   weekLabel: string;
+  /** First delivery: Window B (Thu–Sat eating, delivery Wednesday) */
   windowA: MigrantWindow;
+  /** Second delivery: Window C (Mon–Wed eating, delivery following Sunday) */
   windowB: MigrantWindow;
-  /** Binding deadline = windowA's Wednesday deadline (earlier of the two) */
+  /** Binding deadline = windowA's Sunday deadline (earlier of the two) */
   deadline: Date;
 }
 
@@ -65,17 +70,6 @@ function getMondayOf(date: Date, weekOffset = 0): Date {
   return d;
 }
 
-function formatWeekLabel(monday: Date): string {
-  const saturday = addDays(monday, 5);
-  const monDay = monday.getDate();
-  const satDay = saturday.getDate();
-  const monMonth = monday.toLocaleString('en', { month: 'short' });
-  if (monday.getMonth() === saturday.getMonth()) {
-    return `${monDay}–${satDay} ${monMonth}`;
-  }
-  const satMonth = saturday.toLocaleString('en', { month: 'short' });
-  return `${monDay} ${monMonth} – ${satDay} ${satMonth}`;
-}
 
 function buildWindowA(monday: Date, menuDates: string[]): MigrantWindow {
   const sundayDelivery = addDays(monday, -1);
@@ -146,10 +140,24 @@ export function getAvailableMigrantWindows(
   return result;
 }
 
+/** "16–22 Apr" or "30 Apr – 6 May" from two DD.MM.YYYY strings */
+function formatEatingRangeLabel(firstDate: string, lastDate: string): string {
+  const [dd1, mm1, yyyy1] = firstDate.split('.');
+  const [dd2, mm2, yyyy2] = lastDate.split('.');
+  const d1 = new Date(+yyyy1, +mm1 - 1, +dd1);
+  const d2 = new Date(+yyyy2, +mm2 - 1, +dd2);
+  const month1 = d1.toLocaleString('en', { month: 'short' });
+  if (d1.getMonth() === d2.getMonth()) {
+    return `${d1.getDate()}–${d2.getDate()} ${month1}`;
+  }
+  return `${d1.getDate()} ${month1} – ${d2.getDate()} ${d2.toLocaleString('en', { month: 'short' })}`;
+}
+
 /**
- * Returns available 6-day week slots (Mon–Sat).
- * A week slot is available when BOTH windows are still orderable AND have menu data.
- * The binding deadline is Window A's Wednesday deadline.
+ * Returns available 6-day slots, each covering one production batch:
+ *   windowA = Window B of week N   (Thu–Sat eating, delivery Wednesday, deadline Sunday)
+ *   windowB = Window C of week N+1 (Mon–Wed eating, delivery Sunday,    deadline Wednesday)
+ * Binding deadline = windowA's Sunday deadline (the earlier of the two).
  */
 export function getAvailableMigrantWeekSlots(
   menuDates: string[],
@@ -159,23 +167,27 @@ export function getAvailableMigrantWeekSlots(
 
   for (let weekOffset = 0; weekOffset <= 3 && result.length < 2; weekOffset++) {
     const monday = getMondayOf(now, weekOffset);
+    const nextMonday = addDays(monday, 7);
 
-    const winA = buildWindowA(monday, menuDates);
+    // Window B: Thu–Sat eating, delivery Wednesday, deadline the preceding Sunday
     const winB = buildWindowB(monday, menuDates);
+    // Window C: Mon–Wed eating of following week, delivery Sunday, deadline Wednesday
+    const winC = buildWindowA(nextMonday, menuDates);
 
-    // Both must be open and have menu data; binding deadline = winA (earlier)
     if (
-      winA.deadline > now &&
-      winA.deliveryDays.length > 0 &&
       winB.deadline > now &&
-      winB.deliveryDays.length > 0
+      winB.deliveryDays.length > 0 &&
+      winC.deadline > now &&
+      winC.deliveryDays.length > 0
     ) {
+      const firstDay = winB.deliveryDays[0];
+      const lastDay = winC.deliveryDays[winC.deliveryDays.length - 1];
       result.push({
         id: `WEEK-${toMenuDateStr(monday)}`,
-        weekLabel: formatWeekLabel(monday),
-        windowA: winA,
-        windowB: winB,
-        deadline: winA.deadline,
+        weekLabel: formatEatingRangeLabel(firstDay, lastDay),
+        windowA: winB,
+        windowB: winC,
+        deadline: winB.deadline,
       });
     }
   }

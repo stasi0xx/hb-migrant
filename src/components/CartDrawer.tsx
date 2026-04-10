@@ -6,12 +6,12 @@ import { Link } from '@/i18n/navigation';
 import { useEffect, useState } from 'react';
 import { parseMenuDate, formatPrice } from '@/lib/utils';
 import { getSiteConfig } from '@/config/sites';
-import { ShoppingBag, Tag, Truck, X, Trash2, Minus, Plus } from 'lucide-react';
+import { ShoppingBag, Tag, X, Trash2, Minus, Plus } from 'lucide-react';
 
 export default function CartDrawer() {
   const t = useTranslations('cart');
   const locale = useLocale();
-  const { items, isOpen, closeCart, total, originalTotal, savings, itemCount, removeItem, updateQuantity, deliveryCost, grandTotal } =
+  const { items, isOpen, closeCart, total, savings, itemCount, removeItem, updateQuantity } =
     useCartStore();
 
   const [mounted, setMounted] = useState(false);
@@ -20,8 +20,6 @@ export default function CartDrawer() {
   const count = mounted ? itemCount() : 0;
   const totalAmount = mounted ? total() : 0;
   const savingsAmount = mounted ? savings() : 0;
-  const delivery = mounted ? deliveryCost() : 0;
-  const grand = mounted ? grandTotal() : 0;
 
   useEffect(() => {
     setMounted(true);
@@ -184,26 +182,13 @@ export default function CartDrawer() {
               </span>
             </div>
 
-            {/* Delivery cost (NL sites) */}
-            {delivery > 0 && (
-              <div className="flex items-center justify-between mb-2 rounded-xl bg-[#1B4332]/5 px-3 py-2">
-                <div className="flex items-center gap-2">
-                  <Truck className="h-4 w-4 text-[#1B4332]/60" />
-                  <span className="text-sm font-600 text-[#1C3D1C]">{t('deliveryCost')}</span>
-                </div>
-                <span className="text-sm font-700 text-[#1C3D1C]">
-                  {formatPrice(delivery, currency)}
-                </span>
-              </div>
-            )}
-
             {/* Grand total */}
             <div className="flex items-center justify-between mb-4 mt-1">
               <span className="font-700 text-[#1C3D1C]">
-                {delivery > 0 ? t('grandTotal') : t('total')}
+                {t('total')}
               </span>
               <span className="font-heading text-2xl text-[#1C3D1C]">
-                {formatPrice(grand, currency)}
+                {formatPrice(totalAmount, currency)}
               </span>
             </div>
 

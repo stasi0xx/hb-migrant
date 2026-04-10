@@ -80,6 +80,8 @@ export default function HowItWorks() {
     // Cards 1–4 start below the visible area — hidden by overflow:hidden on the container
     gsap.set(cards.slice(1), { y: '100vh' });
 
+    const triggers: ScrollTrigger[] = [];
+
     // Each card slides up and stays permanently — no unsticking
     cards.slice(1).forEach((card, idx) => {
       gsap.to(card, {
@@ -90,12 +92,19 @@ export default function HowItWorks() {
           start: `top+=${idx * SCROLL_PER_CARD} top`,
           end: `top+=${idx * SCROLL_PER_CARD + SLIDE_DURATION} top`,
           scrub: 1,
+          invalidateOnRefresh: true,
         },
       });
+
+      const st = ScrollTrigger.getAll().at(-1);
+      if (st) triggers.push(st);
     });
 
+    // Refresh after init to handle browser scroll restoration
+    ScrollTrigger.refresh();
+
     return () => {
-      ScrollTrigger.getAll().forEach(st => st.kill());
+      triggers.forEach(st => st.kill());
     };
   }, []);
 

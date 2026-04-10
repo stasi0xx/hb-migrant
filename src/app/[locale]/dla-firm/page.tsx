@@ -6,6 +6,7 @@ import { Link } from '@/i18n/navigation';
 import FooterSection from '@/components/FooterSection';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Icon } from '@iconify/react';
 
 const STEPS = ['step1', 'step2', 'step3', 'step4', 'step5'] as const;
 
@@ -224,7 +225,7 @@ export default function DlaFirmPage() {
             <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
-            Głodny Niedźwiedź
+            {t('backLink')}
           </Link>
 
           {/* GN Lunch App logo SVG */}
@@ -313,8 +314,8 @@ export default function DlaFirmPage() {
         {/* HOW IT WORKS */}
         <section className="bg-[#FDF6EC] px-6 py-14 relative">
           <div className="mx-auto max-w-2xl relative z-10">
-            <p className="text-[#ed8788] text-xs font-black uppercase tracking-[4px] mb-2">Jak to działa</p>
-            <h2 className="font-heading font-black text-3xl text-[#1B4332] mb-10">5 kroków do lepszych lunchów w biurze.</h2>
+            <p className="text-[#ed8788] text-xs font-black uppercase tracking-[4px] mb-2">{t('howItWorksEyebrow')}</p>
+            <h2 className="font-heading font-black text-3xl text-[#1B4332] mb-10">{t('howItWorksHeading')}</h2>
 
             <div className="flex flex-col gap-0 relative">
               {STEPS.map((step, i) => (
@@ -365,6 +366,21 @@ export default function DlaFirmPage() {
                       <h3 className="font-heading font-black text-base text-[#1B4332]">{t(`${step}Title`)}</h3>
                     </div>
                     <p className="text-sm text-[#1B4332]/60 leading-relaxed">{t(`${step}Desc`)}</p>
+                    {i === 3 && (
+                      <div className="flex items-center gap-1.5 mt-3 flex-wrap">
+                        {[
+                          { el: <img src="/images/ideal.svg" alt="iDEAL" className="h-5 w-auto" /> },
+                          { el: <Icon icon="logos:apple-pay" height={14} /> },
+                          { el: <Icon icon="logos:google-pay" height={14} /> },
+                          { el: <Icon icon="logos:visa" height={10} /> },
+                          { el: <Icon icon="logos:mastercard" height={16} /> },
+                        ].map((item, idx) => (
+                          <span key={idx} className="inline-flex items-center justify-center h-7 px-2 rounded-md bg-white border border-[#1B4332]/10">
+                            {item.el}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -384,7 +400,7 @@ export default function DlaFirmPage() {
           <p className="text-white/50 text-sm mb-8">{t('formSub')}</p>
           <LeadForm />
           <p className="text-center text-white/30 text-xs mt-6">
-            Lub zadzwoń bezpośrednio: <a href="tel:+48732999072" className="text-white/60 font-semibold hover:text-white transition-colors">+48 732 999 072</a>
+            {t('callDirectly')} <a href={`tel:${t('directPhone').replace(/\s/g, '')}`} className="text-white/60 font-semibold hover:text-white transition-colors">{t('directPhone')}</a>
           </p>
         </div>
       </section>

@@ -10,6 +10,8 @@ interface Dish {
   nazwa: string;
   name_translations?: Record<string, string>;
   cena: string;
+  is_vege?: boolean;
+  is_spicy?: boolean;
 }
 
 interface MenuCategoryProps {
@@ -69,6 +71,8 @@ export default function MenuCategory({ category, dishes, date, isOpen: isOpenPro
                 category={category}
                 priceStr={dish.cena}
                 date={date}
+                isVege={dish.is_vege}
+                isSpicy={dish.is_spicy}
               />
             );
           })}

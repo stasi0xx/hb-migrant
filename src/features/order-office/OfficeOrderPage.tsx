@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import MenuDayTabs from '@/components/MenuDayTabs';
 import MenuCategory from '@/components/MenuCategory';
 import CategoryIcon from '@/components/CategoryIcon';
@@ -16,7 +16,7 @@ import FaqSection from '@/components/FaqSection';
 import FooterSection from '@/components/FooterSection';
 import SocialProof from '@/components/SocialProof';
 import MenuParallaxBackground from '@/components/MenuParallaxBackground';
-import { getOfficeDeliveryDates, getOrderDeadline } from '@/lib/office-delivery';
+import { getOfficeDeliveryDates, getAllOfficeMenuDates, getOrderDeadline } from '@/lib/office-delivery';
 import staticMenuData from '@/data/menu.json';
 import { Truck } from 'lucide-react';
 
@@ -26,6 +26,7 @@ type MenuData = Record<string, Record<string, CategoryData>>;
 export default function OfficeOrderPage() {
   const t = useTranslations('menu');
   const tCat = useTranslations('categories');
+  const locale = useLocale();
 
   const [menuData, setMenuData] = useState<MenuData>(staticMenuData as MenuData);
 
@@ -39,6 +40,7 @@ export default function OfficeOrderPage() {
   }, []);
 
   // D+4 office delivery date logic
+  const allDates = getAllOfficeMenuDates(Object.keys(menuData));
   const availableDates = getOfficeDeliveryDates(Object.keys(menuData));
   const [selectedDate, setSelectedDate] = useState<string>('');
   const [openCategories, setOpenCategories] = useState<Record<string, boolean>>({});
@@ -73,8 +75,8 @@ export default function OfficeOrderPage() {
   // Order deadline for currently selected date
   const orderDeadline = selectedDate ? getOrderDeadline(selectedDate) : null;
   const deadlineFormatted = orderDeadline
-    ? orderDeadline.toLocaleDateString(undefined, { weekday: 'long', day: 'numeric', month: 'long' }) +
-      ' – 10:00'
+    ? orderDeadline.toLocaleDateString(locale, { weekday: 'long' }) +
+      `, ${String(orderDeadline.getDate()).padStart(2, '0')}.${String(orderDeadline.getMonth() + 1).padStart(2, '0')} – 10:00`
     : null;
 
   return (
@@ -122,9 +124,9 @@ export default function OfficeOrderPage() {
 
         <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 md:px-8 relative z-10">
           <div className="sticky top-16 z-20 bg-[#FDF6EC] pt-3 md:pt-4 lg:pt-5 pb-2 md:pb-3 -mx-4 sm:-mx-6 md:-mx-8 px-4 sm:px-6 md:px-8 shadow-sm">
-            {/* Date tabs — only D+4 valid delivery dates */}
             <MenuDayTabs
-              dates={availableDates}
+              dates={allDates}
+              availableDates={availableDates}
               selectedDate={selectedDate ?? ''}
               onSelectDate={setSelectedDate}
             />

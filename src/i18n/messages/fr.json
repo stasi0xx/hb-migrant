@@ -18,16 +18,16 @@
     "heroTagline": "- un vrai avantage pour vos employés.",
     "step1Title": "Prenez contact",
     "step1Desc": "Vous êtes employeur et cherchez un bon avantage pour votre équipe ? Appelez-nous ou remplissez le formulaire. On vous rappelle sous 24h.",
-    "step2Title": "Signez l'accord",
-    "step2Desc": "Définissez un plafond mensuel de subvention repas par employé. Jusqu'à 450 PLN par personne est exonéré de cotisations sociales.",
-    "step3Title": "On active votre compte",
-    "step3Desc": "Vos employés accèdent à l'application GN Lunch et commandent leurs repas dans le cadre de leur avantage salarié.",
-    "step4Title": "Les employés commandent eux-mêmes",
-    "step4Desc": "Chaque employé choisit ses plats préférés 3 jours avant la livraison, avec une visibilité complète sur son solde.",
+    "step2Title": "Activez votre compte",
+    "step2Desc": "Vous accédez à la plateforme de commande et pouvez immédiatement commencer à commander.",
+    "step3Title": "Choisissez vos repas",
+    "step3Desc": "Parcourez le menu de la semaine et choisissez vos favoris — votre commande arrive au bureau 3 jours plus tard.",
+    "step4Title": "Payez à votre façon",
+    "step4Desc": "Payez facilement par iDeal, Apple Pay, Google Pay ou carte. Rapide, sécurisé, sans tracas.",
     "step5Title": "Des repas frais au bureau",
-    "step5Desc": "On livre chaque jour à l'endroit désigné dans votre bureau. Quand le budget est épuisé, les employés complètent eux-mêmes — par carte, BLIK ou virement.",
-    "trust1": "Jusqu'à 450 PLN/personne",
-    "trust1Sub": "exonéré de charges",
+    "step5Desc": "On livre chaque jour à votre emplacement désigné via Trunkrs entre 08h00 et 10h00.",
+    "trust1": "Moins de stress au travail",
+    "trust1Sub": "lunch réglé, esprits libres",
     "trust2": "Zéro admin",
     "trust2Sub": "du côté employeur",
     "trust3": "Rapports complets",
@@ -49,7 +49,12 @@
     "submitting": "Envoi en cours...",
     "successTitle": "C'est fait !",
     "successDesc": "On vous rappelle dans les 24h ouvrées. À bientôt !",
-    "errorMsg": "Une erreur s'est produite. Appelez-nous : +48 732 999 072"
+    "errorMsg": "Une erreur s'est produite. Appelez-nous : +48 732 999 072",
+    "backLink": "Page d'accueil",
+    "howItWorksEyebrow": "Comment ça marche",
+    "howItWorksHeading": "5 étapes pour de meilleurs déjeuners au bureau.",
+    "callDirectly": "Ou appelez-nous directement :",
+    "directPhone": "+31 682 595 605"
   },
   "menu": {
     "weeklyMenu": "Menu de la semaine",
@@ -69,7 +74,12 @@
     "added": "Ajouté",
     "inCart": "Dans le panier",
     "nextDeliveryMenu": "Prochaine livraison : {date}",
-    "freeDelivery": "Livraison offerte"
+    "freeDelivery": "Livraison offerte",
+    "discountBadge": "Remise -5%",
+    "regularPrice": "Prix normal",
+    "vege": "Végétarien",
+    "spicy": "Épicé",
+    "normal": "Normal"
   },
   "categories": {
     "Kanapki i wrapy": "Sandwichs & Wraps",
@@ -203,9 +213,9 @@
     "tag3": "Livraison au bureau"
   },
   "trust": {
-    "inao": "Ingrédients INAO",
+    "inao": "Ingrédients locaux",
     "inaoSub": "Qualité certifiée",
-    "since": "Depuis 2018",
+    "since": "Depuis 1928",
     "sinceSub": "Sur le marché",
     "fresh": "Frais 24h",
     "freshSub": "Zéro conservateurs",
@@ -238,14 +248,14 @@
     "freshStatLabel": "de la cuisine au bureau",
     "inaoStat": "100%",
     "inaoStatLabel": "ingrédients certifiés",
-    "noFakeStat": "3",
-    "noFakeStatLabel": "profils de saveurs",
+    "noFakeStat": "4.6★",
+    "noFakeStatLabel": "avis Google",
     "inaoTitle": "Fournisseurs locaux de qualité",
-    "inaoDesc": "Nous n'utilisons que des ingrédients certifiés par l'Institut national français de l'origine et de la qualité (INAO). Parce qu'un bon plat commence par de bons produits.",
+    "inaoDesc": "Chaque ingrédient a son origine. Nous travaillons avec des fournisseurs locaux qui croient, comme nous, qu'un bon plat commence par de bons produits.",
     "freshTitle": "Frais en 24h",
     "freshDesc": "Votre repas vous parvient dans les 24 heures suivant sa préparation. Zéro conservateur artificiel. Zéro produit congelé.",
-    "noFakeTitle": "De la nourriture, pas un régime",
-    "noFakeDesc": "On ne compte pas les calories à votre place. On cuisine simplement de bons plats — pour les carnivores, les végétariens et les amateurs de piment.",
+    "noFakeTitle": "Qualité restaurant, confort bureau",
+    "noFakeDesc": "On ne fait pas du catering. On cuisine de la vraie nourriture — celle que vous commanderiez dans un bon restaurant, livrée directement à votre bureau.",
     "cta": "Commander maintenant"
   },
   "faq": {
@@ -255,11 +265,11 @@
     "q2": "Quels sont les horaires de livraison ?",
     "a2": "Nous livrons entre 8h00 et 10h00, pour que vous ayez de quoi manger avant que la vraie journée de travail ne commence.",
     "q3": "Qu'en est-il des allergènes ?",
-    "a3": "Chaque plat indique ses principaux ingrédients. En cas d'allergie sévère, contactez-nous — vous trouverez notre numéro et notre email en bas de page.",
+    "a3": "Veuillez noter que notre usine de production manipule les allergènes suivants : céleri, céréales contenant du gluten, crustacés, œufs, poisson, lupin, lait, mollusques, moutarde, fruits à coque, arachides, graines de sésame et soja. Étant donné que tous ces allergènes sont utilisés dans nos installations communes, il existe un risque que nos produits contiennent des traces de ces allergènes. Bien que chaque plat indique ses principaux ingrédients, nous ne pouvons pas garantir un environnement 100% sans allergènes. Pour les allergies graves, veuillez nous contacter avant de commander — vous trouverez notre numéro et notre e-mail en bas de la page.",
     "q4": "Puis-je commander pour tout le bureau ?",
     "a4": "Absolument ! Écrivez-nous ou appelez-nous — nous sommes ravis de discuter des commandes groupées et des conditions spéciales pour votre bureau.",
     "q5": "À quelle fréquence le menu change-t-il ?",
-    "a5": "Le menu change chaque semaine. Il y a toujours quelque chose de nouveau à découvrir — des plats traditionnels polonais au sushi en passant par les cuisines du monde."
+    "a5": "Le menu change chaque semaine. Il y a toujours quelque chose de nouveau à découvrir — des plats internationaux aux sushis et aux cuisines du monde."
   },
   "loyalty": {
     "badge": "Bientôt disponible",
@@ -520,5 +530,12 @@
     "price6days": "69,84 €",
     "cancel": "Annuler",
     "confirmPackage": "Confirmer"
+  },
+  "cookieConsent": {
+    "title": "Nous protégeons votre vie privée",
+    "description": "Nous utilisons des cookies et des technologies modernes (notamment PostHog et GA4) pour assurer le bon fonctionnement de la plateforme et améliorer nos services avec votre consentement. En cliquant sur « Tout accepter », vous acceptez le stockage de ces données sur votre appareil. Consultez notre",
+    "privacyPolicy": "Politique de confidentialité",
+    "essentialOnly": "Essentiel uniquement",
+    "acceptAll": "Tout accepter"
   }
 }

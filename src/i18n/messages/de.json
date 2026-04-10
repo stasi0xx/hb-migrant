@@ -18,16 +18,16 @@
     "heroTagline": "– ein echter Benefit für deine Mitarbeiter.",
     "step1Title": "Kontakt aufnehmen",
     "step1Desc": "Als Arbeitgeber auf der Suche nach einem tollen Benefit für dein Team – ruf uns an oder füll das Formular aus. Wir melden uns innerhalb von 24h.",
-    "step2Title": "Vertrag unterschreiben",
-    "step2Desc": "Lege ein monatliches Essenszuschusslimit pro Mitarbeiter fest. Bis zu 450 PLN pro Person sind sozialabgabenfrei.",
-    "step3Title": "Wir aktivieren dein Konto",
-    "step3Desc": "Deine Mitarbeiter erhalten Zugang zur GN Lunch App und bestellen Mahlzeiten als Teil ihres Mitarbeiter-Benefits.",
-    "step4Title": "Mitarbeiter bestellen selbst",
-    "step4Desc": "Jeder Mitarbeiter wählt 3 Tage vor der Lieferung eigenständig seine Lieblingsgerichte – mit vollem Überblick über sein Limit.",
+    "step2Title": "Aktiviere dein Konto",
+    "step2Desc": "Du erhältst Zugang zur Bestellplattform und kannst sofort mit dem Bestellen beginnen.",
+    "step3Title": "Wähle deine Mahlzeiten",
+    "step3Desc": "Stöbere im Wochenmenü und wähle deine Lieblinge — deine Bestellung kommt 3 Tage später im Büro an.",
+    "step4Title": "Bezahle wie du möchtest",
+    "step4Desc": "Bezahle einfach per iDeal, Apple Pay, Google Pay oder Karte. Schnell, sicher, unkompliziert.",
     "step5Title": "Frische Mahlzeiten im Büro",
-    "step5Desc": "Wir liefern täglich an deinen Bürostandort. Wenn das Budget aufgebraucht ist, zahlen Mitarbeiter selbst – per Karte, BLIK oder Überweisung.",
-    "trust1": "Bis zu 450 PLN/Person",
-    "trust1Sub": "steuerfrei",
+    "step5Desc": "Wir liefern täglich an deinen festen Platz via Trunkrs zwischen 08:00 und 10:00 Uhr.",
+    "trust1": "Weniger Stress im Büro",
+    "trust1Sub": "Lunch geregelt, Köpfe frei",
     "trust2": "Null Aufwand",
     "trust2Sub": "auf Arbeitgeberseite",
     "trust3": "Vollständige Berichte",
@@ -49,7 +49,12 @@
     "submitting": "Wird gesendet...",
     "successTitle": "Erledigt!",
     "successDesc": "Wir rufen dich innerhalb von 24 Geschäftsstunden zurück. Bis bald!",
-    "errorMsg": "Etwas ist schiefgelaufen. Ruf uns an: +48 732 999 072"
+    "errorMsg": "Etwas ist schiefgelaufen. Ruf uns an: +48 732 999 072",
+    "backLink": "Startseite",
+    "howItWorksEyebrow": "So funktioniert's",
+    "howItWorksHeading": "5 Schritte zu besseren Mittagspausen im Büro.",
+    "callDirectly": "Oder ruf uns direkt an:",
+    "directPhone": "+31 682 595 605"
   },
   "menu": {
     "weeklyMenu": "Wochenmenü",
@@ -69,7 +74,12 @@
     "added": "Hinzugefügt",
     "inCart": "Im Warenkorb",
     "nextDeliveryMenu": "Nächste Lieferung: {date}",
-    "freeDelivery": "Kostenlose Lieferung"
+    "freeDelivery": "Kostenlose Lieferung",
+    "discountBadge": "Rabatt -5%",
+    "regularPrice": "Normalpreis",
+    "vege": "Vegetarisch",
+    "spicy": "Scharf",
+    "normal": "Normal"
   },
   "categories": {
     "Kanapki i wrapy": "Sandwiches & Wraps",
@@ -203,9 +213,9 @@
     "tag3": "Bürolieferung"
   },
   "trust": {
-    "inao": "INAO-Zutaten",
+    "inao": "Lokale Zutaten",
     "inaoSub": "Qualität zertifiziert",
-    "since": "Seit 2018",
+    "since": "Seit 1928",
     "sinceSub": "Am Markt",
     "fresh": "Frisch 24h",
     "freshSub": "Null Konservierungsstoffe",
@@ -238,14 +248,14 @@
     "freshStatLabel": "von der Küche zum Schreibtisch",
     "inaoStat": "100%",
     "inaoStatLabel": "zertifizierte Zutaten",
-    "noFakeStat": "3",
-    "noFakeStatLabel": "Geschmacksprofile",
+    "noFakeStat": "4.6★",
+    "noFakeStatLabel": "Google-Bewertung",
     "inaoTitle": "Lokale Qualitätslieferanten",
-    "inaoDesc": "Wir verwenden ausschließlich Zutaten, die vom Französischen Nationalen Institut für Herkunft und Qualität zertifiziert sind. Weil gutes Essen mit guten Zutaten beginnt.",
+    "inaoDesc": "Jede Zutat hat ihre Herkunft. Wir arbeiten mit lokalen Lieferanten zusammen, die wie wir glauben, dass gutes Essen mit guten Produkten beginnt.",
     "freshTitle": "Frisch innerhalb von 24h",
     "freshDesc": "Deine Mahlzeit erreicht dich innerhalb von 24 Stunden nach der Zubereitung. Null künstliche Konservierungsstoffe. Null Tiefkühlkost.",
-    "noFakeTitle": "Essen, keine Diät",
-    "noFakeDesc": "Wir zählen keine Kalorien für dich. Wir machen einfach gutes Essen – für Fleischliebhaber, Vegetarier und Schärfe-Enthusiasten.",
+    "noFakeTitle": "Restaurantqualität, Bürokomfort",
+    "noFakeDesc": "Wir machen kein Catering. Wir machen echtes Essen – das, was du in einem guten Restaurant bestellen würdest, direkt an deinen Schreibtisch geliefert.",
     "cta": "Jetzt bestellen"
   },
   "faq": {
@@ -255,11 +265,11 @@
     "q2": "Wann wird geliefert?",
     "a2": "Wir liefern zwischen 8:00 und 10:00 Uhr, damit du Essen hast, bevor der Arbeitstag richtig losgeht.",
     "q3": "Was ist mit Allergenen?",
-    "a3": "Jedes Gericht enthält Informationen zu seinen Hauptzutaten. Bei ernsthaften Allergien kontaktiere uns bitte – Telefonnummer und E-Mail findest du unten auf der Seite.",
+    "a3": "Bitte beachte, dass unsere Produktionsstätte folgende Allergene verarbeitet: Sellerie, glutenhaltige Getreide, Krebstiere, Eier, Fisch, Lupinen, Milch, Weichtiere, Senf, Schalenfrüchte, Erdnüsse, Sesamsamen und Soja. Da alle diese Allergene in unserer gemeinsamen Produktionsstätte verwendet werden, besteht die Möglichkeit, dass unsere Produkte Spuren dieser Allergene enthalten. Obwohl jedes Gericht Informationen zu seinen Hauptzutaten enthält, können wir keine 100% allergenfreie Umgebung garantieren. Bei ernsthaften Allergien kontaktiere uns bitte vor der Bestellung – Telefonnummer und E-Mail findest du unten auf der Seite.",
     "q4": "Kann ich für das ganze Büro bestellen?",
     "a4": "Absolut! Schreib oder ruf uns an – wir besprechen gerne Gruppenbestellungen und Sonderkonditionen für dein Büro.",
     "q5": "Wie oft wechselt das Menü?",
-    "a5": "Das Menü wechselt jede Woche. Es gibt immer etwas Neues zu entdecken – von traditionellen polnischen Gerichten bis hin zu Sushi und internationaler Küche."
+    "a5": "Die Speisekarte wechselt jede Woche. Es gibt immer etwas Neues zu entdecken — von internationalen Gerichten über Sushi bis hin zu verschiedenen Weltküchen."
   },
   "loyalty": {
     "badge": "Demnächst",
@@ -520,5 +530,12 @@
     "price6days": "€69,84",
     "cancel": "Abbrechen",
     "confirmPackage": "Bestätigen"
+  },
+  "cookieConsent": {
+    "title": "Wir schützen Ihre Privatsphäre",
+    "description": "Wir verwenden Cookies und moderne Technologien (darunter PostHog und GA4), um den zuverlässigen Betrieb der Plattform sicherzustellen und unsere Dienste mit Ihrer Zustimmung zu verbessern. Mit einem Klick auf 'Alle akzeptieren' stimmen Sie der Speicherung dieser Daten auf Ihrem Gerät zu. Weitere Informationen finden Sie in unserer",
+    "privacyPolicy": "Datenschutzerklärung",
+    "essentialOnly": "Nur notwendige",
+    "acceptAll": "Alle akzeptieren"
   }
 }

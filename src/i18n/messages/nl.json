@@ -18,16 +18,16 @@
     "heroTagline": "- een echt voordeel voor jouw medewerkers.",
     "step1Title": "Neem contact op",
     "step1Desc": "Ben je een werkgever die een geweldig voordeel voor je team zoekt? Bel ons of vul het formulier in. We bellen binnen 24u terug.",
-    "step2Title": "Onderteken de overeenkomst",
-    "step2Desc": "Stel een maandelijks maaltijdbudget per medewerker in.",
-    "step3Title": "We activeren je account",
-    "step3Desc": "Je medewerkers krijgen toegang en bestellen maaltijden als personeelsvoordeel.",
-    "step4Title": "Medewerkers bestellen zelf",
-    "step4Desc": "Elke medewerker selecteert zelfstandig zijn favoriete maaltijden, 4 dagen voor bezorging.",
+    "step2Title": "Activeer je account",
+    "step2Desc": "Je krijgt toegang tot het bestelplatform en kunt meteen beginnen met bestellen.",
+    "step3Title": "Kies je maaltijden",
+    "step3Desc": "Blader door het weekmenu en kies je favorieten — je bestelling arriveert 3 dagen later op kantoor.",
+    "step4Title": "Betaal zoals jij wilt",
+    "step4Desc": "Betaal eenvoudig via iDeal, Apple Pay, Google Pay of kaart. Snel, veilig, geen gedoe.",
     "step5Title": "Verse maaltijden op kantoor",
-    "step5Desc": "We bezorgen dagelijks op je kantoor via Trunkrs tussen 08:00 en 10:00.",
-    "trust1": "Verse maaltijden",
-    "trust1Sub": "dagelijks",
+    "step5Desc": "We bezorgen dagelijks op jouw vaste plek via Trunkrs tussen 08:00 en 10:00.",
+    "trust1": "Minder stress op de werkvloer",
+    "trust1Sub": "lunch geregeld, hoofd vrij",
     "trust2": "Geen administratie",
     "trust2Sub": "aan de werkgeverszijde",
     "trust3": "Volledige rapporten",
@@ -49,7 +49,12 @@
     "submitting": "Verzenden...",
     "successTitle": "Klaar!",
     "successDesc": "We bellen je binnen 24 werkuren terug. Tot snel!",
-    "errorMsg": "Er is iets misgegaan. Bel ons."
+    "errorMsg": "Er is iets misgegaan. Bel ons.",
+    "backLink": "Startpagina",
+    "howItWorksEyebrow": "Hoe het werkt",
+    "howItWorksHeading": "5 stappen naar betere lunches op kantoor.",
+    "callDirectly": "Of bel ons direct:",
+    "directPhone": "+31 682 595 605"
   },
   "menu": {
     "weeklyMenu": "Weekmenu",
@@ -67,7 +72,12 @@
     "storage": "Bewaren",
     "addToCart": "Toevoegen",
     "added": "Toegevoegd",
-    "inCart": "In winkelwagen"
+    "inCart": "In winkelwagen",
+    "discountBadge": "Korting -5%",
+    "regularPrice": "Normale prijs",
+    "vege": "Vegetarisch",
+    "spicy": "Pittig",
+    "normal": "Normaal"
   },
   "categories": {
     "Kanapki i wrapy": "Sandwiches & wraps",
@@ -187,9 +197,9 @@
     "tag3": "Kantoorbezorging"
   },
   "trust": {
-    "inao": "INAO-ingrediënten",
+    "inao": "Lokale ingrediënten",
     "inaoSub": "Gecertificeerde kwaliteit",
-    "since": "Sinds 2018",
+    "since": "Sinds 1928",
     "sinceSub": "Op de markt",
     "fresh": "Vers in 24u",
     "freshSub": "Geen conserveringsmiddelen",
@@ -222,28 +232,28 @@
     "freshStatLabel": "van keuken tot bureau",
     "inaoStat": "100%",
     "inaoStatLabel": "gecertificeerde ingrediënten",
-    "noFakeStat": "3",
-    "noFakeStatLabel": "smaakprofielen",
+    "noFakeStat": "4.6★",
+    "noFakeStatLabel": "Google-beoordeling",
     "inaoTitle": "Lokale kwaliteitsleveranciers",
-    "inaoDesc": "We gebruiken alleen ingrediënten gecertificeerd door het Franse Nationaal Instituut voor Herkomst en Kwaliteit. Omdat goed eten begint met goed product.",
+    "inaoDesc": "Elk ingrediënt heeft een herkomst. We werken samen met lokale leveranciers die net als wij geloven dat goed eten begint bij goede producten.",
     "freshTitle": "Vers binnen 24 uur",
     "freshDesc": "Jouw maaltijd bereikt je binnen 24 uur na bereiding. Geen kunstmatige conserveermiddelen. Geen diepvrieseten.",
-    "noFakeTitle": "Eten, geen dieet",
-    "noFakeDesc": "Wij tellen geen calorieën voor je. We maken gewoon geweldig eten — voor vleesliefhebbers, vegetariërs en kruidenliefhebbers.",
+    "noFakeTitle": "Restaurantkwaliteit, kantoorgemak",
+    "noFakeDesc": "Wij doen geen catering. Wij maken echt eten — het soort dat je in een goed restaurant bestelt, rechtstreeks bezorgd aan je bureau.",
     "cta": "Nu bestellen"
   },
   "faq": {
     "title": "Veelgestelde vragen",
     "q1": "Hoe ver van tevoren moet ik bestellen?",
-    "a1": "Bestel vóór 10:00 uur, 4 dagen voor bezorging. Bestel donderdag → bezorging maandag. Bestel vrijdag → bezorging dinsdag. Enzovoort.",
-    "q2": "Kan ik mijn bestelling annuleren?",
-    "a2": "Ja, je kunt gratis annuleren tot 14:00 uur op de dag dat je besteld hebt. Daarna wordt de bestelling in productie genomen.",
-    "q3": "Wat zijn de bezorgkosten?",
-    "a3": "€5,00 per bestelling, bezorgd door Trunkrs op jouw kantooradres.",
-    "q4": "In welke steden bezorgen jullie?",
-    "a4": "We bezorgen in Tilburg (5000), 's-Hertogenbosch (5200) en Eindhoven (5600) in de provincie Noord-Brabant.",
+    "a1": "Bestellingen moeten 4 dagen van tevoren vóór 10:00 uur worden geplaatst. Als u bijvoorbeeld op donderdag vóór 10:00 uur bestelt, ontvangt u uw maaltijd op maandagochtend. Leveringen vinden plaats van maandag tot en met vrijdag tussen 8:00 en 10:00 uur.",
+    "q2": "Wat zijn de bezorgtijden?",
+    "a2": "Wij bezorgen tussen 8:00 en 10:00 uur, zodat u het eten in huis heeft voordat de werkdag echt begint.",
+    "q3": "Hoe zit het met allergenen?",
+    "a3": "Houd er rekening mee dat onze productiefaciliteit de volgende allergenen verwerkt: selderij, glutenbevattende granen, schaaldieren, eieren, vis, lupine, melk, weekdieren, mosterd, noten, pinda's, sesamzaad en sojabonen. Omdat deze allemaal in onze gezamenlijke productiefaciliteit worden gebruikt, bestaat de kans dat onze producten sporen van deze allergenen bevatten. Hoewel bij elk gerecht informatie over de belangrijkste ingrediënten staat, kunnen we geen 100% allergeenvrije omgeving garanderen. Neem bij ernstige allergieën contact met ons op voordat u bestelt — u vindt ons telefoonnummer en e-mailadres onderaan de pagina.",
+    "q4": "Kan ik voor het hele kantoor bestellen?",
+    "a4": "Zeker! Stuur ons een e-mail of bel — we bespreken graag de mogelijkheden voor groepsbestellingen en speciale voorwaarden voor uw kantoor.",
     "q5": "Hoe vaak verandert het menu?",
-    "a5": "Het menu verandert elke week. Er is altijd iets nieuws te ontdekken — van traditionele gerechten tot sushi en wereldkeukens."
+    "a5": "Het menu wisselt elke week. Er is altijd iets nieuws te ontdekken — van internationale gerechten tot sushi en diverse wereldkeukens."
   },
   "loyalty": {
     "badge": "Binnenkort",
@@ -476,5 +486,12 @@
       "successTitle": "Accounts gekoppeld!",
       "successMessage": "Je bestellingen zijn nu beschikbaar in het paneel. Doorsturen…"
     }
+  },
+  "cookieConsent": {
+    "title": "Wij beschermen uw privacy",
+    "description": "Wij gebruiken cookies en moderne technologieën (waaronder PostHog en GA4) om het platform betrouwbaar te laten werken en onze diensten te verbeteren met uw toestemming. Door op 'Alles accepteren' te klikken, stemt u in met het opslaan van deze gegevens op uw apparaat. Meer informatie vindt u in ons",
+    "privacyPolicy": "Privacybeleid",
+    "essentialOnly": "Alleen noodzakelijk",
+    "acceptAll": "Alles accepteren"
   }
 }
