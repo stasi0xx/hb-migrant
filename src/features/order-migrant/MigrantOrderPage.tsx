@@ -54,7 +54,7 @@ export default function MigrantOrderPage() {
     const section = step1Ref.current;
     if (!bear || !section) return;
 
-    gsap.fromTo(
+    const tween = gsap.fromTo(
       bear,
       { x: -120, opacity: 0 },
       {
@@ -70,7 +70,7 @@ export default function MigrantOrderPage() {
       }
     );
 
-    return () => { ScrollTrigger.getAll().forEach(t => t.kill()); };
+    return () => { tween.scrollTrigger?.kill(); tween.kill(); };
   }, []);
 
   useEffect(() => {

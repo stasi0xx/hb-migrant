@@ -6,29 +6,13 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { getSupabaseBrowserClient } from '@/lib/supabase-browser';
 import { Eye, EyeOff, AlertCircle } from 'lucide-react';
+import Image from 'next/image';
 
 const ERROR_MESSAGES: Record<string, string> = {
   auth: 'Błąd logowania. Spróbuj ponownie.',
   no_code: 'Nieprawidłowy link autoryzacyjny.',
 };
 
-function BearLogo() {
-  return (
-    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E8967A]">
-      <svg viewBox="0 0 64 64" fill="none" className="h-8 w-8" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="14" cy="14" r="9" fill="white" opacity="0.9" />
-        <circle cx="50" cy="14" r="9" fill="white" opacity="0.9" />
-        <circle cx="14" cy="14" r="5" fill="#c47560" />
-        <circle cx="50" cy="14" r="5" fill="#c47560" />
-        <circle cx="32" cy="34" r="22" fill="white" opacity="0.95" />
-        <ellipse cx="32" cy="42" rx="9" ry="6" fill="#c47560" />
-        <circle cx="24" cy="30" r="3" fill="#1C3D1C" />
-        <circle cx="40" cy="30" r="3" fill="#1C3D1C" />
-        <ellipse cx="32" cy="39" rx="3" ry="2" fill="#1C3D1C" />
-      </svg>
-    </div>
-  );
-}
 
 function LoginForm() {
   const t = useTranslations('auth.login');
@@ -92,14 +76,8 @@ function LoginForm() {
   return (
     <div className="min-h-screen bg-[#FDF6EC] flex flex-col items-center justify-center px-4 py-12">
       {/* Brand */}
-      <div className="mb-8 flex flex-col items-center gap-3">
-        <BearLogo />
-        <div className="text-center">
-          <p className="font-heading text-xl text-[#1C3D1C] leading-none">Głodny Niedźwiedź</p>
-          <p className="text-[10px] font-bold uppercase tracking-widest text-[#E8967A]">
-            EST. 2018 CATERING
-          </p>
-        </div>
+      <div className="mb-8 flex flex-col items-center">
+        <Image src="/images/hb-logo.png" alt="Głodny Niedźwiedź" width={180} height={80} priority />
       </div>
 
       {/* Card */}

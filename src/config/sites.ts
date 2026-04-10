@@ -56,6 +56,12 @@ export interface SiteConfig {
   /** Path relative to /public */
   logo: string;
   checkout: CheckoutConfig;
+  /** Browser tab title */
+  siteTitle: string;
+  /** Page description for SEO */
+  siteDescription: string;
+  /** Path relative to /public — used as favicon */
+  favicon: string;
 }
 
 const SITES: Record<SiteId, SiteConfig> = {
@@ -72,6 +78,9 @@ const SITES: Record<SiteId, SiteConfig> = {
     locales: ['pl', 'en'],
     defaultLocale: 'pl',
     logo: '/logos/gn.svg',
+    siteTitle: 'Głodny Niedźwiedź – Catering',
+    siteDescription: 'Zamów pyszne jedzenie z dostawą do biura. Tygodniowe menu, dostawa 8:00–10:00.',
+    favicon: '/favicon.ico',
     checkout: {
       cities: ['Warszawa', 'Kraków', 'Wrocław', 'Poznań', 'Gdańsk', 'Łódź', 'Katowice'],
       phonePlaceholder: '+48 500 123 456',
@@ -97,6 +106,9 @@ const SITES: Record<SiteId, SiteConfig> = {
     locales: ['en', 'pl', 'ro', 'hu', 'bg', 'cs', 'es', 'pt', 'it'],
     defaultLocale: 'en',
     logo: '/logos/hb.svg',
+    siteTitle: 'Hongige Beer – Maaltijden voor migranten',
+    siteDescription: 'Bestel dagelijkse maaltijden bezorgd aan huis. Verse gerechten, 2x per week bezorgd.',
+    favicon: '/favicons/hb.ico',
     checkout: {
       cities: ['Tilburg', 'Den Bosch', 'Eindhoven', 'Venlo'],
       phonePlaceholder: '+31 6 12345678',
@@ -123,6 +135,9 @@ const SITES: Record<SiteId, SiteConfig> = {
     locales: ['nl', 'en', 'fr', 'de'],
     defaultLocale: 'nl',
     logo: '/logos/hb.svg',
+    siteTitle: 'Hongerige Beer',
+    siteDescription: 'Bestel verse kantoormaaltijden met bezorging. Dagelijks menu, levering 8:00–10:00.',
+    favicon: '/favicons/hb.png',
     checkout: {
       cities: ['Tilburg', 'Den Bosch', 'Eindhoven'],
       phonePlaceholder: '+31 6 12345678',

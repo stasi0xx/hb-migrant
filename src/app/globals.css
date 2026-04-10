@@ -16,7 +16,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth removed — conflicts with GSAP ScrollTrigger in Chrome */
 }
 
 body {

@@ -52,7 +52,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/">
-            <img src="/images/logo.webp" alt="Głodny Niedźwiedź" className="h-9 w-auto" />
+            <img src="/images/hb-logo.png" alt="Głodny Niedźwiedź" className="h-9 w-auto" />
           </Link>
 
           {/* Right actions */}

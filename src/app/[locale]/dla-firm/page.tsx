@@ -229,9 +229,9 @@ export default function DlaFirmPage() {
           </Link>
 
           {/* GN Lunch App logo SVG */}
-          <div className="w-full md:w-[65%] min-w-[220px] mx-auto md:mx-0 flex justify-center md:justify-start">
+          <div className="w-full md:w-[75%] min-w-[220px] mx-auto md:mx-0 flex justify-center md:justify-start">
             <img
-              src="/images/gnlunchapp2.svg"
+              src="/images/lunchapp-logo.png"
               alt="GN Lunch App"
               className="w-full h-auto"
             />

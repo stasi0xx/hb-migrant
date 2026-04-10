@@ -15,7 +15,7 @@ const HB_CONTACT = {
   emailOrder: 'order@foodmarkt.com',
   coc: 'CoC: 78333490',
   vat: 'VAT: NL861353730B01',
-  logo: '/logos/hb.svg',
+  logo: '/images/hb-logo.png',
   copyright: 'Foodmarkt BV / Hongige Beer',
 };
 

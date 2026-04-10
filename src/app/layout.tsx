@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Epilogue, Manrope } from 'next/font/google';
 import './globals.css';
+import { getSiteConfig } from '@/config/sites';
 
 const epilogue = Epilogue({
   variable: '--font-epilogue',
@@ -14,9 +15,12 @@ const manrope = Manrope({
   weight: ['400', '500', '600', '700'],
 });
 
+const site = getSiteConfig();
+
 export const metadata: Metadata = {
-  title: 'Głodny Niedźwiedź – Catering',
-  description: 'Zamów pyszne jedzenie z dostawą do biura. Tygodniowe menu, dostawa 8:00–10:00.',
+  title: site.siteTitle,
+  description: site.siteDescription,
+  icons: { icon: site.favicon },
 };
 
 export const viewport = {
