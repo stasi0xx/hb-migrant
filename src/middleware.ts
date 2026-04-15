@@ -6,7 +6,7 @@ import { verifySessionToken, COOKIE_NAME } from './lib/admin/auth';
 
 const handleI18nRouting = createIntlMiddleware(routing);
 
-const PROTECTED_PATH = /^\/(pl|en)\/konto/;
+const PROTECTED_PATH = /^\/(pl|en)\/account/;
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -52,7 +52,7 @@ export async function middleware(request: NextRequest) {
 
   if (PROTECTED_PATH.test(pathname) && !user) {
     const locale = pathname.split('/')[1] || 'pl';
-    const loginUrl = new URL(`/${locale}/logowanie`, request.url);
+    const loginUrl = new URL(`/${locale}/login`, request.url);
     loginUrl.searchParams.set('next', pathname);
     return NextResponse.redirect(loginUrl);
   }

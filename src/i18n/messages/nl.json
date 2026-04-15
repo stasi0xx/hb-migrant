@@ -220,8 +220,8 @@
     "step3Desc": "De keuken gaat aan. Verse groenten, echt vlees, echte recepten. Geen kant-en-klare bases.",
     "step4Title": "Wij verpakken. Geen chemicaliën.",
     "step4Desc": "Geen conserveringsmiddelen. Verpakt zodat jouw maaltijd aankomt zoals ze de keuken verliet.",
-    "step5Title": "Op kantoor voor het werk begint",
-    "step5Desc": "Trunkrs bezorgt tussen 08:00 en 10:00 — precies 24 uur na het begin van het koken. Versheid heeft normen."
+    "step5Title": "Rechtstreeks aan jouw deur",
+    "step5Desc": "Zondagavond tussen 18:00–21:00 bezorgen we de maaltijden voor maandag–woensdag. Woensdagavond tussen 18:00–21:00 voor donderdag–zaterdag. Twee keer per week, rechtstreeks aan jouw deur."
   },
   "differentiators": {
     "eyebrow": "Wat ons onderscheidt",
@@ -245,13 +245,13 @@
   "faq": {
     "title": "Veelgestelde vragen",
     "q1": "Hoe ver van tevoren moet ik bestellen?",
-    "a1": "Bestellingen moeten 4 dagen van tevoren vóór 10:00 uur worden geplaatst. Als u bijvoorbeeld op donderdag vóór 10:00 uur bestelt, ontvangt u uw maaltijd op maandagochtend. Leveringen vinden plaats van maandag tot en met vrijdag tussen 8:00 en 10:00 uur.",
+    "a1": "We leveren twee keer per week. Voor maaltijden op maandag, dinsdag en woensdag, bestel vóór donderdag om 10:00 — de levering komt zondagavond tussen 18:00 en 21:00. Voor maaltijden op donderdag, vrijdag en zaterdag, bestel vóór zondag om 10:00 — de levering komt woensdagavond tussen 18:00 en 21:00.",
     "q2": "Wat zijn de bezorgtijden?",
-    "a2": "Wij bezorgen tussen 8:00 en 10:00 uur, zodat u het eten in huis heeft voordat de werkdag echt begint.",
+    "a2": "We bezorgen op zondagavond tussen 18:00 en 21:00 (maaltijden voor maandag–woensdag) en op woensdagavond tussen 18:00 en 21:00 (maaltijden voor donderdag–zaterdag).",
     "q3": "Hoe zit het met allergenen?",
     "a3": "Houd er rekening mee dat onze productiefaciliteit de volgende allergenen verwerkt: selderij, glutenbevattende granen, schaaldieren, eieren, vis, lupine, melk, weekdieren, mosterd, noten, pinda's, sesamzaad en sojabonen. Omdat deze allemaal in onze gezamenlijke productiefaciliteit worden gebruikt, bestaat de kans dat onze producten sporen van deze allergenen bevatten. Hoewel bij elk gerecht informatie over de belangrijkste ingrediënten staat, kunnen we geen 100% allergeenvrije omgeving garanderen. Neem bij ernstige allergieën contact met ons op voordat u bestelt — u vindt ons telefoonnummer en e-mailadres onderaan de pagina.",
-    "q4": "Kan ik voor het hele kantoor bestellen?",
-    "a4": "Zeker! Stuur ons een e-mail of bel — we bespreken graag de mogelijkheden voor groepsbestellingen en speciale voorwaarden voor uw kantoor.",
+    "q4": "Kan ik voor mijn hele werkteam bestellen?",
+    "a4": "Zeker! Stuur ons een e-mail of bel — we bespreken graag de mogelijkheden voor groepsbestellingen en speciale voorwaarden voor jouw team.",
     "q5": "Hoe vaak verandert het menu?",
     "a5": "Het menu wisselt elke week. Er is altijd iets nieuws te ontdekken — van internationale gerechten tot sushi en diverse wereldkeukens."
   },
@@ -304,7 +304,7 @@
     "companyDetails": "Bedrijfsgegevens",
     "companyInfo": "Hongige Beer — vers kantooreten bezorgd in Noord-Brabant via Trunkrs. Leveringen in Tilburg, 's-Hertogenbosch en Eindhoven.",
     "rights": "Alle rechten voorbehouden",
-    "tagline": "Echt eten voor echte mensen."
+    "tagline": "Restaurantmaaltijden direct bij JOU aan de deur."
   },
   "auth": {
     "login": {

@@ -1,12 +1,10 @@
 'use client';
 
 import { useState, useEffect, useMemo, useRef } from 'react';
-import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import CartBar from '@/components/CartBar';
 import CartDrawer from '@/components/CartDrawer';
 import HeroSection from '@/components/HeroSection';
 import TrustBar from '@/components/TrustBar';
@@ -17,31 +15,30 @@ import FaqSection from '@/components/FaqSection';
 import FooterSection from '@/components/FooterSection';
 import SocialProof from '@/components/SocialProof';
 import MenuParallaxBackground from '@/components/MenuParallaxBackground';
-import MigrantPackageBuilder, { SelectedMeal } from '@/components/migrant/MigrantPackageBuilder';
+import { SelectedMeal } from '@/lib/migrant-types';
+import MigrantPackageBuilder from '@/components/migrant/MigrantPackageBuilder';
+import PackageSelector from '@/components/migrant/PackageSelector';
+import SlotSelector from '@/components/migrant/SlotSelector';
 import { useCartStore } from '@/store/cart';
 import {
   getAvailableMigrantWindows,
   getAvailableMigrantWeekSlots,
-  formatWindowDeadline,
-  formatDeliveryDate,
-  formatEatingDays,
   type MigrantWindow,
   type MigrantWeekSlot,
 } from '@/lib/migrant-delivery';
 import staticMenuData from '@/data/menu.json';
-import { Package, Truck, Clock, CalendarDays } from 'lucide-react';
+import { getSiteConfig } from '@/config/sites';
 
 type CategoryData = { nazwa: string; cena: string; is_vege?: boolean; is_spicy?: boolean }[];
 type MenuData = Record<string, Record<string, CategoryData>>;
 type PackageSize = 3 | 6;
 
 export default function MigrantOrderPage() {
-  const tm = useTranslations('migrant');
-  const tCat = useTranslations('categories');
   const router = useRouter();
   const addItem = useCartStore(s => s.addItem);
   const clearCart = useCartStore(s => s.clearCart);
   const setPackageMeta = useCartStore(s => s.setPackageMeta);
+  const setCartPackage = useCartStore(s => s.setCartPackage);
 
   const bearRef = useRef<HTMLImageElement>(null);
   const step1Ref = useRef<HTMLDivElement>(null);
@@ -73,29 +70,62 @@ export default function MigrantOrderPage() {
     return () => { tween.scrollTrigger?.kill(); tween.kill(); };
   }, []);
 
+  const [menuReady, setMenuReady] = useState(false);
+
   useEffect(() => {
     fetch('/api/menu')
       .then(r => r.json())
       .then(({ menu }) => {
         if (menu && Object.keys(menu).length > 0) setMenuData(menu);
       })
-      .catch(() => { });
+      .catch(() => { })
+      .finally(() => setMenuReady(true));
   }, []);
 
   const allMenuDates = Object.keys(menuData);
   const availableWindows = useMemo(() => getAvailableMigrantWindows(allMenuDates), [allMenuDates]);
   const availableWeekSlots = useMemo(() => getAvailableMigrantWeekSlots(allMenuDates), [allMenuDates]);
 
+  const cartPackage = useCartStore(s => s.cartPackage);
+
   const [packageSize, setPackageSize] = useState<PackageSize | null>(null);
   const [selectedWindow, setSelectedWindow] = useState<MigrantWindow | null>(null);
   const [selectedWeekSlot, setSelectedWeekSlot] = useState<MigrantWeekSlot | null>(null);
 
+  // Restore state from a persisted cart once the fresh menu is loaded.
+  // React 18 batches setMenuData + setMenuReady → by the time this effect fires,
+  // availableWindows is already computed from the fresh API data.
+  // If the saved slot is no longer available (deadline passed), only packageSize is
+  // restored and the user lands on step 2 to pick a new slot.
+  useEffect(() => {
+    if (!menuReady || !cartPackage) return;
+
+    setPackageSize(cartPackage.packageSize);
+
+    if (cartPackage.packageSize === 3) {
+      const targetIso = cartPackage.deliveryEventDates[0];
+      const match = availableWindows.find(w => w.deliveryDate.toISOString() === targetIso);
+      if (match) setSelectedWindow(match);
+    } else {
+      const [isoA, isoB] = cartPackage.deliveryEventDates;
+      const match = availableWeekSlots.find(
+        s =>
+          s.windowA.deliveryDate.toISOString() === isoA &&
+          s.windowB.deliveryDate.toISOString() === isoB
+      );
+      if (match) setSelectedWeekSlot(match);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [menuReady]);
+
   // Menu data filtered to only the selected slot's eating days
   const slotMenuData = useMemo<MenuData>(() => {
+    // 3-day: use the selected window's menu week
+    // 6-day: use only the LATER delivery's menu week (windowB)
     const dates = selectedWindow
-      ? selectedWindow.deliveryDays
+      ? (selectedWindow.menuDays ?? [])
       : selectedWeekSlot
-        ? [...selectedWeekSlot.windowA.deliveryDays, ...selectedWeekSlot.windowB.deliveryDays]
+        ? (selectedWeekSlot.windowB.menuDays ?? [])
         : [];
     return Object.fromEntries(
       dates.map(d => [d, menuData[d]]).filter(([, v]) => v != null)
@@ -140,11 +170,29 @@ export default function MigrantOrderPage() {
       : selectedWeekSlot
         ? [selectedWeekSlot.windowA.deliveryDate, selectedWeekSlot.windowB.deliveryDate]
         : [];
+    const deliveryEventIsos = deliveryEventDates.map(d => d.toISOString());
+
     setPackageMeta({
-      deliveryEventDates: deliveryEventDates.map(d => d.toISOString()),
+      deliveryEventDates: deliveryEventIsos,
       eatingDays: packageSize!,
     });
 
+    // Build the box summary for cart display
+    const site = getSiteConfig();
+    const foodCostPerDay = site.checkout.packageFoodCostPerDay ?? 9.98;
+    const deliveryCostPerDay = site.delivery.type === 'per-day' ? (site.delivery.costPerDay ?? 1.66) : 0;
+    const boxPrice = parseFloat((packageSize! * foodCostPerDay).toFixed(2));
+    const deliveryPrice = parseFloat((packageSize! * deliveryCostPerDay).toFixed(2));
+    setCartPackage({
+      packageSize: packageSize!,
+      deliveryEventDates: deliveryEventIsos,
+      meals: selectedMeals.map(m => ({ id: m.id, name: m.name, category: m.category, quantity: m.quantity })),
+      boxPrice,
+      deliveryPrice,
+      totalPrice: parseFloat((boxPrice + deliveryPrice).toFixed(2)),
+    });
+
+    // Keep items populated for checkout API compatibility
     selectedMeals.forEach(meal => {
       for (let i = 0; i < meal.quantity; i++) {
         addItem({
@@ -203,184 +251,25 @@ export default function MigrantOrderPage() {
               className="hidden lg:block absolute left-[-6%] bottom-0 h-[75%] w-auto object-contain object-bottom pointer-events-none select-none"
               style={{ opacity: 0 }}
             />
-            <div className="mx-auto max-w-2xl px-6 py-16 md:py-24 text-center">
-
-              {/* Step indicator */}
-              <div className="flex items-center justify-center gap-3 mb-10">
-                <span className="h-8 w-8 rounded-full bg-[#E8927C] text-white font-black text-sm flex items-center justify-center">1</span>
-                <span className="h-px w-10 bg-[#1B4332]/20" />
-                <span className="h-8 w-8 rounded-full bg-[#1B4332]/10 text-[#1B4332]/30 font-black text-sm flex items-center justify-center">2</span>
-                <span className="h-px w-10 bg-[#1B4332]/20" />
-                <span className="h-8 w-8 rounded-full bg-[#1B4332]/10 text-[#1B4332]/30 font-black text-sm flex items-center justify-center">3</span>
-              </div>
-
-              <h2 className="font-heading font-black text-3xl md:text-5xl uppercase tracking-tight text-[#1B4332] mb-12">
-                {tm('packageTitle')}
-              </h2>
-
-              {availableWindows.length === 0 ? (
-                <p className="text-[#1B4332]/60 text-base mt-4">{tm('noWindowAvailable')}</p>
-              ) : (
-                <div className="flex flex-col gap-4 mt-2">
-                  {/* Featured: 6-day */}
-                  <button
-                    onClick={() => handlePackageSelect(6)}
-                    disabled={availableWeekSlots.length === 0}
-                    className="relative flex flex-col sm:flex-row items-center gap-5 rounded-2xl bg-[#D4A017]/10 hover:bg-[#D4A017]/20 border-2 border-[#D4A017]/50 hover:border-[#D4A017] px-7 py-7 text-[#1B4332] transition-all active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed text-left"
-                  >
-                    <Package className="h-11 w-11 text-[#D4A017] flex-shrink-0" />
-                    <div className="flex flex-col gap-1.5 flex-1 items-center sm:items-start">
-                      <span className="font-heading font-black text-2xl uppercase">{tm('package6days')}</span>
-                      <span className="text-[#1B4332]/60 text-sm">{tm('package6daysDesc')}</span>
-                      <div className="flex gap-3 mt-1 text-sm text-[#1B4332]/60">
-                        <span>6× {tCat('Zupy')}</span>
-                        <span className="text-[#1B4332]/25">·</span>
-                        <span>6× {tCat('Obiady')}</span>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-center sm:items-end gap-1 flex-shrink-0">
-                      <span className="text-2xl font-black text-[#D4A017]">{tm('price6days')}</span>
-                      <span className="text-xs text-[#1B4332]/40">{tm('perDay')}</span>
-                    </div>
-                    <span className="absolute -top-2 -right-2 rounded-full bg-[#D4A017] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white shadow">
-                      {tm('bestValue')}
-                    </span>
-                  </button>
-
-                  {/* Secondary: 3-day */}
-                  <button
-                    onClick={() => handlePackageSelect(3)}
-                    className="relative flex flex-col sm:flex-row items-center gap-5 rounded-2xl bg-[#1B4332]/5 hover:bg-[#1B4332]/10 border border-[#1B4332]/15 hover:border-[#E8927C]/60 px-6 py-5 text-[#1B4332] transition-all active:scale-[0.99] text-left"
-                  >
-                    <Package className="h-8 w-8 text-[#E8927C] flex-shrink-0" />
-                    <div className="flex flex-col gap-1 flex-1 items-center sm:items-start">
-                      <span className="font-heading font-black text-xl uppercase">{tm('package3days')}</span>
-                      <span className="text-[#1B4332]/50 text-sm">{tm('package3daysDesc')}</span>
-                      <div className="flex gap-3 mt-1 text-xs text-[#1B4332]/45">
-                        <span>3× {tCat('Zupy')}</span>
-                        <span className="text-[#1B4332]/25">·</span>
-                        <span>3× {tCat('Obiady')}</span>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-center sm:items-end gap-1 flex-shrink-0">
-                      <span className="text-xl font-black text-[#E8927C]">{tm('price3days')}</span>
-                      <span className="text-xs text-[#1B4332]/40">{tm('perDay')}</span>
-                    </div>
-                  </button>
-                </div>
-              )}
-            </div>
+            <PackageSelector
+              availableWindows={availableWindows}
+              availableWeekSlots={availableWeekSlots}
+              onSelect={handlePackageSelect}
+            />
           </div>
         )}
 
         {/* ── STEP 2: Slot selector ──────────────────────────────────────────── */}
         {packageSize && !isSlotSelected && (
-          <div className="bg-[#1B4332] relative z-10">
-            <div className="mx-auto max-w-2xl px-5 py-10 md:py-14">
-              <button
-                onClick={resetSelection}
-                className="mb-6 text-sm text-white/40 hover:text-white/80 transition-colors"
-              >
-                ← {tm('changePackage')}
-              </button>
-              <p className="text-[#E8927C] font-semibold text-xs uppercase tracking-widest mb-3 text-center">
-                {tm('stepWindow')}
-              </p>
-              <h2 className="font-heading font-black text-3xl md:text-4xl uppercase tracking-tight text-white mb-8 text-center">
-                {tm('windowTitle')}
-              </h2>
-
-              {/* 3-day: individual slot cards */}
-              {packageSize === 3 && (
-                <div className="flex flex-col gap-4">
-                  {availableWindows.map(win => (
-                    <button
-                      key={win.id}
-                      onClick={() => handleWindowSelect(win)}
-                      className="flex flex-col gap-3 rounded-2xl bg-white/10 hover:bg-white/20 border-2 border-white/20 hover:border-[#E8927C] p-5 text-left text-white transition-all active:scale-[0.99]"
-                    >
-                      {/* Delivery date */}
-                      <div className="flex items-center gap-2.5">
-                        <Truck className="h-5 w-5 text-[#E8927C] flex-shrink-0" />
-                        <span className="font-bold text-sm">
-                          {tm('deliveryOn')}: {formatDeliveryDate(win.deliveryDate)}
-                        </span>
-                      </div>
-
-                      {/* Eating days */}
-                      <div className="flex items-center gap-2.5">
-                        <CalendarDays className="h-5 w-5 text-white/50 flex-shrink-0" />
-                        <span className="text-white/70 text-sm">
-                          {tm('youEat')}: {formatEatingDays(win.deliveryDays)}
-                        </span>
-                      </div>
-
-                      {/* Deadline */}
-                      <div className="flex items-center gap-2.5">
-                        <Clock className="h-5 w-5 text-white/40 flex-shrink-0" />
-                        <span className="text-white/50 text-xs">
-                          {tm('deadlineLabel')}: {formatWindowDeadline(win.deadline)}
-                        </span>
-                      </div>
-                    </button>
-                  ))}
-
-                  {availableWindows.length === 0 && (
-                    <p className="text-white/60 text-base text-center">{tm('noWindowAvailable')}</p>
-                  )}
-                </div>
-              )}
-
-              {/* 6-day: week slot cards */}
-              {packageSize === 6 && (
-                <div className="flex flex-col gap-4">
-                  {availableWeekSlots.map(slot => (
-                    <button
-                      key={slot.id}
-                      onClick={() => handleWeekSlotSelect(slot)}
-                      className="flex flex-col gap-3 rounded-2xl bg-white/10 hover:bg-white/20 border-2 border-white/20 hover:border-[#D4A017] p-5 text-left text-white transition-all active:scale-[0.99]"
-                    >
-                      {/* Week label */}
-                      <span className="font-heading font-black text-xl text-[#D4A017]">
-                        {tm('weekOf')} {slot.weekLabel}
-                      </span>
-
-                      {/* Two deliveries */}
-                      <div className="flex items-start gap-2.5">
-                        <Truck className="h-5 w-5 text-[#D4A017] flex-shrink-0 mt-0.5" />
-                        <div className="flex flex-col gap-1 text-sm font-semibold">
-                          <span>{formatDeliveryDate(slot.windowA.deliveryDate)}</span>
-                          <span>{formatDeliveryDate(slot.windowB.deliveryDate)}</span>
-                        </div>
-                      </div>
-
-                      {/* All eating days */}
-                      <div className="flex items-center gap-2.5">
-                        <CalendarDays className="h-5 w-5 text-white/50 flex-shrink-0" />
-                        <span className="text-white/70 text-sm">
-                          {tm('youEat')}: {formatEatingDays([
-                            ...slot.windowA.deliveryDays,
-                            ...slot.windowB.deliveryDays,
-                          ])}
-                        </span>
-                      </div>
-
-                      {/* Binding deadline */}
-                      <div className="flex items-center gap-2.5">
-                        <Clock className="h-5 w-5 text-white/40 flex-shrink-0" />
-                        <span className="text-white/50 text-xs">
-                          {tm('deadlineLabel')}: {formatWindowDeadline(slot.deadline)}
-                        </span>
-                      </div>
-                    </button>
-                  ))}
-
-                  {availableWeekSlots.length === 0 && (
-                    <p className="text-white/60 text-base text-center">{tm('noWindowAvailable')}</p>
-                  )}
-                </div>
-              )}
-            </div>
+          <div className="bg-[#FDF6EC] relative z-10 overflow-hidden">
+            <SlotSelector
+              packageSize={packageSize}
+              availableWindows={availableWindows}
+              availableWeekSlots={availableWeekSlots}
+              onWindowSelect={handleWindowSelect}
+              onWeekSlotSelect={handleWeekSlotSelect}
+              onBack={resetSelection}
+            />
           </div>
         )}
 
@@ -405,7 +294,6 @@ export default function MigrantOrderPage() {
       <FaqSection />
       <FooterSection />
 
-      <CartBar />
       <CartDrawer />
     </div>
   );

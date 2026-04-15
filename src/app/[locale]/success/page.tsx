@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { useCartStore } from '@/store/cart';
 import { Clock, Mail, Star } from 'lucide-react';
+import Image from 'next/image';
 
 function SuccessContent() {
   const t = useTranslations('success');
@@ -25,44 +26,18 @@ function SuccessContent() {
 
   return (
     <div className="min-h-screen bg-[#FDF6EC] flex flex-col">
-      {/* Header */}
-      <header className="bg-[#1C3D1C]">
-        <div className="mx-auto max-w-2xl px-4 py-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#E8967A]">
-              <span className="font-heading text-base text-white">GN</span>
-            </div>
-            <div>
-              <p className="font-heading text-lg text-white leading-none">Głodny Niedźwiedź</p>
-              <p className="text-[10px] font-700 uppercase tracking-widest text-[#E8967A] opacity-80">
-                EST. 2018 CATERING
-              </p>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <div className="flex-1 flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-md text-center">
           {/* Success icon */}
-          <div className="mb-6 flex justify-center">
+          <div className="mb-6 flex justify-center mt-10">
             <div className="relative flex h-28 w-28 items-center justify-center rounded-full bg-[#1C3D1C]">
-              <svg viewBox="0 0 64 64" fill="none" className="h-16 w-16" xmlns="http://www.w3.org/2000/svg">
-                {/* ears */}
-                <circle cx="14" cy="14" r="9" fill="#E8967A"/>
-                <circle cx="50" cy="14" r="9" fill="#E8967A"/>
-                <circle cx="14" cy="14" r="5" fill="#c47560"/>
-                <circle cx="50" cy="14" r="5" fill="#c47560"/>
-                {/* head */}
-                <circle cx="32" cy="34" r="22" fill="#E8967A"/>
-                {/* snout */}
-                <ellipse cx="32" cy="42" rx="9" ry="6" fill="#c47560"/>
-                {/* eyes */}
-                <circle cx="24" cy="30" r="3" fill="#1C3D1C"/>
-                <circle cx="40" cy="30" r="3" fill="#1C3D1C"/>
-                {/* nose */}
-                <ellipse cx="32" cy="39" rx="3" ry="2" fill="#1C3D1C"/>
-              </svg>
+              <Image
+                src="/images/hb-logo.png"
+                alt="Hongige Beer"
+                width={72}
+                height={72}
+                className="object-contain"
+              />
               <div className="absolute -right-2 -top-2 flex h-10 w-10 items-center justify-center rounded-full bg-[#E8967A] shadow-lg">
                 <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -91,9 +66,7 @@ function SuccessContent() {
             </div>
             <div className="flex items-center gap-3 rounded-xl bg-white p-4 text-left shadow-sm">
               <Mail className="h-6 w-6 text-[#E8967A] flex-shrink-0" />
-              <p className="text-sm font-600 text-[#1C3D1C]">
-                Potwierdzenie zostało wysłane na Twój email
-              </p>
+              <p className="text-sm font-600 text-[#1C3D1C]">{t('emailConfirm')}</p>
             </div>
           </div>
 
@@ -102,16 +75,16 @@ function SuccessContent() {
             <div className="mb-4 rounded-2xl bg-[#1C3D1C] p-5 text-left">
               <div className="mb-3 flex items-center gap-2">
                 <Star className="h-5 w-5 text-[#D4A017] flex-shrink-0" />
-                <p className="font-heading text-base text-white">Załóż konto w 30 sekund</p>
+                <p className="font-heading text-base text-white">{t('createAccountTitle')}</p>
               </div>
               <p className="mb-4 text-xs text-white/60 leading-relaxed">
-                Śledź zamówienie, zarządzaj adresami i zbieraj punkty lojalnościowe za każdy lunch.
+                {t('createAccountDesc')}
               </p>
               <Link
-                href={`/rejestracja?token=${registrationToken}`}
+                href={`/register?token=${registrationToken}`}
                 className="block w-full rounded-xl bg-[#E8967A] py-3 text-center font-heading text-base text-white transition hover:bg-[#d4785e]"
               >
-                Utwórz konto →
+                {t('createAccountCta')}
               </Link>
             </div>
           )}

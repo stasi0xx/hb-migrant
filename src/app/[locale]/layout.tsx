@@ -23,7 +23,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const headersList = await headers();
   const pathname = headersList.get('x-pathname') ?? '';
-  const isKonto = /\/konto/.test(pathname);
+  const isKonto = /\/account/.test(pathname);
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>

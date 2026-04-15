@@ -1,7 +1,5 @@
 export type SiteId =
-  | 'glodny-niedzwiedz'
-  | 'hongige-beer-migrant'
-  | 'hongige-beer-office';
+  'hongige-beer-migrant';
 
 export type Currency = 'PLN' | 'EUR';
 export type OrderingFlow = 'weekly' | 'daily-4day' | 'package-2x-week';
@@ -62,35 +60,11 @@ export interface SiteConfig {
   siteDescription: string;
   /** Path relative to /public — used as favicon */
   favicon: string;
+  /** Path relative to /public — used as Open Graph image */
+  ogImage: string;
 }
 
 const SITES: Record<SiteId, SiteConfig> = {
-  'glodny-niedzwiedz': {
-    id: 'glodny-niedzwiedz',
-    name: 'Głodny Niedźwiedź',
-    domain: 'glodnyniedzwiedz.pl',
-    currency: 'PLN',
-    onlineDiscount: 0.05,
-    payment: { methods: ['card', 'blik', 'p24'], cashOption: true },
-    delivery: { type: 'free' },
-    orderingFlow: 'weekly',
-    menuKey: 'full',
-    locales: ['pl', 'en'],
-    defaultLocale: 'pl',
-    logo: '/logos/gn.svg',
-    siteTitle: 'Głodny Niedźwiedź – Catering',
-    siteDescription: 'Zamów pyszne jedzenie z dostawą do biura. Tygodniowe menu, dostawa 8:00–10:00.',
-    favicon: '/favicon.ico',
-    checkout: {
-      cities: ['Warszawa', 'Kraków', 'Wrocław', 'Poznań', 'Gdańsk', 'Łódź', 'Katowice'],
-      phonePlaceholder: '+48 500 123 456',
-      streetPlaceholder: 'ul. Marszałkowska 1/10',
-      vatField: 'nip-pl',
-      showCompanyName: true,
-      addressValidation: true,
-      nominatimCountryCode: 'pl',
-    },
-  },
 
   // Migrant workers in NL — 9 languages, package ordering, 2 deliveries/week
   'hongige-beer-migrant': {
@@ -106,9 +80,10 @@ const SITES: Record<SiteId, SiteConfig> = {
     locales: ['en', 'pl', 'ro', 'hu', 'bg', 'cs', 'es', 'pt', 'it'],
     defaultLocale: 'en',
     logo: '/logos/hb.svg',
-    siteTitle: 'Hongige Beer – Maaltijden voor migranten',
+    siteTitle: 'Hongerige Beer – Maaltijden voor migranten',
     siteDescription: 'Bestel dagelijkse maaltijden bezorgd aan huis. Verse gerechten, 2x per week bezorgd.',
-    favicon: '/favicons/hb.ico',
+    favicon: '/favicons/hb.png',
+    ogImage: '/images/hb-logo.png',
     checkout: {
       cities: ['Tilburg', 'Den Bosch', 'Eindhoven', 'Venlo'],
       phonePlaceholder: '+31 6 12345678',
@@ -120,43 +95,14 @@ const SITES: Record<SiteId, SiteConfig> = {
       packageFoodCostPerDay: 9.98,
     },
   },
-
-  // Office staff in NL — 4 languages, daily delivery Mon–Fri, 4-day lead time
-  'hongige-beer-office': {
-    id: 'hongige-beer-office',
-    name: 'Hongige Beer',
-    domain: 'office.hongigebeer.nl',
-    currency: 'EUR',
-    onlineDiscount: 0,
-    payment: { methods: ['card', 'ideal'], cashOption: false },
-    delivery: { type: 'per-order', costPerOrder: 5.0 },
-    orderingFlow: 'daily-4day',
-    menuKey: 'full',
-    locales: ['nl', 'en', 'fr', 'de'],
-    defaultLocale: 'nl',
-    logo: '/logos/hb.svg',
-    siteTitle: 'Hongerige Beer',
-    siteDescription: 'Bestel verse kantoormaaltijden met bezorging. Dagelijks menu, levering 8:00–10:00.',
-    favicon: '/favicons/hb.png',
-    checkout: {
-      cities: ['Tilburg', 'Den Bosch', 'Eindhoven'],
-      phonePlaceholder: '+31 6 12345678',
-      streetPlaceholder: 'Stationsstraat 1',
-      vatField: 'vat-nl',
-      showCompanyName: true,
-      addressValidation: true,
-      nominatimCountryCode: 'nl',
-    },
-  },
 };
 
 export function getSiteConfig(): SiteConfig {
-  const siteId = (process.env.NEXT_PUBLIC_SITE ?? 'glodny-niedzwiedz') as SiteId;
-  return SITES[siteId] ?? SITES['glodny-niedzwiedz'];
+  return SITES['hongige-beer-migrant'];
 }
 
 export function getSiteId(): SiteId {
-  return (process.env.NEXT_PUBLIC_SITE ?? 'glodny-niedzwiedz') as SiteId;
+  return ('hongige-beer-migrant') as SiteId;
 }
 
 /** Stripe-supported locale codes. Falls back to 'en' if not in the list. */

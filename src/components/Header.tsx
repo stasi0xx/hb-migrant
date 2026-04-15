@@ -98,7 +98,7 @@ export default function Header() {
                   </button>
                 ))}
                 <Link
-                  href="/konto"
+                  href="/account"
                   onClick={() => setMenuOpen(false)}
                   className="flex w-full items-center gap-2 px-5 py-3.5 text-left text-sm font-semibold text-white hover:bg-white/10 transition-colors border-b border-white/5"
                 >
@@ -111,7 +111,7 @@ export default function Header() {
                   </svg>
                 </Link>
                 <Link
-                  href="/dla-firm"
+                  href="/for-business"
                   onClick={() => setMenuOpen(false)}
                   className="flex w-full items-center gap-2 px-5 py-3.5 text-left text-sm font-semibold text-[#ed8788] hover:bg-white/10 transition-colors"
                 >

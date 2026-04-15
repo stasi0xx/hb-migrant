@@ -58,6 +58,13 @@ export default function DishCard({ id, name, category, priceStr, date, isVege, i
   const mockupIndex = (name.length % 8) + 1;
   const imageSrc = `/images/food-${mockupIndex}.webp`;
 
+  // Mock macro values derived from dish name (placeholder until real data)
+  const seed = name.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0);
+  const mockKcal = 320 + (seed % 280);
+  const mockProtein = 18 + (seed % 22);
+  const mockCarbs = 30 + ((seed * 3) % 40);
+  const mockFat = 8 + ((seed * 7) % 18);
+
   return (
     <>
       {modalOpen && (
@@ -106,6 +113,22 @@ export default function DishCard({ id, name, category, priceStr, date, isVege, i
                 {formatPrice(discountedPrice)}
               </span>
             </div>
+          </div>
+
+          {/* Macro row */}
+          <div className="flex items-center gap-1.5 mt-3 flex-wrap">
+            <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-[#1C3D1C] text-white text-[10px] font-bold leading-none">
+              {mockKcal} kcal
+            </span>
+            <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-[#1C3D1C] text-white text-[10px] font-bold leading-none">
+              B {mockProtein}g
+            </span>
+            <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-[#1C3D1C] text-white text-[10px] font-bold leading-none">
+              W {mockCarbs}g
+            </span>
+            <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-[#1C3D1C] text-white text-[10px] font-bold leading-none">
+              T {mockFat}g
+            </span>
           </div>
 
           {/* Bottom row: Meta Pins + Add to Cart */}

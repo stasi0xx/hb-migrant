@@ -93,6 +93,9 @@
     "upsellButton": "Ital hozzáadása",
     "discountLabel": "Online rendelési kedvezmény (-5%)",
     "remove": "Eltávolítás",
+    "removeConfirmQuestion": "Törli ezt a rendelést?",
+    "removeConfirmYes": "Igen, törlés",
+    "removeConfirmNo": "Nem",
     "items": "tétel",
     "forDate": "erre:",
     "deliveryInfo": "Kézbesítés 08:00–10:00"
@@ -140,7 +143,11 @@
     "orderNumber": "Rendelési szám",
     "backToMenu": "Vissza a menübe",
     "deliveryInfo": "Kézbesítési ablak: 08:00–10:00",
-    "cashInfo": "Fizessen készpénzzel a kézbesítéskor"
+    "cashInfo": "Fizessen készpénzzel a kézbesítéskor",
+    "emailConfirm": "A visszaigazolás elküldve az email-edre",
+    "createAccountTitle": "Hozz létre fiókot 30 másodperc alatt",
+    "createAccountDesc": "Kövesd nyomon rendelésed, kezeld a címeket és gyűjts hűségpontokat minden étkezésért.",
+    "createAccountCta": "Fiók létrehozása →"
   },
   "days": {
     "Mon": "H",
@@ -188,9 +195,9 @@
     "sinceSub": "A piacon",
     "fresh": "Friss 24 órán belül",
     "freshSub": "Nulla tartósítószer",
-    "delivery": "200+ iroda",
-    "deliverySub": "Varsóban",
-    "rating": "4,9 / 5",
+    "delivery": "Kiszállítás heti 2×",
+    "deliverySub": "Az ajtódhoz",
+    "rating": "4,6 / 5",
     "ratingSub": "Vásárlói értékelés"
   },
   "howItWorks": {
@@ -205,8 +212,8 @@
     "step3Desc": "Receptjeinket Lengyelország legjobb séfjei alkotják és folyamatosan finomítják. Minden fogás valódi tudás eredménye – nem futószalagé.",
     "step4Title": "Csomagolunk. Vegyi anyagok nélkül.",
     "step4Desc": "Tartósítószer nélkül, mesterséges adalékok nélkül. Úgy csomagolva, hogy az ételed pontosan olyan jó legyen, ahogy elhagyta a konyhát.",
-    "step5Title": "Reggel az irodádban",
-    "step5Desc": "8:00 és 10:00 között vagyunk az ajtódnál – pontosan 24 órával azután, hogy elkezdtük főzni. A frissességnek mércéje van."
+    "step5Title": "Közvetlenül az ajtódhoz",
+    "step5Desc": "Vasárnap este 18:00–21:00 között hozzuk a hétfő–szerdai ételeket. Szerdán este 18:00–21:00 között a csütörtök–szombatiakat. Hetente kétszer, közvetlenül az ajtódhoz."
   },
   "differentiators": {
     "eyebrow": "Mi különböztet meg minket",
@@ -223,20 +230,20 @@
     "inaoDesc": "Minden összetevőnek megvan a maga eredete. Helyi beszállítókkal dolgozunk, akik – akárcsak mi – hisznek abban, hogy a jó étel jó alapanyaggal kezdődik.",
     "freshTitle": "Friss 24 órán belül",
     "freshDesc": "Az ételed az elkészítéstől számított 24 órán belül jut el hozzád. Nulla mesterséges tartósítószer. Nulla fagyasztott étel.",
-    "noFakeTitle": "Éttermi minőség, irodai kényelem",
-    "noFakeDesc": "Mi nem catering vagyunk. Mi igazi ételt készítünk — olyat, amit egy jó étteremben rendelnél, közvetlenül az irodai asztalodra szállítva.",
+    "noFakeTitle": "Éttermi minőség, otthoni kényelem",
+    "noFakeDesc": "Nem kell kimenned vagy főznöd egy 10 órás műszak után. Igazi étel — mint egy jó étteremben — közvetlenül az ajtódhoz szállítva.",
     "cta": "Rendelj most"
   },
   "faq": {
     "title": "Gyakran ismételt kérdések",
     "q1": "Milyen korán kell előre rendelni?",
-    "a1": "A rendeléseket 4 nappal előre, reggel 10:00-ig kell leadni. Például ha csütörtökön 10:00 előtt rendelsz, hétfőn reggel kapod meg az ételt. A kézbesítés hétfőtől péntekig 8:00 és 10:00 között történik.",
+    "a1": "Hetente kétszer szállítunk. A hétfői, keddi és szerdai étkezésekhez csütörtökön 10:00-ig add le a rendelést — a szállítás vasárnap este 18:00 és 21:00 között érkezik. A csütörtöki, pénteki és szombati étkezésekhez vasárnap 10:00-ig add le a rendelést — a szállítás szerdán este 18:00 és 21:00 között érkezik.",
     "q2": "Mik a kézbesítési időpontok?",
-    "a2": "8:00 és 10:00 között szállítunk, tehát az ételed már azelőtt megvan, hogy a valódi munkanap elkezdődne.",
+    "a2": "Vasárnap este 18:00 és 21:00 között szállítunk (hétfő–szerdai étkezések), és szerdán este 18:00 és 21:00 között (csütörtök–szombati étkezések).",
     "q3": "Mi a helyzet az allergénekkel?",
     "a3": "Felhívjuk figyelmét, hogy gyártóüzemünk a következő allergéneket kezeli: zeller, glutént tartalmazó gabonafélék, rákfélék, tojás, hal, csillagfürt, tej, puhatestűek, mustár, héjas gyümölcsök, mogyoró, szezámmag és szója. Mivel mindezeket a közös termelési létesítményben használjuk, fennáll a lehetőség, hogy termékeink nyomokban tartalmazzák ezeket az allergéneket. Bár minden fogásnál feltüntetjük a fő összetevőket, nem tudjuk garantálni a 100%-ban allergénmentes környezetet. Súlyos allergia esetén kérjük, lépj velünk kapcsolatba rendelés előtt — a telefonszámunk és emailünk az oldal alján megtalálható.",
-    "q4": "Rendelhetek az egész iroda számára?",
-    "a4": "Természetesen! Írj vagy hívj minket – szívesen egyeztetünk csoportos rendelésekről és az irodád számára kedvező feltételekről.",
+    "q4": "Rendelhetek az egész munkacsapatom számára?",
+    "a4": "Természetesen! Írj vagy hívj minket – szívesen egyeztetünk csoportos rendelésekről és a csapatod számára kedvező feltételekről.",
     "q5": "Milyen gyakran változik a menü?",
     "a5": "A menü hetente változik. Mindig van valami új – a hagyományos lengyel ételektől a sushiig és a világ konyhájáig."
   },
@@ -262,17 +269,17 @@
     "review7": "Nagyon finom étel, nagyon megfizethető árak, minden friss és gondosan elkészítve. Júlia kisasszony egy abszolút drágakő az alkalmazottak között. Szívből ajánlom!!!"
   },
   "chat": {
-    "title": "Hungry Bear Asszisztens",
-    "subtitle": "Kérdezz a menüről vagy a kézbesítésről",
-    "welcome": "Szia! Segítek találni valami finomságot 🐻",
+    "title": "Bero",
+    "subtitle": "Ételek tanácsadód — a te nyelveden",
+    "welcome": "Szia! Bero vagyok 🐻 — kérdezz az ételekről, szállításról vagy a rendelésről.",
     "placeholder": "Írj üzenetet...",
     "send": "Küldés",
     "open": "Chatelj velünk",
     "close": "Chat bezárása",
     "suggestions": [
-      "Mit ajánlasz ma?",
-      "Vegetáriánus vagyok – mi való nekem?",
+      "Mi van az étkezési dobozban?",
       "Szállítasz az én városomba?",
+      "Mennyibe kerül?",
       "Hogyan működik a rendelés?"
     ]
   },
@@ -289,7 +296,7 @@
     "companyDetails": "Cégadatok",
     "companyInfo": "A fent említett vállalkozást Katarzyna Głuchowska vezeti, aki \"Two Squares Katarzyna Głuchowska\" név alatt folytat vállalkozást, székhelye Bojano (84-207), ul. Partyzantów Kaszubskich 19., bejegyezve a Gazdasági Tevékenység Központi Nyilvántartásába (CEIDG), adószám (NIP): 534-217-20-08, REGON: 367356273, a Głodny Niedźwiedź márka alatt működő étkeztetési vállalkozás tulajdonosa. Az eladó egyéni nyilvántartási számmal rendelkezik a BDO (hulladékgazdálkodás) nyilvántartásban – 000216527.",
     "rights": "Minden jog fenntartva",
-    "tagline": "Igazi étel igazi embereknek."
+    "tagline": "Éttermi ételek egyenesen A TE AJTÓDHOZ."
   },
   "auth": {
     "login": {
@@ -479,7 +486,7 @@
     "package3days": "3 napos csomag",
     "package3daysDesc": "Egy kézbesítési ablak a választásod szerint",
     "package6days": "6 napos csomag",
-    "package6daysDesc": "Mindkét kézbesítési ablak (H – Szo)",
+    "package6daysDesc": "Mindkét kézbesítési ablak (V | Sze)",
     "bestValue": "Legjobb ár",
     "perDay": "€11,64 / nap",
     "windowTitle": "Mikor kéred a kézbesítést?",
@@ -498,6 +505,18 @@
     "price3days": "€34,92",
     "price6days": "€69,84",
     "cancel": "Mégse",
-    "confirmPackage": "Megerősítés"
+    "cancelConfirmQuestion": "Biztos vagy?",
+    "cancelConfirmYes": "Igen, mégse",
+    "cancelConfirmNo": "Nem",
+    "confirmPackage": "Megerősítés",
+    "editCart": "Szerkesztés",
+    "filterTitle": "Szűrők",
+    "filterSearch": "Keresés",
+    "filterSearchPlaceholder": "Írja be az étel nevét...",
+    "filterDietary": "Diéta",
+    "filterVege": "Vegetáriánus",
+    "filterSpicy": "Csípős",
+    "filterClear": "Törlés",
+    "filterButton": "Szűrők"
   }
 }

@@ -108,7 +108,7 @@ export default function HeroSection() {
               {t('cta')}
             </button>
             <Link
-              href="/dla-firm"
+              href="/for-business"
               ref={btnSecondaryRef}
               className="w-full sm:w-auto block text-center rounded-full bg-[#FDF6EC] px-8 sm:px-10 md:px-12 py-4 md:py-5 font-heading font-extrabold text-lg md:text-xl text-[#1B4332] shadow-lg hover:opacity-90 scale-x-0 origin-left"
             >

@@ -93,6 +93,9 @@
     "upsellButton": "Adaugă o băutură",
     "discountLabel": "Reducere comandă online (-5%)",
     "remove": "Elimină",
+    "removeConfirmQuestion": "Ștergi această comandă?",
+    "removeConfirmYes": "Da, șterge",
+    "removeConfirmNo": "Nu",
     "items": "produse",
     "forDate": "pentru",
     "deliveryInfo": "Livrare 08:00–10:00"
@@ -140,7 +143,11 @@
     "orderNumber": "Numărul comenzii",
     "backToMenu": "Înapoi la meniu",
     "deliveryInfo": "Interval livrare: 08:00–10:00",
-    "cashInfo": "Plată cash la livrare"
+    "cashInfo": "Plată cash la livrare",
+    "emailConfirm": "Confirmarea a fost trimisă pe emailul tău",
+    "createAccountTitle": "Creează cont în 30 de secunde",
+    "createAccountDesc": "Urmărește comanda, gestionează adresele și câștigă puncte de fidelitate pentru fiecare masă.",
+    "createAccountCta": "Creează cont →"
   },
   "days": {
     "Mon": "Lun",
@@ -188,9 +195,9 @@
     "sinceSub": "Pe piață",
     "fresh": "Proaspăt 24h",
     "freshSub": "Zero conservanți",
-    "delivery": "200+ birouri",
-    "deliverySub": "În Warszawa",
-    "rating": "4.9 / 5",
+    "delivery": "Livrare de 2× pe săptămână",
+    "deliverySub": "La ușa ta",
+    "rating": "4.6 / 5",
     "ratingSub": "Nota clienților"
   },
   "howItWorks": {
@@ -205,8 +212,8 @@
     "step3Desc": "Rețetele noastre sunt create și rafinat constant de cei mai buni bucătari din Polonia. Fiecare fel de mâncare este rezultatul măiestriei reale — nu al unei linii de producție.",
     "step4Title": "Ambalăm. Fără chimicale.",
     "step4Desc": "Fără conservanți, fără aditivi artificiali. Ambalat astfel încât mâncarea ta să ajungă la fel de bună cum a plecat din bucătărie.",
-    "step5Title": "La biroul tău dimineața",
-    "step5Desc": "Suntem la ușa ta între 8:00 și 10:00 — exact 24 de ore după ce am început să gătim. Prospețimea are standarde."
+    "step5Title": "Direct la ușa ta",
+    "step5Desc": "Duminică seara între 18:00–21:00 cu mesele pentru luni–miercuri. Miercuri seara între 18:00–21:00 pentru joi–sâmbătă. De două ori pe săptămână, direct la ușa ta."
   },
   "differentiators": {
     "eyebrow": "Ce ne diferențiază",
@@ -223,20 +230,20 @@
     "inaoDesc": "Fiecare ingredient are originea sa. Colaborăm cu furnizori locali care cred, la fel ca noi, că mâncarea bună începe cu produse bune.",
     "freshTitle": "Proaspăt în 24h",
     "freshDesc": "Mâncarea ta ajunge la tine în 24 de ore de la preparare. Zero conservanți artificiali. Zero mâncare congelată.",
-    "noFakeTitle": "Calitate de restaurant, comoditate de birou",
-    "noFakeDesc": "Nu facem catering. Facem mâncare adevărată — genul pe care l-ai comanda într-un restaurant bun, livrat direct la biroul tău.",
+    "noFakeTitle": "Calitate de restaurant, confort acasă",
+    "noFakeDesc": "Nu trebuie să ieși sau să gătești după o tură de 10 ore. Mâncare adevărată — ca la un restaurant bun — livrată direct la ușa ta.",
     "cta": "Comandă acum"
   },
   "faq": {
     "title": "Întrebări frecvente",
     "q1": "Cu cât timp în avans trebuie să comand?",
-    "a1": "Comenzile trebuie plasate cu 4 zile înainte până la ora 10:00. De exemplu, dacă comanzi joi înainte de 10:00, primești mâncarea luni dimineața. Livrările se fac de luni până vineri între 8:00 și 10:00.",
+    "a1": "Livrăm de două ori pe săptămână. Pentru a primi mesele de luni, marți și miercuri, comandă până joi la ora 10:00 — livrarea ajunge duminică seara între 18:00 și 21:00. Pentru a primi mesele de joi, vineri și sâmbătă, comandă până duminică la ora 10:00 — livrarea ajunge miercuri seara între 18:00 și 21:00.",
     "q2": "Care sunt orele de livrare?",
-    "a2": "Livrăm între 8:00 și 10:00, astfel că ai mâncare înainte de a începe adevărata zi de lucru.",
+    "a2": "Livrăm duminică seara între 18:00 și 21:00 (mese pentru luni–miercuri) și miercuri seara între 18:00 și 21:00 (mese pentru joi–sâmbătă).",
     "q3": "Cum stă situația cu alergenii?",
     "a3": "Vă rugăm să rețineți că fabrica noastră de producție utilizează următorii alergeni: țelină, cereale cu gluten, crustacee, ouă, pește, lupin, lapte, moluște, muștar, nuci, arahide, semințe de susan și soia. Deoarece toți acești alergeni sunt utilizați în facilitatea noastră comună, există posibilitatea ca produsele noastre să conțină urme ale acestora. Deși fiecare fel de mâncare include informații despre ingredientele principale, nu putem garanta un mediu 100% fără alergeni. Pentru alergii grave, contactează-ne înainte de a comanda — găsești numărul și emailul nostru în josul paginii.",
-    "q4": "Pot comanda pentru tot biroul?",
-    "a4": "Absolut! Scrie-ne sau sună-ne — suntem bucuroși să discutăm comenzi de grup și condiții speciale pentru biroul tău.",
+    "q4": "Pot comanda pentru toată echipa de la muncă?",
+    "a4": "Absolut! Scrie-ne sau sună-ne — suntem bucuroși să discutăm comenzi de grup și condiții speciale pentru echipa ta.",
     "q5": "Cât de des se schimbă meniul?",
     "a5": "Meniul se schimbă în fiecare săptămână. Mereu găsești ceva nou de descoperit — de la mâncăruri tradiționale poloneze la sushi și bucătării internaționale."
   },
@@ -262,17 +269,17 @@
     "review7": "Mâncare foarte bună, prețuri foarte accesibile, totul proaspăt și pregătit cu grijă. Dna. Julia este un angajat absolut extraordinar. Recomand cu căldură!!!"
   },
   "chat": {
-    "title": "Asistentul Hungry Bear",
-    "subtitle": "Întreabă despre meniu sau livrare",
-    "welcome": "Salut! Te ajut să găsești ceva delicios 🐻",
+    "title": "Bero",
+    "subtitle": "Consilierul tău culinar — vorbește limba ta",
+    "welcome": "Salut! Sunt Bero 🐻 — întreabă-mă despre mâncare, livrare sau cum să comanzi.",
     "placeholder": "Scrie un mesaj...",
     "send": "Trimite",
     "open": "Discută cu noi",
     "close": "Închide chat",
     "suggestions": [
-      "Ce recomandați azi?",
-      "Sunt vegetarian — ce am de ales?",
+      "Ce conține cutia de mâncare?",
       "Livrați în orașul meu?",
+      "Cât costă?",
       "Cum funcționează comanda?"
     ]
   },
@@ -289,7 +296,7 @@
     "companyDetails": "Detalii companie",
     "companyInfo": "Afacerea menționată mai sus este condusă de Katarzyna Głuchowska, antreprenor care desfășoară activitate sub numele „Two Squares Katarzyna Głuchowska\" cu sediul în Bojano (84-207) la ul. Partyzantów Kaszubskich 19, înregistrată în Registrul Central și Informațiile despre Activitate Economică (CEIDG), NIP (Cod fiscal): 534-217-20-08, REGON: 367356273, proprietara afacerii de catering care operează sub brandul Głodny Niedźwiedź. Vânzătorul deține un număr de înregistrare individual în registrul BDO (gestionarea deșeurilor) - 000216527.",
     "rights": "Toate drepturile rezervate",
-    "tagline": "Mâncare reală pentru oameni reali."
+    "tagline": "Preparate de restaurant direct la UȘA TA."
   },
   "auth": {
     "login": {
@@ -479,7 +486,7 @@
     "package3days": "Pachet 3 zile",
     "package3daysDesc": "Un interval de livrare la alegere",
     "package6days": "Pachet 6 zile",
-    "package6daysDesc": "Ambele intervale de livrare (Lun – Sâm)",
+    "package6daysDesc": "Ambele intervale de livrare (Dum | Mie)",
     "bestValue": "Cel mai bun raport calitate-preț",
     "perDay": "€11.64 / zi",
     "windowTitle": "Când vrei livrarea?",
@@ -498,6 +505,18 @@
     "price3days": "€34.92",
     "price6days": "€69.84",
     "cancel": "Anulează",
-    "confirmPackage": "Confirmă"
+    "cancelConfirmQuestion": "Ești sigur?",
+    "cancelConfirmYes": "Da, anulează",
+    "cancelConfirmNo": "Nu",
+    "confirmPackage": "Confirmă",
+    "editCart": "Editează",
+    "filterTitle": "Filtre",
+    "filterSearch": "Caută",
+    "filterSearchPlaceholder": "Tastați numele felului...",
+    "filterDietary": "Dietă",
+    "filterVege": "Vegetarian",
+    "filterSpicy": "Picant",
+    "filterClear": "Șterge",
+    "filterButton": "Filtre"
   }
 }

@@ -67,7 +67,7 @@ export async function POST(req: Request) {
             let result: string;
             try {
               const input = JSON.parse(fnCall.function.arguments) as Record<string, string>;
-              result = handleToolCall(fnCall.function.name, input);
+              result = await handleToolCall(fnCall.function.name, input);
             } catch (toolErr) {
               console.error('[/api/chat] tool execution error:', toolErr);
               result = 'Błąd podczas wykonania narzędzia.';

@@ -63,6 +63,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Update failed' }, { status: 500 });
     }
 
+    // Look up registration token for account creation CTA in email
+    const { data: tokenRow } = await supabase
+      .from('registration_tokens')
+      .select('id')
+      .eq('order_id', order.id)
+      .maybeSingle();
+
     // Send confirmation emails
     console.log('Sending emails for order:', order.id, 'to:', order.customer_email);
     try {
@@ -81,6 +88,7 @@ export async function POST(req: NextRequest) {
         totalAmount: Number(order.total_amount),
         paymentMethod: 'stripe',
         deliveryDates: order.delivery_dates,
+        registrationToken: tokenRow?.id,
       });
       console.log('Emails sent successfully');
     } catch (emailErr) {

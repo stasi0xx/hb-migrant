@@ -93,6 +93,9 @@
     "upsellButton": "Přidat nápoj",
     "discountLabel": "Sleva za online objednávku (-5%)",
     "remove": "Odebrat",
+    "removeConfirmQuestion": "Odebrat tuto objednávku?",
+    "removeConfirmYes": "Ano, odebrat",
+    "removeConfirmNo": "Ne",
     "items": "položek",
     "forDate": "na",
     "deliveryInfo": "Doručení 08:00–10:00"
@@ -140,7 +143,11 @@
     "orderNumber": "Číslo objednávky",
     "backToMenu": "Zpět na menu",
     "deliveryInfo": "Okno doručení: 08:00–10:00",
-    "cashInfo": "Platba hotově při doručení"
+    "cashInfo": "Platba hotově při doručení",
+    "emailConfirm": "Potvrzení bylo zasláno na tvůj e-mail",
+    "createAccountTitle": "Vytvořte účet za 30 sekund",
+    "createAccountDesc": "Sleduj objednávku, spravuj adresy a sbírej věrnostní body za každé jídlo.",
+    "createAccountCta": "Vytvořit účet →"
   },
   "days": {
     "Mon": "Po",
@@ -188,9 +195,9 @@
     "sinceSub": "Na trhu",
     "fresh": "Čerstvé 24 h",
     "freshSub": "Nula konzervantů",
-    "delivery": "200+ kanceláří",
-    "deliverySub": "Ve Varšavě",
-    "rating": "4.9 / 5",
+    "delivery": "Doručení 2× týdně",
+    "deliverySub": "Ke tvým dveřím",
+    "rating": "4.6 / 5",
     "ratingSub": "Hodnocení zákazníků"
   },
   "howItWorks": {
@@ -205,8 +212,8 @@
     "step3Desc": "Naše recepty tvoří a neustále zdokonalují nejlepší polští kuchaři. Každé jídlo je výsledkem skutečného umění — ne výrobní linky.",
     "step4Title": "Balíme. Bez chemie.",
     "step4Desc": "Žádné konzervanty, žádná umělá aditiva. Zabaleno tak, aby jídlo dorazilo stejně dobré, jak opustilo kuchyni.",
-    "step5Title": "V kanceláři ráno",
-    "step5Desc": "Jsme u tvých dveří mezi 8:00 a 10:00 — přesně 24 hodin poté, co jsme začali vařit. Čerstvost má standardy."
+    "step5Title": "Přímo ke tvým dveřím",
+    "step5Desc": "V neděli večer mezi 18:00–21:00 přivážíme jídla na pondělí–středu. Ve středu večer mezi 18:00–21:00 na čtvrtek–sobotu. Dvakrát týdně, přímo ke dveřím."
   },
   "differentiators": {
     "eyebrow": "Co nás odlišuje",
@@ -223,20 +230,20 @@
     "inaoDesc": "Každá surovina má svůj původ. Spolupracujeme s místními dodavateli, kteří stejně jako my věří, že dobré jídlo začíná dobrými produkty.",
     "freshTitle": "Čerstvé do 24 hodin",
     "freshDesc": "Jídlo se k tobě dostane do 24 hodin od přípravy. Nula umělých konzervantů. Nula mraženého jídla.",
-    "noFakeTitle": "Restaurační kvalita, kancelářské pohodlí",
-    "noFakeDesc": "Neděláme catering. Děláme opravdové jídlo — takové, které bys objednal v dobrém restaurantu, doručené přímo na tvůj stůl.",
+    "noFakeTitle": "Restaurační kvalita, domácí pohodlí",
+    "noFakeDesc": "Nemusíš nikam chodit ani vařit po 10hodinové šichtě. Opravdové jídlo — jako v dobrém restaurantu — doručené přímo ke tvým dveřím.",
     "cta": "Objednat teď"
   },
   "faq": {
     "title": "Často kladené otázky",
     "q1": "Jak dlouho předem musím objednat?",
-    "a1": "Objednávky je nutné podat 4 dny předem do 10:00. Například pokud objednáš ve čtvrtek před 10:00, dostaneš jídlo v pondělí ráno. Doručujeme od pondělí do pátku mezi 8:00 a 10:00.",
+    "a1": "Doručujeme dvakrát týdně. Pro jídla na pondělí, úterý a středu objednej do čtvrtka do 10:00 — doručení přijde v neděli večer mezi 18:00 a 21:00. Pro jídla na čtvrtek, pátek a sobotu objednej do neděle do 10:00 — doručení přijde ve středu večer mezi 18:00 a 21:00.",
     "q2": "Jaké jsou hodiny doručení?",
-    "a2": "Doručujeme mezi 8:00 a 10:00, takže máš jídlo dřív, než začne skutečný pracovní den.",
+    "a2": "Doručujeme v neděli večer mezi 18:00 a 21:00 (jídla na pondělí–středu) a ve středu večer mezi 18:00 a 21:00 (jídla na čtvrtek–sobotu).",
     "q3": "A co alergeny?",
     "a3": "Upozorňujeme, že náš výrobní závod zpracovává následující alergeny: celer, obiloviny s lepkem, korýše, vejce, ryby, lupinu, mléko, měkkýše, hořčici, ořechy, arašídy, sezamová semínka a sóju. Protože všechny tyto složky jsou používány ve společném výrobním zařízení, existuje možnost, že naše produkty mohou obsahovat jejich stopy. Ačkoli každé jídlo obsahuje informace o hlavních složkách, nemůžeme zaručit prostředí 100% bez alergenů. Při závažných alergiích nás prosím kontaktuj před objednávkou — číslo a e-mail najdeš ve spodní části stránky.",
-    "q4": "Mohu objednat pro celou kancelář?",
-    "a4": "Jasně! Napiš nebo zavolej — rádi probereme hromadné objednávky a speciální podmínky pro vaši kancelář.",
+    "q4": "Mohu objednat pro celou svou pracovní partu?",
+    "a4": "Jasně! Napiš nebo zavolej — rádi probereme hromadné objednávky a speciální podmínky pro váš tým.",
     "q5": "Jak často se mění menu?",
     "a5": "Menu se mění každý týden. Vždy je co objevovat — od tradičních polských jídel po sushi a světové kuchyně."
   },
@@ -262,17 +269,17 @@
     "review7": "Velmi dobré jídlo, velmi dostupné ceny, vše čerstvé a pečlivě připravené. Paní Julia je absolutní skvost mezi zaměstnanci. Vřele doporučuji!!!"
   },
   "chat": {
-    "title": "Asistent Hungry Bear",
-    "subtitle": "Zeptej se na menu nebo doručení",
-    "welcome": "Ahoj! Pomůžu ti najít něco dobrého 🐻",
+    "title": "Bero",
+    "subtitle": "Tvůj poradce na jídlo — mluví tvým jazykem",
+    "welcome": "Ahoj! Jsem Bero 🐻 — zeptej se na jídlo, doručení nebo jak objednat.",
     "placeholder": "Napiš zprávu...",
     "send": "Odeslat",
     "open": "Chatovat s námi",
     "close": "Zavřít chat",
     "suggestions": [
-      "Co doporučujete dnes?",
-      "Jsem vegetarián — co si vyberu?",
+      "Co je v krabici s jídlem?",
       "Doručujete do mého města?",
+      "Kolik to stojí?",
       "Jak objednávání funguje?"
     ]
   },
@@ -289,7 +296,7 @@
     "companyDetails": "Údaje o společnosti",
     "companyInfo": "Výše uvedenou činnost provozuje Katarzyna Głuchowska, podnikatelka provozující živnost pod názvem „Two Squares Katarzyna Głuchowska\" se sídlem v Bojanu (84-207) na ul. Partyzantów Kaszubskich 19, zapsaná v Centrálním registru a informacích o podnikatelské činnosti (CEIDG), NIP (daňové identifikační číslo): 534-217-20-08, REGON: 367356273, majitelka cateringové firmy provozované pod značkou Głodny Niedźwiedź. Prodejce má individuální registrační číslo v registru BDO (nakládání s odpady) - 000216527.",
     "rights": "Všechna práva vyhrazena",
-    "tagline": "Skutečné jídlo pro skutečné lidi."
+    "tagline": "Restaurační jídla přímo ke TVÝM dveřím."
   },
   "auth": {
     "login": {
@@ -479,7 +486,7 @@
     "package3days": "3denní balíček",
     "package3daysDesc": "Jedno okno doručení dle tvého výběru",
     "package6days": "6denní balíček",
-    "package6daysDesc": "Obě okna doručení (Po – So)",
+    "package6daysDesc": "Obě okna doručení (Ne | St)",
     "bestValue": "Nejlepší poměr ceny a hodnoty",
     "perDay": "€11.64 / den",
     "windowTitle": "Kdy chceš doručit?",
@@ -498,6 +505,18 @@
     "price3days": "€34.92",
     "price6days": "€69.84",
     "cancel": "Zrušit",
-    "confirmPackage": "Potvrdit"
+    "cancelConfirmQuestion": "Jste si jistý?",
+    "cancelConfirmYes": "Ano, zrušit",
+    "cancelConfirmNo": "Ne",
+    "confirmPackage": "Potvrdit",
+    "editCart": "Upravit",
+    "filterTitle": "Filtry",
+    "filterSearch": "Hledat",
+    "filterSearchPlaceholder": "Zadejte název jídla...",
+    "filterDietary": "Dieta",
+    "filterVege": "Vegetariánské",
+    "filterSpicy": "Pikantní",
+    "filterClear": "Vymazat",
+    "filterButton": "Filtry"
   }
 }

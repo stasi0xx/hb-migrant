@@ -1,8 +1,10 @@
-# Głodny Niedźwiedź — Project Context for Claude
+# Hongige Beer — Project Context for Claude
 
 ## Co to jest ten projekt
 
-Strona e-commerce dla **Głodny Niedźwiedź** (glodnyniedzwiedz.pl) — catering biurowy z dostawą gotowych posiłków prosto do biura. Trwa przebudowa strony. Celem jest sprzedaż posiłków online i budowa bazy klientów pod przyszłą aplikację lojalnościową.
+Strona e-commerce dla **Hongige Beer** (hongigebeer.nl) — catering z dostawą gotowych posiłków dla migrantów pracujących w Holandii. Dania są gotowane w Polsce i dostarczane 2x w tygodniu. Celem MVP jest sprawne przyjmowanie zamówień online.
+
+Główna grupa docelowa to polscy migranci w NL, ale obsługujemy wszystkie narodowości — stąd 9 wersji językowych.
 
 ---
 
@@ -11,142 +13,140 @@ Strona e-commerce dla **Głodny Niedźwiedź** (glodnyniedzwiedz.pl) — caterin
 - **Framework:** Next.js 16 (App Router) + TypeScript
 - **Styling:** Tailwind CSS v4
 - **State:** Zustand (koszyk, `src/store/cart.ts`)
-- **Płatności:** Stripe (checkout session + webhook)
+- **Płatności:** Stripe (checkout session + webhook); metody: `card` + `ideal`
 - **Backend/DB:** Supabase
 - **Email:** Resend
-- **i18n:** next-intl (PL + EN)
+- **i18n:** next-intl — 9 lokalizacji: `en`, `pl`, `ro`, `hu`, `bg`, `cs`, `es`, `pt`, `it`; domyślna: `en`
 - **Testy:** Jest + ts-jest
 
 ### Kluczowe pliki
-- `src/data/menu.json` — menu tygodniowe (struktura: `{ "DD.MM.YYYY": { "Kategoria": [{ nazwa, cena }] } }`)
-- `src/store/cart.ts` — logika koszyka z Zustand + persist; rabat online 5% (`ONLINE_DISCOUNT = 0.05`)
+- `src/data/menu.json` — menu z daniami; klucz `migrant` (patrz `menuKey` w sites.ts)
+- `src/store/cart.ts` — logika koszyka z Zustand + persist; brak rabatu online (`onlineDiscount: 0`)
+- `src/config/sites.ts` — konfiguracja serwisu (waluta EUR, miasta, flow zamówień, itd.)
 - `src/app/api/checkout/route.ts` — tworzenie Stripe checkout session
 - `src/app/api/webhook/route.ts` — Stripe webhook (zapis zamówienia do Supabase, wysyłka emaila przez Resend)
-- `src/i18n/messages/pl.json` + `en.json` — wszystkie teksty UI
+- `src/i18n/messages/` — pliki tłumaczeń dla każdego języka (np. `en.json`, `pl.json`, `ro.json`)
+
+### Konfiguracja serwisu (sites.ts)
+- **ID:** `hongige-beer-migrant`
+- **Domena:** `hongigebeer.nl`
+- **Waluta:** EUR
+- **Flow zamówień:** `package-2x-week` — klient zamawia pakiet posiłków, dostawa 2x w tygodniu
+- **Koszt jedzenia:** €9.98/dzień
+- **Koszt dostawy:** €1.66/dzień (typ `per-day`)
+- **Miasta (MVP):** Tilburg, Den Bosch, Eindhoven, Venlo
+- **Płatności:** karta + iDEAL; brak gotówki
+- **Walidacja adresu:** wyłączona (Nominatim dla NL)
 
 ---
 
 ## Marka — Brand Identity
 
 ### Pozycjonowanie
-**"Prawdziwe jedzenie dla prawdziwych ludzi. Bez ściemy."**
+**"Smak domu, gdzie jesteś."**
 
-Głodny Niedźwiedź to **anty-Żabka** i **anty-dieta-catering**. Nie sprzedajemy diety, nie moralizujemy o kaloriach. Sprzedajemy przyjemność z dobrego lunchu w pracy.
+Hongige Beer to catering dla migrantów — ludzi, którzy pracują ciężko, żyją z dala od domu i zasługują na porządne, znane im jedzenie bez przepłacania. Nie sprzedajemy diety, nie moralizujemy. Sprzedajemy komfort smaku w trudnych warunkach.
 
-Konkurencja (Body Chief, Brokuł, Ślimak) walczy na rynku diet i celów zdrowotnych — my zajmujemy inną pozycję: **jakość bez pretensji**.
+Konkurencja (uitgekookt.nl i lokalne cateringserwisy NL) skierowana jest do Holendrów i nie uwzględnia potrzeb migrantów — języka, kultury jedzenia, niskiej ceny. My wypełniamy tę lukę.
 
 ### Wyróżniki (USP)
-1. **Składniki z certyfikatem INAO** (French National Institute of Origin and Quality)
-2. **Świeżość 24h** — dania trafiają do klienta w ciągu 24h od wyprodukowania, zero sztucznego podtrzymywania
-3. **Szeroki wybór** — od kanapek po sushi i tradycyjne polskie dania (schabowy, bigos)
-4. **Dla każdego** — mięsożercy, wegetarianie, miłośnicy ostrego. Bez specjalistycznych diet.
-5. **Dostawa prosto do biura**
+1. **Gotowane w Polsce** — smak który znasz, nie holenderskie kompromisy
+2. **Niska cena** — €9.98/dzień za posiłki wysokiej jakości, dostawa €1.66/dzień
+3. **Bez bariery językowej** — strona w 9 językach (PL, EN, RO, HU, BG, CS, ES, PT, IT)
+4. **Dostawa do domu** — 2x w tygodniu, bez wychodzenia
+5. **Dla każdego migranta** — nie tylko Polacy; wszystkie narodowości pracujące w NL
 
 ### Czego NIE robimy
-- Nie oferujemy sztucznych produktów / konserwantów
-- Nie sprzedajemy diet specjalistycznych (keto, odchudzające itp.)
+- Nie oferujemy diet specjalistycznych
 - Nie moralizujemy o zdrowym trybie życia
+- Nie celujemy w zamożnych Holendrów — jesteśmy dla pracowników
 
-### Paleta kolorów (z logo)
-| Kolor | Hex | Użycie |
-|-------|-----|--------|
-| Zieleń butelkowa | `#1B4332` | Dominanta, tła, nagłówki |
-| Łososiowy róż | `#E8927C` | Akcenty, CTA, logo |
-| Kremowy | `#FDF6EC` | Tła sekcji, karty |
-| Musztardowy żółty | `#D4A017` | Wyróżnienia, badge'e, sekcje promocyjne |
+### Paleta kolorów
+Kolory i logo są już zaimplementowane na stronie. Nie zmieniaj ich bez wyraźnego polecenia.
 
 ### Ton komunikacji (Brand Voice)
 | Jesteśmy | NIE jesteśmy |
 |----------|--------------|
-| Bezpośredni i ciepły | Korporacyjni i chłodni |
-| Pewni siebie bez arogancji | Nachalni |
-| Trochę zabawni | Głupawo śmieszni |
-| Eksperccy w jedzeniu | Dietetyczni kaznodzieje |
+| Ciepli i zrozumiali | Korporacyjni |
+| Bliscy migrantom | Zadufani |
+| Prości i bezpośredni | Marketingowo pompowani |
+| Pomocni | Natrętni |
 
-### Inspiracje brandingowe (do utrzymania klimatu)
-- **Duolingo** — z nudnego procesu zrobili grę z realnymi efektami
-- **Apple** — dominacja przez percepcję i brand, nie tylko produkt
-- **Coca-Cola** — emocje i tożsamość ponad samym produktem
+Klient jest daleko od domu, jest zmęczony, nie zna dobrze języka. Komunikacja musi być prosta, jasna i ludzka — w jego języku.
 
 ---
 
 ## Idealny Klient (ICP)
 
-**Kuba / Ola, 28-38 lat, pracownik biurowy**
-- Zarabia 6-12k netto, stać go na jakość
-- Gotuje okazjonalnie w weekend, w tygodniu nie ma czasu
-- Ma za sobą fazę Żabki i już tego nie chce
-- Nie jest na diecie — lubi schabowego, ale też sushi
-- Ceni autentyczność, brzydzi się marketingową ściemą
-- Jego ból: *"Znowu smutna kanapka z marketu"*
-- Jego marzenie: *"Chcę żeby lunch był najlepszą częścią dnia w pracy"*
+**Marek / Ana / Andrei, 24-42 lat, migrant pracujący w NL**
+- Pracuje w logistyce, produkcji, budownictwie lub usługach
+- Mieszka w wynajętym pokoju/akademiku, kuchni brak lub jest wspólna
+- Nie ma czasu ani chęci gotować po 10h zmianie
+- Tęskni za jedzeniem z domu — schabowy, bigos, zupa, pierogi
+- Liczy pieniądze — każde euro ma znaczenie
+- Jego ból: *"Znowu kebab albo frytki z automatu"*
+- Jego marzenie: *"Normalny obiad jak w domu, bez wychodzenia"*
 
 ---
 
 ## Model biznesowy
 
-### Aktualnie (v1)
-- Jednorazowe zamówienia online
-- Klient wybiera dania z menu tygodniowego (plik `menu.json` aktualizowany co tydzień)
-- Płatność przez Stripe
-- Dostawa do biura
+### MVP (v1) — aktualny focus
+- Klient zamawia pakiet posiłków online (flow: `package-2x-week`)
+- Wybiera liczbę dni, miasto, adres dostawy
+- Płaci przez Stripe (karta lub iDEAL)
+- Dostawy 2x w tygodniu do wybranych miast: Tilburg, Den Bosch, Eindhoven, Venlo
+- Brak kont użytkowników na start
 
-### Planowane (v2 — aplikacja lojalnościowa)
+### Planowane (v2)
+- Zamówienia grupowe — pracodawca zamawia pakiet dla całego zespołu
 - Konta użytkowników z historią zamówień
-- Zbieranie punktów za każde zamówienie
-- Punkty za zaproszenie kolegi z biura (viral loop — kluczowy mechanizm wzrostu)
-- Nagrody za punkty (np. darmowy posiłek)
-- **Ważne:** już teraz budujemy z myślą o tej przyszłości — rejestracja konta powinna być opcjonalna przy checkout z komunikatem o nadchodzącym programie lojalnościowym
-
-### Proponowana mechanika punktów (do decyzji właściciela)
-- Pierwsze zamówienie: 2x punkty
-- Każde zamówienie: 1 pkt / 1 zł
-- Zaproszenie kolegi który zamówi: 200 pkt
-- 500 pkt = darmowy posiłek (~30 zł)
+- Rozszerzenie na kolejne miasta w NL
+- Program lojalnościowy (do decyzji właściciela)
 
 ---
 
 ## Struktura strony (cel konwersji)
 
 ```
-HERO → mocny headline + CTA "Zamów teraz"
-SOCIAL PROOF → liczba biur / ocena Google
-WYRÓŻNIKI → INAO | 24h świeżość | Dostawa do biura
-MENU → z filtrem kategoria/dieta, zdjęcia, ceny, koszyk
-HISTORIA → skąd składniki, INAO, misja
-FAQ → dostawa, alergie, zamówienia dla biura
+HERO → mocny headline w języku klienta + CTA "Zamów teraz"
+WYRÓŻNIKI → Smak domu | Niska cena | Dostawa 2x/tydzień | 9 języków
+MENU/PAKIETY → co wchodzi w skład, cena dzienna, przykładowe dania
+JAK TO DZIAŁA → 3 kroki: wybierz pakiet → zapłać → odbierz dostawę
+OBSZAR DOSTAWY → mapa lub lista miast
+FAQ → dostawa, alergeny, anulowanie, płatności
 FOOTER CTA → ostatnia szansa konwersji
 ```
 
 ---
 
 ## Konkurencja (do odróżnienia się)
-- **Body Chief** — dieta pudełkowa, kalorie, odchudzanie
-- **slimak.com.pl** — catering dietetyczny
-- **Diety od Brokuła** — plany żywieniowe
+- **uitgekookt.nl** — lokalny catering NL, po holendersku, dla Holendrów, droższy
+- Lokalne kebaby / fast food — tania alternatywa, ale brak domowego smaku
 
-My NIE konkurujemy w kategorii "dieta". Jesteśmy w kategorii "dobre jedzenie w pracy".
+My NIE konkurujemy z fine dining ani dietą. Jesteśmy **domowym jedzeniem dla migranta w dobrej cenie**.
 
 ---
 
-## Dane kontaktowe (z materiałów)
-- Telefon: +48 732 999 072
-- Email: biuro@glodnyniedzwiedz.pl
-- Domena: glodnyniedzwiedz.pl
-- Est. 2018
+## Dane kontaktowe
+- Domena: hongigebeer.nl
+- Języki: EN (domyślny), PL, RO, HU, BG, CS, ES, PT, IT
 
 ---
 
 ## Notatki deweloperskie
 
-### Menu JSON
-Menu jest pogrupowane po dacie (`DD.MM.YYYY`), potem kategorii. Ceny są stringami z "zł" i polskim przecinkiem. Funkcja `parsePrice()` w `cart.ts` konwertuje je na number.
-
-### Rabat online
-5% rabatu przy zakupie online (`ONLINE_DISCOUNT = 0.05` w `cart.ts`). Pokazujemy oryginalną cenę przekreśloną i cenę po rabacie.
-
 ### i18n
-Strona ma PL i EN. Wszystkie teksty UI muszą być w `src/i18n/messages/pl.json` i `en.json`. Nigdy nie hardkoduj polskiego tekstu w komponentach.
+Strona obsługuje 9 lokalizacji. Wszystkie teksty UI muszą być w plikach `src/i18n/messages/[locale].json`. **Nigdy nie hardkoduj tekstu w komponentach.** Klucze tłumaczeń muszą istnieć we wszystkich 9 plikach.
+
+### Flow zamówień: `package-2x-week`
+Klient nie wybiera pojedynczych dań jak w klasycznym sklepie. Zamawia pakiet na X dni. Koszt = (foodCostPerDay + deliveryCostPerDay) × liczba dni. Szczegóły w `src/config/sites.ts`.
+
+### Waluta
+Wszystkie ceny w EUR. Brak rabatu online (`onlineDiscount: 0`).
+
+### Płatności
+iDEAL to popularna metoda płatności w Holandii — musi być zawsze dostępna obok karty.
 
 ### Testy
 Jest skonfigurowany Jest. Testy są w `src/lib/__tests__/` i `src/store/__tests__/`. Uruchamianie: `npm test`.

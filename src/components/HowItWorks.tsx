@@ -151,7 +151,7 @@ export default function HowItWorks() {
         {/* Section header */}
         <div className="relative z-10 flex-shrink-0 px-6 pt-16 pb-6 text-center text-[#FDF6EC]">
           <p className="mb-2 mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#ed8788]">
-            <img src="/images/logo.webp" alt="" className="inline-block h-4 w-auto mr-1 align-middle" /> {t('eyebrow')}
+            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Go to top"><img src="/images/hb-logo.png" alt="" className="inline-block h-4 w-auto mr-1 align-middle" /></button> {t('eyebrow')}
           </p>
           <h2 className="font-heading font-black text-4xl md:text-5xl mb-2">
             {t('title')}
@@ -211,7 +211,7 @@ export default function HowItWorks() {
                   </p>
 
                   <div className="mt-4 md:mt-8 flex justify-end">
-                    <img src="/images/logo.webp" alt="" className="h-10 md:h-16 lg:h-20 w-auto" style={{ opacity: 0.15, filter: 'saturate(0)' }} />
+                    <img src="/images/hb-logo.png" alt="" className="h-10 md:h-16 lg:h-20 w-auto" style={{ opacity: 0.15, filter: 'saturate(0)' }} />
                   </div>
                 </div>
               </div>

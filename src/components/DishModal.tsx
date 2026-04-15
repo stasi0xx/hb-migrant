@@ -1,6 +1,8 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
+import { createPortal } from 'react-dom';
+import gsap from 'gsap';
 import { useCartStore, parsePrice, ONLINE_DISCOUNT } from '@/store/cart';
 import { getSiteConfig } from '@/config/sites';
 import { useTranslations } from 'next-intl';
@@ -46,32 +48,52 @@ interface DishModalProps {
 export default function DishModal({ id, name, category, priceStr, date, onClose }: DishModalProps) {
   const t = useTranslations('menu');
   const { items, addItem } = useCartStore();
+  const backdropRef = useRef<HTMLDivElement>(null);
+  const sheetRef = useRef<HTMLDivElement>(null);
 
   const originalPrice = parsePrice(priceStr);
   const discountedPrice = parseFloat((originalPrice * (1 - ONLINE_DISCOUNT)).toFixed(2));
   const inCart = items.some((i) => i.id === id && i.date === date);
 
-  // Zablokuj scroll body gdy modal otwarty
+  // Animate in on mount
   useEffect(() => {
     document.body.style.overflow = 'hidden';
+    const backdrop = backdropRef.current;
+    const sheet = sheetRef.current;
+    if (!backdrop || !sheet) return;
+    gsap.set(sheet, { y: '100%' });
+    gsap.set(backdrop, { opacity: 0 });
+    gsap.to(backdrop, { opacity: 1, duration: 0.25, ease: 'power2.out' });
+    gsap.to(sheet, { y: '0%', duration: 0.38, ease: 'power3.out' });
     return () => { document.body.style.overflow = ''; };
   }, []);
 
-  const handleAdd = () => {
-    addItem({ id, name, category, originalPrice, date });
-    onClose();
-  };
+  const dismiss = useCallback(() => {
+    const backdrop = backdropRef.current;
+    const sheet = sheetRef.current;
+    if (!backdrop || !sheet) { onClose(); return; }
+    gsap.to(backdrop, { opacity: 0, duration: 0.22, ease: 'power2.in' });
+    gsap.to(sheet, { y: '100%', duration: 0.28, ease: 'power3.in', onComplete: onClose });
+  }, [onClose]);
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center">
+  const handleAdd = useCallback(() => {
+    addItem({ id, name, category, originalPrice, date });
+    dismiss();
+  }, [addItem, id, name, category, originalPrice, date, dismiss]);
+
+  if (typeof window === 'undefined') return null;
+
+  return createPortal(
+    <div className="fixed inset-0 flex items-end justify-center" style={{ zIndex: 10000 }}>
       {/* Backdrop */}
       <div
+        ref={backdropRef}
         className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-        onClick={onClose}
+        onClick={dismiss}
       />
 
       {/* Sheet */}
-      <div className="relative w-full max-w-2xl max-h-[92dvh] flex flex-col rounded-t-3xl bg-[#FDF6EC] overflow-hidden shadow-2xl animate-slide-up">
+      <div ref={sheetRef} className="relative w-full max-w-2xl max-h-[92dvh] flex flex-col rounded-t-3xl bg-[#FDF6EC] overflow-hidden shadow-2xl">
 
         {/* Image */}
         <div className="relative flex-shrink-0 h-52 bg-[#1B4332]/10">
@@ -81,7 +103,7 @@ export default function DishModal({ id, name, category, priceStr, date, onClose 
             className="w-full h-full object-cover"
           />
           <button
-            onClick={onClose}
+            onClick={dismiss}
             className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-sm hover:bg-black/60 transition-colors"
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -103,10 +125,7 @@ export default function DishModal({ id, name, category, priceStr, date, onClose 
               <span className="text-xl font-extrabold text-[#ed8788]">
                 {formatPrice(discountedPrice)}
               </span>
-              <span className="text-sm font-medium text-gray-400 line-through">{formatPrice(originalPrice)}</span>
-              <span className="rounded-full bg-[#D4A017] px-2 py-0.5 text-[10px] font-extrabold text-white">
-                -5% online
-              </span>
+
             </div>
           </div>
 
@@ -187,16 +206,16 @@ export default function DishModal({ id, name, category, priceStr, date, onClose 
           <button
             onClick={handleAdd}
             disabled={inCart}
-            className={`w-full rounded-2xl py-3.5 font-bold text-base transition-all active:scale-[0.98] ${
-              inCart
+            className={`w-full rounded-2xl py-3.5 font-bold text-base transition-all active:scale-[0.98] ${inCart
                 ? 'bg-[#1B4332]/20 text-[#1B4332]/50 cursor-default'
                 : 'bg-[#1B4332] text-white hover:bg-[#2d5a2d]'
-            }`}
+              }`}
           >
             {inCart ? t('inCart') : `+ ${t('addToCart')} — ${formatPrice(discountedPrice)}`}
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

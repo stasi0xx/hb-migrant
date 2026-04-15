@@ -21,6 +21,11 @@ export const metadata: Metadata = {
   title: site.siteTitle,
   description: site.siteDescription,
   icons: { icon: site.favicon },
+  openGraph: {
+    title: site.siteTitle,
+    description: site.siteDescription,
+    images: [{ url: site.ogImage }],
+  },
 };
 
 export const viewport = {

@@ -88,6 +88,9 @@
     "upsellButton": "Dodaj napój",
     "discountLabel": "Rabat za zamówienie online (-5%)",
     "remove": "Usuń",
+    "removeConfirmQuestion": "Usunąć to zamówienie?",
+    "removeConfirmYes": "Tak, usuń",
+    "removeConfirmNo": "Nie",
     "items": "pozycji",
     "forDate": "na",
     "deliveryInfo": "Dostawa 08:00–10:00"
@@ -136,7 +139,11 @@
     "orderNumber": "Numer zamówienia",
     "backToMenu": "Wróć do menu",
     "deliveryInfo": "Dostawa w godz. 08:00–10:00",
-    "cashInfo": "Płatność gotówką przy dostawie"
+    "cashInfo": "Płatność gotówką przy dostawie",
+    "emailConfirm": "Potwierdzenie zostało wysłane na Twój email",
+    "createAccountTitle": "Załóż konto w 30 sekund",
+    "createAccountDesc": "Śledź zamówienie, zarządzaj adresami i zbieraj punkty lojalnościowe za każdy lunch.",
+    "createAccountCta": "Utwórz konto →"
   },
   "days": {
     "Mon": "Pon",
@@ -203,9 +210,9 @@
     "sinceSub": "Na rynku",
     "fresh": "Świeże 24h",
     "freshSub": "Zero konserwantów",
-    "delivery": "200+ biur",
-    "deliverySub": "W Warszawie",
-    "rating": "4.9 / 5",
+    "delivery": "Dostawa 2× w tygodniu",
+    "deliverySub": "Prosto pod drzwi",
+    "rating": "4.6 / 5",
     "ratingSub": "Ocena klientów"
   },
   "howItWorks": {
@@ -220,8 +227,8 @@
     "step3Desc": "Nasze receptury tworzą i stale udoskonalają najlepsi polscy szefowie kuchni. Każde danie to efekt prawdziwej pracy — nie taśmy produkcyjnej.",
     "step4Title": "Pakujemy bez chemii",
     "step4Desc": "Bez konserwantów, bez sztucznych utrwalaczy. Pakujemy tak, żeby danie dotarło do Ciebie tak dobre jak wyjechało z kuchni.",
-    "step5Title": "Rano jesteśmy u Ciebie",
-    "step5Desc": "Między 8:00 a 10:00 stoimy pod Twoim biurem. Dokładnie 24 godziny po tym jak zaczęliśmy gotować — bo świeżość nie czeka."
+    "step5Title": "Prosto pod Twoje drzwi",
+    "step5Desc": "W niedzielę między 18:00–21:00 przywozimy posiłki na poniedziałek–środę. W środę między 18:00–21:00 — na czwartek–sobotę. Dwa razy w tygodniu, prosto pod drzwi."
   },
   "differentiators": {
     "eyebrow": "Co nas wyróżnia",
@@ -238,20 +245,20 @@
     "inaoDesc": "Każdy składnik ma swoje źródło. Współpracujemy z lokalnymi dostawcami, którzy tak samo jak my wierzą, że dobre jedzenie zaczyna się od dobrych produktów.",
     "freshTitle": "Świeże przez 24h",
     "freshDesc": "Twoje danie trafia do Ciebie w ciągu 24 godzin od wyprodukowania. Zero sztucznych konserwantów. Zero mrożonek.",
-    "noFakeTitle": "Restauracyjna jakość, biurowa wygoda",
-    "noFakeDesc": "Nie robimy cateringu. Robimy prawdziwe jedzenie — takie, które zamawiasz w dobrej restauracji, tyle że trafia prosto na Twoje biurko.",
+    "noFakeTitle": "Restauracyjna jakość, domowy komfort",
+    "noFakeDesc": "Nie musisz wychodzić ani gotować po 10-godzinnej zmianie. Prawdziwe jedzenie — takie jak z dobrej restauracji — trafia prosto pod Twoje drzwi.",
     "cta": "Zamów teraz"
   },
   "faq": {
     "title": "Często zadawane pytania",
     "q1": "Jak wcześnie trzeba zamówić?",
-    "a1": "Zamówienia przyjmujemy z 4-dniowym wyprzedzeniem do godziny 10:00. Na przykład, zamawiając w czwartek przed 10:00, paczkę otrzymasz w poniedziałek rano. Zamawiając w piątek — we wtorek. Dostawy realizujemy od poniedziałku do piątku w godzinach: 8:00–10:00.",
+    "a1": "Dostarczamy dwa razy w tygodniu. Aby otrzymać posiłki na poniedziałek, wtorek i środę, zamów do czwartku do godziny 10:00 — dostawa w niedzielę wieczorem między 18:00 a 21:00. Aby otrzymać posiłki na czwartek, piątek i sobotę, zamów do niedzieli do godziny 10:00 — dostawa w środę wieczorem między 18:00 a 21:00.",
     "q2": "W jakich godzinach jest dostawa?",
-    "a2": "Dostarczamy między 8:00 a 10:00, tak żebyś miał jedzenie zanim zacznie się prawdziwy dzień w pracy.",
+    "a2": "Dostarczamy w niedzielę wieczorem między 18:00 a 21:00 (posiłki na poniedziałek–środę) oraz w środę wieczorem między 18:00 a 21:00 (posiłki na czwartek–sobotę).",
     "q3": "Co z alergenami?",
     "a3": "Przy każdym daniu znajdziesz informację o głównych składnikach. W przypadku poważnych alergii skontaktuj się z nami — numer i email znajdziesz na dole strony.",
-    "q4": "Czy mogę zamówić dla całego biura?",
-    "a4": "Tak! Napisz lub zadzwoń do nas — chętnie omówimy zamówienia grupowe i specjalne warunki dla Twojego biura.",
+    "q4": "Czy mogę zamówić dla całej ekipy z pracy?",
+    "a4": "Tak! Napisz lub zadzwoń do nas — chętnie omówimy zamówienia grupowe i specjalne warunki dla Twojego zespołu.",
     "q5": "Jak często zmienia się menu?",
     "a5": "Menu zmienia się co tydzień. Zawsze masz coś nowego do odkrycia — od tradycyjnych polskich dań po sushi i kuchnie świata."
   },
@@ -277,17 +284,17 @@
     "review7": "Bardzo dobre jedzenie, ceny też bardzo przystępne, wszystko świeże i dopieszczone, a Pani Julia pracownik skarb. Polecam!!!"
   },
   "chat": {
-    "title": "Asystent Głodnego Niedźwiedzia",
-    "subtitle": "Zapytaj o menu lub dostawę",
-    "welcome": "Cześć! Pomogę Ci wybrać coś pysznego 🐻",
+    "title": "Bero",
+    "subtitle": "Twój doradca kulinarny — po polsku",
+    "welcome": "Hej! Jestem Bero 🐻 — zapytaj o jedzenie, dostawę albo jak zamówić.",
     "placeholder": "Napisz wiadomość...",
     "send": "Wyślij",
     "open": "Porozmawiaj z nami",
     "close": "Zamknij czat",
     "suggestions": [
-      "Co polecasz na dziś?",
-      "Jestem wegetarianinem — co dla mnie?",
+      "Co jest w boksie?",
       "Czy dowozicie do mojego miasta?",
+      "Ile to kosztuje?",
       "Jak działa zamówienie?"
     ]
   },
@@ -304,7 +311,7 @@
     "companyDetails": "Dane firmy",
     "companyInfo": "Działalność, o której mowa powyżej prowadzona jest przez Katarzynę Głuchowską, przedsiębiorczynię prowadzącą działalność gospodarczą pod firmą „Two Squares Katarzyna Głuchowska” z siedzibą w Bojanie (84-207) przy ul. Partyzantów Kaszubskich 19, wpisaną do Centralnej Ewidencji i Informacji o Działalności Gospodarczej, NIP: 534-217-20-08, REGON: 367356273, właścicielkę przedsiębiorstwa cateringowego działającego pod marką Głodny Niedźwiedź. Sprzedawca posiada indywidualny numer rejestrowy w rejestrze podmiotów wprowadzających produkty, produkty w opakowaniach i gospodarujących odpadami (tzw. rejestr – BDO) – 000216527.",
     "rights": "Wszelkie prawa zastrzeżone",
-    "tagline": "Prawdziwe jedzenie dla prawdziwych ludzi."
+    "tagline": "Restauracyjne dania prosto pod TWOJE drzwi."
   },
   "auth": {
     "login": {
@@ -494,7 +501,7 @@
     "package3days": "Pakiet 3-dniowy",
     "package3daysDesc": "Jedno okno dostawy do wyboru",
     "package6days": "Pakiet 6-dniowy",
-    "package6daysDesc": "Oba okna dostawy (pon – sob)",
+    "package6daysDesc": "Oba okna dostawy (nd | śr)",
     "bestValue": "Najlepsza oferta",
     "perDay": "€11,64 / dzień",
     "windowTitle": "Kiedy chcesz dostawę?",
@@ -513,6 +520,18 @@
     "price3days": "€34,92",
     "price6days": "€69,84",
     "cancel": "Anuluj",
-    "confirmPackage": "Zatwierdź"
+    "cancelConfirmQuestion": "Na pewno?",
+    "cancelConfirmYes": "Tak, anuluj",
+    "cancelConfirmNo": "Nie",
+    "confirmPackage": "Zatwierdź",
+    "editCart": "Edytuj",
+    "filterTitle": "Filtry",
+    "filterSearch": "Szukaj",
+    "filterSearchPlaceholder": "Wpisz nazwę dania...",
+    "filterDietary": "Dieta",
+    "filterVege": "Wegetariańskie",
+    "filterSpicy": "Ostre",
+    "filterClear": "Wyczyść",
+    "filterButton": "Filtry"
   }
 }

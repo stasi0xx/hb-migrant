@@ -176,6 +176,13 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: 'Database error' }, { status: 500 });
       }
 
+      // Generate registration token for account creation CTA in email
+      const { data: cashTokenRow } = await supabase
+        .from('registration_tokens')
+        .insert({ order_id: order.id, email: customer.email })
+        .select('id')
+        .single();
+
       // Send confirmation emails
       try {
         await sendOrderEmails({
@@ -193,6 +200,7 @@ export async function POST(req: NextRequest) {
           totalAmount,
           paymentMethod: 'cash',
           deliveryDates,
+          registrationToken: cashTokenRow?.id,
         });
       } catch (emailErr) {
         console.error('Email send error:', emailErr);

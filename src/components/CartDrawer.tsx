@@ -4,26 +4,28 @@ import { useCartStore } from '@/store/cart';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { useEffect, useState } from 'react';
-import { parseMenuDate, formatPrice } from '@/lib/utils';
+import { formatPrice } from '@/lib/utils';
 import { getSiteConfig } from '@/config/sites';
-import { ShoppingBag, Tag, X, Trash2, Minus, Plus } from 'lucide-react';
+import { formatDeliveryDate } from '@/lib/migrant-delivery';
+import { ShoppingBag, X, Trash2, Truck, ChevronDown, ChevronUp, Plus, Minus } from 'lucide-react';
+import CategoryIcon from '@/components/CategoryIcon';
+import ConfirmModal from '@/components/ConfirmModal';
 
 export default function CartDrawer() {
   const t = useTranslations('cart');
+  const tm = useTranslations('migrant');
+  const tCat = useTranslations('categories');
   const locale = useLocale();
-  const { items, isOpen, closeCart, total, savings, itemCount, removeItem, updateQuantity } =
-    useCartStore();
+  const { cartPackage, isOpen, closeCart, clearCart, grandTotal, updateMealQuantity } = useCartStore();
 
   const [mounted, setMounted] = useState(false);
+  const [mealsExpanded, setMealsExpanded] = useState(true);
+  const [confirmRemove, setConfirmRemove] = useState(false);
   const { currency } = getSiteConfig();
 
-  const count = mounted ? itemCount() : 0;
-  const totalAmount = mounted ? total() : 0;
-  const savingsAmount = mounted ? savings() : 0;
+  const grandTotalAmount = mounted ? grandTotal() : 0;
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -31,45 +33,42 @@ export default function CartDrawer() {
     } else {
       document.body.style.overflow = '';
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
+    return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
-  const formatDate = (dateStr: string) => {
-    const d = parseMenuDate(dateStr);
-    return d.toLocaleDateString(locale === 'pl' ? 'pl-PL' : locale === 'nl' ? 'nl-NL' : 'en-GB', {
-      weekday: 'short',
-      day: 'numeric',
-      month: 'short',
-    });
-  };
+  const hasPackage = mounted && cartPackage != null;
 
-  const groupedItems = items.reduce(
-    (acc, item) => {
-      if (!acc[item.date]) acc[item.date] = [];
-      acc[item.date].push(item);
-      return acc;
-    },
-    {} as Record<string, typeof items>
-  );
+  // Group meals by category for display
+  type MealEntry = { id: string; name: string; category: string; quantity: number };
+  const mealsByCategory: Record<string, MealEntry[]> = {};
+  if (cartPackage) {
+    for (const meal of cartPackage.meals) {
+      if (!mealsByCategory[meal.category]) mealsByCategory[meal.category] = [];
+      mealsByCategory[meal.category].push(meal);
+    }
+  }
+
+  const packageTitle = cartPackage?.packageSize === 6
+    ? tm('package6days')
+    : tm('package3days');
 
   return (
     <>
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-50 bg-black/50 transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-black/50 transition-opacity duration-300 ${
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
+        style={{ zIndex: 9999 }}
         onClick={closeCart}
       />
 
       {/* Drawer */}
       <div
-        className={`fixed bottom-0 left-0 right-0 z-50 flex flex-col rounded-t-3xl bg-white shadow-2xl transition-transform duration-300 ease-out ${
+        className={`fixed bottom-0 left-0 right-0 flex flex-col rounded-t-3xl bg-white shadow-2xl transition-transform duration-300 ease-out ${
           isOpen ? 'translate-y-0' : 'translate-y-full'
         }`}
-        style={{ maxHeight: '85vh' }}
+        style={{ maxHeight: '85vh', zIndex: 9999 }}
       >
         {/* Handle */}
         <div className="flex justify-center pt-3 pb-1">
@@ -80,9 +79,6 @@ export default function CartDrawer() {
         <div className="flex items-center justify-between px-5 pb-3 pt-1">
           <div>
             <h2 className="font-heading text-2xl text-[#1C3D1C]">{t('title')}</h2>
-            <p className="text-sm text-[#1C3D1C]/60">
-              {t('deliveryInfo')}
-            </p>
           </div>
           <button
             onClick={closeCart}
@@ -94,7 +90,7 @@ export default function CartDrawer() {
 
         {/* Content */}
         <div className="flex-1 overflow-y-auto px-4">
-          {count === 0 ? (
+          {!hasPackage ? (
             <div className="flex flex-col items-center justify-center py-12 text-center">
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#1C3D1C]/8">
                 <ShoppingBag className="h-8 w-8 text-[#1C3D1C]/40" />
@@ -103,92 +99,118 @@ export default function CartDrawer() {
               <p className="mt-1 text-sm text-gray-400">{t('emptyDesc')}</p>
             </div>
           ) : (
-            <div className="flex flex-col gap-4 pb-4">
-              {Object.entries(groupedItems).map(([date, dateItems]) => (
-                <div key={date}>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs font-700 uppercase tracking-wide text-[#1C3D1C]/50">
-                      {t('forDate')} {formatDate(date)}
-                    </span>
-                    <div className="flex-1 h-px bg-[#1C3D1C]/10" />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    {dateItems.map((item) => (
-                      <div
-                        key={`${item.id}-${item.date}`}
-                        className="flex items-start gap-3 rounded-xl bg-[#FDF6EC] p-3"
-                      >
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-600 text-[#1C3D1C] leading-snug">{item.name}</p>
-                          <p className="mt-1 text-sm font-700 text-[#E8967A]">
-                            {formatPrice(item.price * item.quantity, currency)}
-                          </p>
-                        </div>
-                        <div className="flex items-center gap-1.5 flex-shrink-0">
-                          <button
-                            onClick={() => updateQuantity(item.id, item.date, item.quantity - 1)}
-                            className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1C3D1C]/10 text-[#1C3D1C] transition-colors hover:bg-[#1C3D1C]/20"
-                          >
-                            <Minus className="h-3.5 w-3.5" />
-                          </button>
-                          <span className="min-w-[20px] text-center text-sm font-700 text-[#1C3D1C]">
-                            {item.quantity}
-                          </span>
-                          <button
-                            onClick={() => updateQuantity(item.id, item.date, item.quantity + 1)}
-                            className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1C3D1C]/10 text-[#1C3D1C] transition-colors hover:bg-[#1C3D1C]/20"
-                          >
-                            <Plus className="h-3.5 w-3.5" />
-                          </button>
-                          <button
-                            onClick={() => removeItem(item.id, item.date)}
-                            className="ml-1 flex h-7 w-7 items-center justify-center rounded-full bg-red-50 text-red-400 transition-colors hover:bg-red-100"
-                          >
-                            <Trash2 className="h-4 w-4" />
-                          </button>
+            <div className="flex flex-col gap-3 pb-4">
+
+              {/* Box header card */}
+              <div className="flex items-center justify-between rounded-2xl bg-[#1C3D1C] px-4 py-3.5">
+                <div className="flex items-center gap-3">
+                  <ShoppingBag className="h-5 w-5 text-[#E8967A] flex-shrink-0" />
+                  <span className="font-heading text-lg text-white leading-none">{packageTitle}</span>
+                </div>
+                <button
+                  onClick={() => setConfirmRemove(true)}
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white/70 hover:bg-white/20 hover:text-white transition-colors"
+                  aria-label={t('remove')}
+                >
+                  <Trash2 className="h-4 w-4" />
+                </button>
+              </div>
+
+              {/* Delivery dates */}
+              <div className="rounded-2xl bg-[#FDF6EC] px-4 py-3.5 flex flex-col gap-2">
+                {cartPackage.deliveryEventDates.map((iso, i) => {
+                  const d = new Date(iso);
+                  return (
+                    <div key={i} className="flex items-center gap-2.5">
+                      <Truck className="h-4 w-4 text-[#E8967A] flex-shrink-0" />
+                      <span className="text-sm font-semibold text-[#1C3D1C] capitalize">
+                        {formatDeliveryDate(d, locale)}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Selected meals — collapsible */}
+              <div className="rounded-2xl border border-[#1C3D1C]/10 overflow-hidden">
+                <button
+                  onClick={() => setMealsExpanded(v => !v)}
+                  className="flex w-full items-center justify-between px-4 py-3 bg-white hover:bg-[#FDF6EC] transition-colors"
+                >
+                  <span className="text-sm font-bold text-[#1C3D1C]">{t('items')}</span>
+                  {mealsExpanded
+                    ? <ChevronUp className="h-4 w-4 text-[#1C3D1C]/40" />
+                    : <ChevronDown className="h-4 w-4 text-[#1C3D1C]/40" />
+                  }
+                </button>
+
+                {mealsExpanded && (
+                  <div className="px-4 pb-3 bg-white flex flex-col gap-3">
+                    {Object.entries(mealsByCategory).map(([category, meals]) => (
+                      <div key={category}>
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-[#1C3D1C]/40 mb-1.5">
+                          {tCat(category as Parameters<typeof tCat>[0])}
+                        </p>
+                        <div className="flex flex-col gap-1">
+                          {meals.map(meal => (
+                            <div key={meal.id} className="flex items-center gap-2.5">
+                              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#1C3D1C]/6 flex-shrink-0">
+                                <CategoryIcon category={meal.category} className="h-3.5 w-3.5 text-[#1C3D1C]/60" />
+                              </div>
+                              <span className="flex-1 text-sm text-[#1C3D1C]/80 leading-snug">{meal.name}</span>
+                              <div className="flex items-center gap-1">
+                                <button
+                                  onClick={() => updateMealQuantity(meal.id, meal.quantity - 1)}
+                                  className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1C3D1C]/8 text-[#1C3D1C]/60 hover:bg-[#1C3D1C]/15 transition-colors"
+                                  aria-label="-"
+                                >
+                                  <Minus className="h-3 w-3" />
+                                </button>
+                                <span className="w-5 text-center text-xs font-bold text-[#1C3D1C]">{meal.quantity}</span>
+                                <button
+                                  onClick={() => updateMealQuantity(meal.id, meal.quantity + 1)}
+                                  className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1C3D1C]/8 text-[#1C3D1C]/60 hover:bg-[#1C3D1C]/15 transition-colors"
+                                  aria-label="+"
+                                >
+                                  <Plus className="h-3 w-3" />
+                                </button>
+                              </div>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     ))}
                   </div>
-                </div>
-              ))}
+                )}
+              </div>
             </div>
           )}
         </div>
 
         {/* Footer */}
-        {count > 0 && (
+        {hasPackage && (
           <div className="border-t border-gray-100 px-5 py-4 pb-safe">
-            {/* Online discount (PL site only) */}
-            {savingsAmount > 0 && (
-              <div className="flex items-center justify-between mb-2 rounded-xl bg-[#D4A843]/15 px-3 py-2 border border-[#D4A843]/30">
-                <div className="flex items-center gap-2">
-                  <Tag className="h-4 w-4 text-[#D4A843]" />
-                  <span className="text-sm font-700 text-[#1C3D1C]">
-                    {t('discountLabel')}
-                  </span>
-                </div>
-                <span className="text-sm font-800 text-[#D4A843]">
-                  -{formatPrice(savingsAmount, currency)}
-                </span>
-              </div>
-            )}
-
-            {/* Items subtotal */}
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm text-[#1C3D1C]/70">{t('total')}</span>
-              <span className="text-sm font-700 text-[#1C3D1C]">
-                {formatPrice(totalAmount, currency)}
+            {/* Price breakdown */}
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-sm text-[#1C3D1C]/60">
+                {cartPackage!.packageSize}× {formatPrice(cartPackage!.boxPrice / cartPackage!.packageSize, currency)}
+              </span>
+              <span className="text-sm font-semibold text-[#1C3D1C]">
+                {formatPrice(cartPackage!.boxPrice, currency)}
+              </span>
+            </div>
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-sm text-[#1C3D1C]/60">{t('deliveryCost')}</span>
+              <span className="text-sm font-semibold text-[#1C3D1C]">
+                {formatPrice(cartPackage!.deliveryPrice, currency)}
               </span>
             </div>
 
             {/* Grand total */}
-            <div className="flex items-center justify-between mb-4 mt-1">
-              <span className="font-700 text-[#1C3D1C]">
-                {t('total')}
-              </span>
+            <div className="flex items-center justify-between mb-4">
+              <span className="font-bold text-[#1C3D1C]">{t('grandTotal')}</span>
               <span className="font-heading text-2xl text-[#1C3D1C]">
-                {formatPrice(totalAmount, currency)}
+                {formatPrice(grandTotalAmount, currency)}
               </span>
             </div>
 
@@ -202,6 +224,14 @@ export default function CartDrawer() {
           </div>
         )}
       </div>
+      <ConfirmModal
+        isOpen={confirmRemove}
+        question={t('removeConfirmQuestion')}
+        confirmLabel={t('removeConfirmYes')}
+        cancelLabel={t('removeConfirmNo')}
+        onConfirm={() => { setConfirmRemove(false); clearCart(); closeCart(); }}
+        onCancel={() => setConfirmRemove(false)}
+      />
     </>
   );
 }

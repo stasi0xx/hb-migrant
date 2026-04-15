@@ -17,6 +17,24 @@ export interface PackageMeta {
   eatingDays: number;
 }
 
+/**
+ * Box summary stored in the cart for the migrant package flow.
+ * Replaces the per-dish item list in the cart UI.
+ */
+export interface CartPackage {
+  packageSize: 3 | 6;
+  /** ISO strings of Trunkrs delivery event dates */
+  deliveryEventDates: string[];
+  /** Selected meals (dish name + category + quantity) */
+  meals: Array<{ id: string; name: string; category: string; quantity: number }>;
+  /** Food cost only (eatingDays × foodCostPerDay) */
+  boxPrice: number;
+  /** Delivery cost (eatingDays × deliveryCostPerDay) */
+  deliveryPrice: number;
+  /** boxPrice + deliveryPrice */
+  totalPrice: number;
+}
+
 export interface CartItem {
   id: string;
   name: string;
@@ -33,6 +51,11 @@ interface CartState {
   /** Set by migrant flow — stores actual Trunkrs delivery event dates */
   packageMeta: PackageMeta | null;
   setPackageMeta: (meta: PackageMeta | null) => void;
+  /** Box-level summary for the migrant package flow (drives cart UI) */
+  cartPackage: CartPackage | null;
+  setCartPackage: (pkg: CartPackage | null) => void;
+  /** Update quantity of a meal in cartPackage; quantity <= 0 removes the meal */
+  updateMealQuantity: (mealId: string, quantity: number) => void;
   addItem: (item: Omit<CartItem, 'quantity' | 'price'>) => void;
   removeItem: (id: string, date: string) => void;
   updateQuantity: (id: string, date: string, quantity: number) => void;
@@ -56,8 +79,19 @@ export const useCartStore = create<CartState>()(
       items: [],
       isOpen: false,
       packageMeta: null,
+      cartPackage: null,
 
       setPackageMeta: (meta) => set({ packageMeta: meta }),
+      setCartPackage: (pkg) => set({ cartPackage: pkg }),
+
+      updateMealQuantity: (mealId, quantity) => {
+        const { cartPackage } = get();
+        if (!cartPackage) return;
+        const updatedMeals = quantity <= 0
+          ? cartPackage.meals.filter((m) => m.id !== mealId)
+          : cartPackage.meals.map((m) => m.id === mealId ? { ...m, quantity } : m);
+        set({ cartPackage: { ...cartPackage, meals: updatedMeals } });
+      },
 
       addItem: (newItem) => {
         const discountedPrice = parseFloat(
@@ -100,13 +134,15 @@ export const useCartStore = create<CartState>()(
         }));
       },
 
-      clearCart: () => set({ items: [], packageMeta: null }),
+      clearCart: () => set({ items: [], packageMeta: null, cartPackage: null }),
 
       openCart: () => set({ isOpen: true }),
       closeCart: () => set({ isOpen: false }),
 
       total: () => {
-        return get().items.reduce((sum, i) => sum + i.price * i.quantity, 0);
+        const { cartPackage, items } = get();
+        if (cartPackage) return cartPackage.boxPrice;
+        return items.reduce((sum, i) => sum + i.price * i.quantity, 0);
       },
 
       originalTotal: () => {
@@ -121,7 +157,9 @@ export const useCartStore = create<CartState>()(
       },
 
       itemCount: () => {
-        return get().items.reduce((sum, i) => sum + i.quantity, 0);
+        const { cartPackage, items } = get();
+        if (cartPackage) return 1;
+        return items.reduce((sum, i) => sum + i.quantity, 0);
       },
 
       hasDrink: () => {
@@ -138,7 +176,8 @@ export const useCartStore = create<CartState>()(
       },
 
       deliveryCost: () => {
-        const items = get().items;
+        const { cartPackage, items } = get();
+        if (cartPackage) return cartPackage.deliveryPrice;
         if (items.length === 0) return 0;
         const { delivery } = getSiteConfig();
         if (delivery.type === 'free') return 0;
@@ -150,7 +189,11 @@ export const useCartStore = create<CartState>()(
         return 0;
       },
 
-      grandTotal: () => get().total() + get().deliveryCost(),
+      grandTotal: () => {
+        const { cartPackage } = get();
+        if (cartPackage) return cartPackage.totalPrice;
+        return get().total() + get().deliveryCost();
+      },
     }),
     {
       name: 'gn-cart',

@@ -93,6 +93,9 @@
     "upsellButton": "Aggiungi una bevanda",
     "discountLabel": "Sconto ordine online (-5%)",
     "remove": "Rimuovi",
+    "removeConfirmQuestion": "Rimuovere questo ordine?",
+    "removeConfirmYes": "Sì, rimuovi",
+    "removeConfirmNo": "No",
     "items": "articoli",
     "forDate": "per",
     "deliveryInfo": "Consegna 08:00–10:00"
@@ -140,7 +143,11 @@
     "orderNumber": "Numero ordine",
     "backToMenu": "Torna al menu",
     "deliveryInfo": "Finestra di consegna: 08:00–10:00",
-    "cashInfo": "Paga in contanti alla consegna"
+    "cashInfo": "Paga in contanti alla consegna",
+    "emailConfirm": "Conferma inviata alla tua email",
+    "createAccountTitle": "Crea account in 30 secondi",
+    "createAccountDesc": "Segui l'ordine, gestisci gli indirizzi e accumula punti fedeltà per ogni pasto.",
+    "createAccountCta": "Crea account →"
   },
   "days": {
     "Mon": "Lun",
@@ -188,9 +195,9 @@
     "sinceSub": "Sul mercato",
     "fresh": "Fresco 24h",
     "freshSub": "Zero conservanti",
-    "delivery": "200+ uffici",
-    "deliverySub": "A Varsavia",
-    "rating": "4.9 / 5",
+    "delivery": "Consegna 2× a settimana",
+    "deliverySub": "A casa tua",
+    "rating": "4.6 / 5",
     "ratingSub": "Valutazione clienti"
   },
   "howItWorks": {
@@ -205,8 +212,8 @@
     "step3Desc": "Le nostre ricette sono create e continuamente perfezionate dai migliori chef polacchi. Ogni piatto è il risultato di vera competenza — non di una catena di montaggio.",
     "step4Title": "Confezioniamo. Senza chimica.",
     "step4Desc": "Nessun conservante, nessun additivo artificiale. Confezionato affinché il tuo pasto arrivi buono esattamente come quando ha lasciato la cucina.",
-    "step5Title": "In ufficio al mattino",
-    "step5Desc": "Siamo alla tua porta tra le 8:00 e le 10:00 — esattamente 24 ore dopo aver iniziato a cucinare. La freschezza ha i suoi standard."
+    "step5Title": "Direttamente alla tua porta",
+    "step5Desc": "La domenica sera tra le 18:00–21:00 portiamo i pasti per lunedì–mercoledì. Il mercoledì sera tra le 18:00–21:00 per giovedì–sabato. Due volte a settimana, direttamente alla tua porta."
   },
   "differentiators": {
     "eyebrow": "Cosa ci distingue",
@@ -223,20 +230,20 @@
     "inaoDesc": "Ogni ingrediente ha la sua provenienza. Collaboriamo con fornitori locali che credono, proprio come noi, che il buon cibo inizia dai buoni prodotti.",
     "freshTitle": "Fresco entro 24h",
     "freshDesc": "Il tuo pasto ti raggiunge entro 24 ore dalla preparazione. Zero conservanti artificiali. Zero surgelati.",
-    "noFakeTitle": "Qualità da ristorante, comodità da ufficio",
-    "noFakeDesc": "Non facciamo catering. Facciamo cibo vero — quello che ordineresti in un buon ristorante, consegnato direttamente alla tua scrivania.",
+    "noFakeTitle": "Qualità da ristorante, comodità di casa",
+    "noFakeDesc": "Non devi uscire né cucinare dopo un turno di 10 ore. Cibo vero — come in un buon ristorante — consegnato direttamente alla tua porta.",
     "cta": "Ordina ora"
   },
   "faq": {
     "title": "Domande frequenti",
     "q1": "Con quanto anticipo devo ordinare?",
-    "a1": "Gli ordini devono essere effettuati 4 giorni prima entro le 10:00. Ad esempio, se ordini giovedì prima delle 10:00, riceverai il cibo lunedì mattina. Le consegne avvengono dal lunedì al venerdì tra le 8:00 e le 10:00.",
+    "a1": "Consegniamo due volte a settimana. Per ricevere i pasti di lunedì, martedì e mercoledì, effettua l'ordine entro giovedì alle 10:00 — la consegna arriva domenica sera tra le 18:00 e le 21:00. Per ricevere i pasti di giovedì, venerdì e sabato, effettua l'ordine entro domenica alle 10:00 — la consegna arriva mercoledì sera tra le 18:00 e le 21:00.",
     "q2": "Quali sono gli orari di consegna?",
-    "a2": "Consegniamo tra le 8:00 e le 10:00, così hai il cibo prima che inizi davvero la giornata lavorativa.",
+    "a2": "Consegniamo la domenica sera tra le 18:00 e le 21:00 (pasti per lunedì–mercoledì) e il mercoledì sera tra le 18:00 e le 21:00 (pasti per giovedì–sabato).",
     "q3": "E gli allergeni?",
     "a3": "Si prega di notare che il nostro stabilimento produttivo lavora con i seguenti allergeni: sedano, cereali contenenti glutine, crostacei, uova, pesce, lupini, latte, molluschi, senape, frutta a guscio, arachidi, semi di sesamo e soia. Poiché tutti questi ingredienti vengono utilizzati nel nostro stabilimento condiviso, esiste la possibilità che i nostri prodotti contengano tracce di questi allergeni. Sebbene ogni piatto includa informazioni sui principali ingredienti, non possiamo garantire un ambiente al 100% privo di allergeni. Per allergie gravi, contattaci prima di ordinare — trovi il nostro numero e la nostra email in fondo alla pagina.",
-    "q4": "Posso ordinare per tutto l'ufficio?",
-    "a4": "Assolutamente! Scrivici o chiamaci — siamo felici di discutere ordini di gruppo e condizioni speciali per il tuo ufficio.",
+    "q4": "Posso ordinare per tutta la mia squadra di lavoro?",
+    "a4": "Assolutamente! Scrivici o chiamaci — siamo felici di discutere ordini di gruppo e condizioni speciali per il tuo team.",
     "q5": "Con che frequenza cambia il menu?",
     "a5": "Il menu cambia ogni settimana. C'è sempre qualcosa di nuovo da scoprire — dai piatti tradizionali polacchi al sushi e alle cucine del mondo."
   },
@@ -262,17 +269,17 @@
     "review7": "Cibo ottimo, prezzi molto accessibili, tutto fresco e preparato con cura. La signora Julia è un'impiegata eccezionale. Altamente consigliato!!!"
   },
   "chat": {
-    "title": "Assistente Hungry Bear",
-    "subtitle": "Chiedi del menu o della consegna",
-    "welcome": "Ciao! Ti aiuto a trovare qualcosa di buono 🐻",
+    "title": "Bero",
+    "subtitle": "Il tuo consulente alimentare — parla la tua lingua",
+    "welcome": "Ciao! Sono Bero 🐻 — chiedimi del cibo, della consegna o come ordinare.",
     "placeholder": "Scrivi un messaggio...",
     "send": "Invia",
     "open": "Chatta con noi",
     "close": "Chiudi la chat",
     "suggestions": [
-      "Cosa consigli oggi?",
-      "Sono vegetariano — cosa c'è per me?",
+      "Cosa c'è nella box di pasti?",
       "Consegnate nella mia città?",
+      "Quanto costa?",
       "Come funziona l'ordinazione?"
     ]
   },
@@ -289,7 +296,7 @@
     "companyDetails": "Dati aziendali",
     "companyInfo": "L'attività sopra citata è svolta da Katarzyna Głuchowska, imprenditrice che gestisce un'attività sotto il nome \"Two Squares Katarzyna Głuchowska\" con sede a Bojano (84-207) in ul. Partyzantów Kaszubskich 19, registrata nel Registro Centrale e nelle Informazioni sull'Attività Economica (CEIDG), NIP (Codice Fiscale): 534-217-20-08, REGON: 367356273, titolare dell'attività di catering operante con il marchio Głodny Niedźwiedź. Il venditore è in possesso di un numero di registrazione individuale nel registro BDO (gestione rifiuti) - 000216527.",
     "rights": "Tutti i diritti riservati",
-    "tagline": "Cibo vero per persone vere."
+    "tagline": "Piatti da ristorante direttamente alla TUA porta."
   },
   "auth": {
     "login": {
@@ -479,7 +486,7 @@
     "package3days": "Pacchetto 3 giorni",
     "package3daysDesc": "Una finestra di consegna a tua scelta",
     "package6days": "Pacchetto 6 giorni",
-    "package6daysDesc": "Entrambe le finestre di consegna (Lun – Sab)",
+    "package6daysDesc": "Entrambe le finestre di consegna (Dom | Mer)",
     "bestValue": "Miglior rapporto qualità-prezzo",
     "perDay": "€11,64 / giorno",
     "windowTitle": "Quando vuoi la consegna?",
@@ -498,6 +505,18 @@
     "price3days": "€34,92",
     "price6days": "€69,84",
     "cancel": "Annulla",
-    "confirmPackage": "Conferma"
+    "cancelConfirmQuestion": "Sei sicuro?",
+    "cancelConfirmYes": "Sì, annulla",
+    "cancelConfirmNo": "No",
+    "confirmPackage": "Conferma",
+    "editCart": "Modifica",
+    "filterTitle": "Filtri",
+    "filterSearch": "Cerca",
+    "filterSearchPlaceholder": "Scrivi il nome del piatto...",
+    "filterDietary": "Dieta",
+    "filterVege": "Vegetariano",
+    "filterSpicy": "Piccante",
+    "filterClear": "Cancella",
+    "filterButton": "Filtri"
   }
 }

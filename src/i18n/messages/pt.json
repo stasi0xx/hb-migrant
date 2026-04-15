@@ -93,6 +93,9 @@
     "upsellButton": "Adicionar bebida",
     "discountLabel": "Desconto de pedido online (-5%)",
     "remove": "Remover",
+    "removeConfirmQuestion": "Remover este pedido?",
+    "removeConfirmYes": "Sim, remover",
+    "removeConfirmNo": "Não",
     "items": "artigos",
     "forDate": "para",
     "deliveryInfo": "Entrega 08:00–10:00"
@@ -140,7 +143,11 @@
     "orderNumber": "Número do pedido",
     "backToMenu": "Voltar ao menu",
     "deliveryInfo": "Horário de entrega: 08:00–10:00",
-    "cashInfo": "Paga em dinheiro na entrega"
+    "cashInfo": "Paga em dinheiro na entrega",
+    "emailConfirm": "Confirmação enviada para o teu email",
+    "createAccountTitle": "Cria conta em 30 segundos",
+    "createAccountDesc": "Acompanha o teu pedido, gere endereços e ganha pontos de fidelidade por cada refeição.",
+    "createAccountCta": "Criar conta →"
   },
   "days": {
     "Mon": "Seg",
@@ -188,9 +195,9 @@
     "sinceSub": "No mercado",
     "fresh": "Fresco 24h",
     "freshSub": "Zero conservantes",
-    "delivery": "200+ escritórios",
-    "deliverySub": "Em Varsóvia",
-    "rating": "4.9 / 5",
+    "delivery": "Entrega 2× por semana",
+    "deliverySub": "À tua porta",
+    "rating": "4.6 / 5",
     "ratingSub": "Avaliação dos clientes"
   },
   "howItWorks": {
@@ -205,8 +212,8 @@
     "step3Desc": "As nossas receitas são criadas e constantemente aperfeiçoadas pelos melhores chefs da Polónia. Cada prato é resultado de habilidade real — não de uma linha de produção.",
     "step4Title": "Embalamos. Sem químicos.",
     "step4Desc": "Sem conservantes, sem aditivos artificiais. Embalado para que a tua refeição chegue tão boa quanto saiu da cozinha.",
-    "step5Title": "No teu escritório de manhã",
-    "step5Desc": "Estamos à tua porta entre as 8h00 e as 10h00 — exatamente 24 horas depois de começarmos a cozinhar. Frescura tem padrões."
+    "step5Title": "Diretamente à tua porta",
+    "step5Desc": "Domingo à noite entre as 18:00–21:00 com as refeições de segunda–quarta. Quarta-feira à noite entre as 18:00–21:00 para quinta–sábado. Duas vezes por semana, diretamente à tua porta."
   },
   "differentiators": {
     "eyebrow": "O que nos distingue",
@@ -223,20 +230,20 @@
     "inaoDesc": "Cada ingrediente tem a sua origem. Trabalhamos com fornecedores locais que acreditam, tal como nós, que boa comida começa com bons produtos.",
     "freshTitle": "Fresco em 24h",
     "freshDesc": "A tua refeição chega-te dentro de 24 horas após ser preparada. Zero conservantes artificiais. Zero comida congelada.",
-    "noFakeTitle": "Qualidade de restaurante, conveniência de escritório",
-    "noFakeDesc": "Não fazemos catering. Fazemos comida de verdade — a que pedirias num bom restaurante, entregue diretamente na tua secretária.",
+    "noFakeTitle": "Qualidade de restaurante, conforto em casa",
+    "noFakeDesc": "Não precisas de sair nem cozinhar depois de um turno de 10 horas. Comida de verdade — como num bom restaurante — entregue diretamente à tua porta.",
     "cta": "Encomendar agora"
   },
   "faq": {
     "title": "Perguntas frequentes",
     "q1": "Com quanto tempo de antecedência tenho de encomendar?",
-    "a1": "Os pedidos têm de ser feitos com 4 dias de antecedência antes das 10h00. Por exemplo, se encomendares na quinta-feira antes das 10h00, recebes a tua comida na manhã de segunda-feira. As entregas são feitas de segunda a sexta-feira entre as 8h00 e as 10h00.",
+    "a1": "Entregamos duas vezes por semana. Para receberes as refeições de segunda, terça e quarta-feira, faz o teu pedido até quinta-feira às 10:00 — a entrega chega no domingo à noite entre as 18:00 e as 21:00. Para receberes as refeições de quinta, sexta e sábado, faz o teu pedido até domingo às 10:00 — a entrega chega na quarta-feira à noite entre as 18:00 e as 21:00.",
     "q2": "Quais são os horários de entrega?",
-    "a2": "Entregamos entre as 8h00 e as 10h00, para que tenhas comida antes de o dia de trabalho realmente começar.",
+    "a2": "Entregamos ao domingo à noite entre as 18:00 e as 21:00 (refeições para segunda–quarta) e à quarta-feira à noite entre as 18:00 e as 21:00 (refeições para quinta–sábado).",
     "q3": "E os alergénios?",
     "a3": "Por favor, nota que a nossa fábrica trabalha com os seguintes alergénios: aipo, cereais com glúten, crustáceos, ovos, peixe, tremoço, leite, moluscos, mostarda, frutos de casca rija, amendoins, sementes de sésamo e soja. Como todos estes ingredientes são usados nas nossas instalações partilhadas, existe a possibilidade de que os nossos produtos contenham vestígios destes alergénios. Embora cada prato inclua informação sobre os seus ingredientes principais, não podemos garantir um ambiente 100% livre de alergénios. Para alergias graves, contacta-nos antes de fazer o pedido — encontras o nosso número e email no fundo da página.",
-    "q4": "Posso encomendar para todo o escritório?",
-    "a4": "Claro! Escreve-nos ou liga — ficamos felizes em falar sobre pedidos em grupo e condições especiais para o teu escritório.",
+    "q4": "Posso encomendar para toda a minha equipa de trabalho?",
+    "a4": "Claro! Escreve-nos ou liga — ficamos felizes em falar sobre pedidos em grupo e condições especiais para a tua equipa.",
     "q5": "Com que frequência muda o menu?",
     "a5": "O menu muda todas as semanas. Há sempre algo novo para descobrir — desde pratos tradicionais polacos até sushi e cozinhas do mundo."
   },
@@ -262,17 +269,17 @@
     "review7": "Comida muito boa, preços muito acessíveis, tudo fresco e cuidadosamente preparado. A Sra. Julia é uma funcionária absolutamente fabulosa. Recomendo vivamente!!!"
   },
   "chat": {
-    "title": "Assistente Hungry Bear",
-    "subtitle": "Pergunta sobre o menu ou entrega",
-    "welcome": "Olá! Vou ajudar-te a encontrar algo delicioso 🐻",
+    "title": "Bero",
+    "subtitle": "O teu conselheiro de comida — fala a tua língua",
+    "welcome": "Olá! Sou o Bero 🐻 — pergunta-me sobre a comida, entrega ou como encomendar.",
     "placeholder": "Escreve uma mensagem...",
     "send": "Enviar",
     "open": "Fala connosco",
     "close": "Fechar chat",
     "suggestions": [
-      "O que recomendas hoje?",
-      "Sou vegetariano — o que há para mim?",
+      "O que tem a caixa de refeições?",
       "Entregam na minha cidade?",
+      "Quanto custa?",
       "Como funciona o processo de encomenda?"
     ]
   },
@@ -289,7 +296,7 @@
     "companyDetails": "Dados da empresa",
     "companyInfo": "O negócio acima referido é conduzido por Katarzyna Głuchowska, empresária que gere um negócio sob o nome \"Two Squares Katarzyna Głuchowska\" com sede em Bojano (84-207) na ul. Partyzantów Kaszubskich 19, registada no Registo Central e Informação sobre Atividade Económica (CEIDG), NIP (NIF): 534-217-20-08, REGON: 367356273, proprietária do negócio de catering que opera sob a marca Głodny Niedźwiedź. O vendedor possui um número de registo individual no registo BDO (gestão de resíduos) - 000216527.",
     "rights": "Todos os direitos reservados",
-    "tagline": "Comida real para pessoas reais."
+    "tagline": "Pratos de restaurante direto à SUA porta."
   },
   "auth": {
     "login": {
@@ -479,7 +486,7 @@
     "package3days": "Pacote de 3 dias",
     "package3daysDesc": "Uma janela de entrega à tua escolha",
     "package6days": "Pacote de 6 dias",
-    "package6daysDesc": "Ambas as janelas de entrega (Seg – Sáb)",
+    "package6daysDesc": "Ambas as janelas de entrega (Dom | Qua)",
     "bestValue": "Melhor valor",
     "perDay": "€11,64 / dia",
     "windowTitle": "Quando queres a entrega?",
@@ -498,6 +505,18 @@
     "price3days": "€34,92",
     "price6days": "€69,84",
     "cancel": "Cancelar",
-    "confirmPackage": "Confirmar"
+    "cancelConfirmQuestion": "Tem certeza?",
+    "cancelConfirmYes": "Sim, cancelar",
+    "cancelConfirmNo": "Não",
+    "confirmPackage": "Confirmar",
+    "editCart": "Editar",
+    "filterTitle": "Filtros",
+    "filterSearch": "Pesquisar",
+    "filterSearchPlaceholder": "Digite o nome do prato...",
+    "filterDietary": "Dieta",
+    "filterVege": "Vegetariano",
+    "filterSpicy": "Picante",
+    "filterClear": "Limpar",
+    "filterButton": "Filtros"
   }
 }

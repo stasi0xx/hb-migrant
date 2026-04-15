@@ -103,6 +103,9 @@
     "upsellButton": "Add a drink",
     "discountLabel": "Online order discount (-5%)",
     "remove": "Remove",
+    "removeConfirmQuestion": "Remove this order?",
+    "removeConfirmYes": "Yes, remove",
+    "removeConfirmNo": "No",
     "items": "items",
     "forDate": "for",
     "deliveryInfo": "Delivery 08:00–10:00"
@@ -152,7 +155,11 @@
     "orderNumber": "Order Number",
     "backToMenu": "Back to Menu",
     "deliveryInfo": "Delivery window: 08:00–10:00",
-    "cashInfo": "Pay cash on delivery"
+    "cashInfo": "Pay cash on delivery",
+    "emailConfirm": "Confirmation sent to your email",
+    "createAccountTitle": "Create account in 30 seconds",
+    "createAccountDesc": "Track your order, manage addresses and earn loyalty points for every meal.",
+    "createAccountCta": "Create account →"
   },
   "days": {
     "Mon": "Mon",
@@ -219,9 +226,9 @@
     "sinceSub": "On the market",
     "fresh": "Fresh 24h",
     "freshSub": "Zero preservatives",
-    "delivery": "200+ offices",
-    "deliverySub": "In Warsaw",
-    "rating": "4.9 / 5",
+    "delivery": "Delivery 2× a week",
+    "deliverySub": "To your door",
+    "rating": "4.6 / 5",
     "ratingSub": "Customer rating"
   },
   "howItWorks": {
@@ -236,8 +243,8 @@
     "step3Desc": "Our recipes are crafted and constantly refined by Poland's finest chefs. Every dish is the result of real skill — not a production line.",
     "step4Title": "We pack. No chemicals.",
     "step4Desc": "No preservatives, no artificial additives. Packed so your meal arrives just as good as it left the kitchen.",
-    "step5Title": "At your office by morning",
-    "step5Desc": "We're at your door between 8:00 and 10:00 — exactly 24 hours after we started cooking. Freshness has standards."
+    "step5Title": "Right at your door",
+    "step5Desc": "Sunday evening between 18:00–21:00 for your Monday–Wednesday meals. Wednesday evening between 18:00–21:00 for Thursday–Saturday. Twice a week, right at your door."
   },
   "differentiators": {
     "eyebrow": "What sets us apart",
@@ -254,20 +261,20 @@
     "inaoDesc": "Every ingredient has a story. We work with local suppliers who believe, just like us, that great food starts with great produce.",
     "freshTitle": "Fresh within 24h",
     "freshDesc": "Your meal reaches you within 24 hours of being made. Zero artificial preservatives. Zero frozen food.",
-    "noFakeTitle": "Restaurant quality, office convenience",
-    "noFakeDesc": "We don't do catering. We make real food — the kind you'd order at a great restaurant, delivered straight to your desk.",
+    "noFakeTitle": "Restaurant quality, home comfort",
+    "noFakeDesc": "No need to go out or cook after a 10-hour shift. Real food — the kind you'd get at a great restaurant — delivered straight to your door.",
     "cta": "Order now"
   },
   "faq": {
     "title": "Frequently asked questions",
     "q1": "How far in advance do I need to order?",
-    "a1": "Orders must be placed 4 days in advance before 10:00 AM. For example, if you order on Thursday before 10:00 AM, you will receive your food on Monday morning. Delivieries are made Monday to Friday between 8:00 and 10:00 AM.",
+    "a1": "We deliver twice a week. To receive your meals for Monday, Tuesday and Wednesday, place your order by Thursday at 10:00 AM — delivery arrives Sunday evening between 18:00 and 21:00. To receive your meals for Thursday, Friday and Saturday, place your order by Sunday at 10:00 AM — delivery arrives Wednesday evening between 18:00 and 21:00.",
     "q2": "What are the delivery hours?",
-    "a2": "We deliver between 8:00 and 10:00, so you have food before the real workday begins.",
+    "a2": "We deliver on Sunday evenings between 18:00 and 21:00 (meals for Monday–Wednesday), and on Wednesday evenings between 18:00 and 21:00 (meals for Thursday–Saturday).",
     "q3": "What about allergens?",
     "a3": "Please note that our production facility handles the following allergens: celery, cereals containing gluten, crustaceans, eggs, fish, lupin, milk, molluscs, mustard, tree nuts, peanuts, sesame seeds, and soybeans. Because all of these are used in our shared production facility, there is a chance that any of our products may contain traces of these allergens. While each dish includes information about its main ingredients, we cannot guarantee a 100% allergen-free environment. For serious allergies, please contact us before ordering — you’ll find our number and email at the bottom of the page.",
-    "q4": "Can I order for the whole office?",
-    "a4": "Absolutely! Write or call us — we're happy to discuss group orders and special terms for your office.",
+    "q4": "Can I order for my whole work team?",
+    "a4": "Absolutely! Write or call us — we're happy to discuss group orders and special terms for your team.",
     "q5": "How often does the menu change?",
     "a5": "The menu changes every week. There's always something new to discover — from international dishes to sushi and world cuisines."
   },
@@ -293,17 +300,17 @@
     "review7": "Very good food, very affordable prices, everything fresh and carefully prepared. Ms. Julia is an absolute gem of an employee. Highly recommended!!!"
   },
   "chat": {
-    "title": "Hungry Bear Assistant",
-    "subtitle": "Ask about the menu or delivery",
-    "welcome": "Hey! I'll help you find something delicious 🐻",
+    "title": "Bero",
+    "subtitle": "Your food advisor — speaks your language",
+    "welcome": "Hey! I'm Bero 🐻 — ask me about the food, delivery, or how to order.",
     "placeholder": "Type a message...",
     "send": "Send",
     "open": "Chat with us",
     "close": "Close chat",
     "suggestions": [
-      "What do you recommend today?",
-      "I'm vegetarian — what's for me?",
+      "What's in the meal box?",
       "Do you deliver to my city?",
+      "How much does it cost?",
       "How does ordering work?"
     ]
   },
@@ -320,7 +327,7 @@
     "companyDetails": "Company Details",
     "companyInfo": "The aforementioned business is conducted by Katarzyna Głuchowska, an entrepreneur running a business under the name \"Two Squares Katarzyna Głuchowska\" based in Bojano (84-207) at ul. Partyzantów Kaszubskich 19, registered in the Central Register and Information on Economic Activity (CEIDG), NIP (Tax ID): 534-217-20-08, REGON: 367356273, owner of the catering business operating under the Głodny Niedźwiedź brand. The seller holds an individual registration number in the BDO register (waste management) - 000216527.",
     "rights": "All rights reserved",
-    "tagline": "Real food for real people."
+    "tagline": "Restaurant-quality meals delivered straight to YOUR door."
   },
   "auth": {
     "login": {
@@ -510,7 +517,7 @@
     "package3days": "3-day package",
     "package3daysDesc": "One delivery window of your choice",
     "package6days": "6-day package",
-    "package6daysDesc": "Both delivery windows (Mon – Sat)",
+    "package6daysDesc": "Both delivery windows (Sun | Wed)",
     "bestValue": "Best value",
     "perDay": "€11.64 / day",
     "windowTitle": "When do you want delivery?",
@@ -529,7 +536,19 @@
     "price3days": "€34.92",
     "price6days": "€69.84",
     "cancel": "Cancel",
-    "confirmPackage": "Confirm"
+    "cancelConfirmQuestion": "Are you sure?",
+    "cancelConfirmYes": "Yes, cancel",
+    "cancelConfirmNo": "No",
+    "confirmPackage": "Confirm",
+    "editCart": "Edit",
+    "filterTitle": "Filters",
+    "filterSearch": "Search",
+    "filterSearchPlaceholder": "Type dish name...",
+    "filterDietary": "Dietary",
+    "filterVege": "Vegetarian",
+    "filterSpicy": "Spicy",
+    "filterClear": "Clear",
+    "filterButton": "Filters"
   },
   "cookieConsent": {
     "title": "We protect your privacy",

@@ -8,10 +8,10 @@ export const dynamic = 'force-dynamic';
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get('code');
-  const next = searchParams.get('next') ?? '/pl/konto';
+  const next = searchParams.get('next') ?? '/pl/account';
 
   if (!code) {
-    return NextResponse.redirect(`${origin}/pl/logowanie?error=no_code`);
+    return NextResponse.redirect(`${origin}/pl/login?error=no_code`);
   }
 
   const cookieStore = await cookies();
@@ -48,9 +48,9 @@ export async function GET(request: NextRequest) {
     console.error('OAuth callback error:', error.message);
     // Email already exists as password account — redirect to link account page
     if (error.message.includes('provider_email_needs_verification') || error.message.includes('already registered')) {
-      return NextResponse.redirect(`${origin}/pl/powiaz-konto`);
+      return NextResponse.redirect(`${origin}/pl/link-account`);
     }
-    return NextResponse.redirect(`${origin}/pl/logowanie?error=auth`);
+    return NextResponse.redirect(`${origin}/pl/login?error=auth`);
   }
 
   const {
@@ -58,7 +58,7 @@ export async function GET(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return NextResponse.redirect(`${origin}/pl/logowanie?error=auth`);
+    return NextResponse.redirect(`${origin}/pl/login?error=auth`);
   }
 
   const serviceClient = createServerSupabaseClient();
@@ -106,7 +106,7 @@ export async function GET(request: NextRequest) {
         cookieStore.delete('pending_registration_token');
       } else {
         // Email mismatch — send to account linking page
-        const linkUrl = new URL(`${origin}/pl/powiaz-konto`);
+        const linkUrl = new URL(`${origin}/pl/link-account`);
         linkUrl.searchParams.set('token', registrationToken);
         return NextResponse.redirect(linkUrl);
       }
